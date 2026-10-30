@@ -1,0 +1,296 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/layout/Breadcrumbs.astro';
+import { COMPETENCIAS_ENEM, DEZ_PASSOS_REDACAO } from '../../data/competencias';
+import { url } from '../../utils/urls';
+---
+
+<BaseLayout
+  title="5 Competências & Os 10 Passos"
+  description="Guia completo das 5 Competências da Matriz de Redação do ENEM (Cartilha do Participante) e método estruturado 'Os 10 Passos da Redação Nota 1000'."
+>
+  <section class="section section-editorial">
+    <div class="container">
+      <Breadcrumbs
+        items={[
+          { label: 'Portal ENEM', href: '/' },
+          { label: 'As 5 Competências & 10 Passos' },
+        ]}
+      />
+      <span class="eyebrow">Matriz Oficial INEP & Método de Escrita</span>
+      <h1>As 5 Competências e Os 10 Passos da Redação</h1>
+      <p class="lead" style="max-width: 68ch; margin-top: 0.75rem;">
+        Compreenda exatamente como sua redação é avaliada de 0 a 1000 pontos segundo a Cartilha do Participante do INEP e aplique o roteiro estrutural em 10 passos para construir parágrafos consistentes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Seção 1: As 5 Competências -->
+  <section class="section">
+    <div class="container">
+      <div class="comp-intro">
+        <span class="eyebrow">Grade de Correção (0 a 1000 pontos)</span>
+        <h2>As 5 Competências da Redação do ENEM</h2>
+        <p>
+          Cada competência vale até <strong>200 pontos</strong>. Clique ou observe abaixo o que os corretores avaliam, os erros que mais descontam nota e a dica prática da professora Júlia:
+        </p>
+      </div>
+
+      <div class="comp-list">
+        {
+          COMPETENCIAS_ENEM.map((comp) => (
+            <article class="card comp-card">
+              <div class="comp-header">
+                <div class="comp-badge-wrap">
+                  <span class="comp-num">Competência {comp.numero}</span>
+                  <span class="badge badge-gold">Até {comp.pontuacaoMaxima} pontos</span>
+                </div>
+                <h3>{comp.titulo}</h3>
+                <p class="comp-summary">{comp.resumo}</p>
+              </div>
+
+              <div class="comp-columns">
+                <div class="comp-box">
+                  <strong>O que a banca espera:</strong>
+                  <ul>
+                    {comp.oQueAvalia.map((item) => <li>{item}</li>)}
+                  </ul>
+                </div>
+
+                <div class="comp-box error-box">
+                  <strong>Erros frequentes a evitar:</strong>
+                  <ul>
+                    {comp.errosComuns.map((err) => <li>{err}</li>)}
+                  </ul>
+                </div>
+              </div>
+
+              <div class="comp-tip">
+                <strong>Orientação da Professora Júlia:</strong>
+                <p>{comp.dicaDaProfessora}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção 2: Os 10 Passos da Redação -->
+  <section class="section section-cream" id="dez-passos">
+    <div class="container">
+      <div class="comp-intro">
+        <span class="eyebrow">Método Passo a Passo</span>
+        <h2>Os 10 Passos da Estrutura Dissertativo-Argumentativa</h2>
+        <p>
+          Roteiro prático para organizar o projeto de texto na folha de rascunho sem esquecer nenhum elemento obrigatório:
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        {
+          DEZ_PASSOS_REDACAO.map((passo) => (
+            <article class="card step-card">
+              <div class="step-top">
+                <span class="step-num">Passo {String(passo.numero).padStart(2, '0')}</span>
+                <span class="badge badge-rose">{passo.etapa}</span>
+              </div>
+              <h3>{passo.titulo.replace(/^Passo \d+ — /, '')}</h3>
+              <p>{passo.descricao}</p>
+              <div class="step-example">
+                <span>Modelo de articulação:</span>
+                <p>{passo.exemploPratico}</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="comp-cta">
+        <a href={url('/enem/temas-provaveis')} class="btn btn-primary">
+          Praticar com os Temas Prováveis
+        </a>
+        <a href={url('/enem/repertorio')} class="btn btn-secondary">
+          Consultar Banco de Repertório
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .comp-intro {
+    max-width: 66ch;
+    margin-bottom: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  .comp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .comp-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .comp-badge-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .comp-num {
+    background-color: var(--color-wine-900);
+    color: var(--color-cream-50);
+    font-weight: 700;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-pill);
+  }
+
+  .comp-summary {
+    margin-top: 0.35rem;
+    font-size: var(--text-sm);
+  }
+
+  .comp-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .comp-columns {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .comp-box {
+    background-color: var(--color-cream-100);
+    padding: 1rem 1.15rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .comp-box.error-box {
+    background-color: var(--color-rose-50);
+  }
+
+  .comp-box strong {
+    display: block;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-wine-900);
+    margin-bottom: 0.5rem;
+  }
+
+  .comp-box ul {
+    list-style: disc;
+    padding-left: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: var(--text-sm);
+    color: var(--color-ink-700);
+  }
+
+  .comp-tip {
+    background-color: var(--color-gold-100);
+    border-left: 4px solid var(--color-gold-600);
+    padding: 0.9rem 1.1rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .comp-tip strong {
+    display: block;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-gold-700);
+    margin-bottom: 0.25rem;
+  }
+
+  .comp-tip p {
+    font-size: var(--text-sm);
+    color: var(--color-ink-900);
+  }
+
+  /* 10 Passos */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  @media (min-width: 768px) {
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .step-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .step-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-wine-800);
+  }
+
+  .step-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .step-card p {
+    font-size: var(--text-sm);
+  }
+
+  .step-example {
+    margin-top: auto;
+    background-color: var(--color-cream-100);
+    padding: 0.75rem 0.9rem;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-wine-800);
+  }
+
+  .step-example span {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-wine-900);
+    margin-bottom: 0.2rem;
+  }
+
+  .step-example p {
+    font-size: var(--text-xs);
+    font-style: italic;
+  }
+
+  .comp-cta {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+</style>

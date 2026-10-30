@@ -1,0 +1,742 @@
+[
+  {
+    "slug": "livro-21-licoes-seculo-21-harari",
+    "titulo": "21 Lições para o Século 21",
+    "autoria": "Yuval Noah Harari",
+    "ano": 2018,
+    "tipo": "Livro",
+    "eixos": ["tecnologia-e-redes", "educacao-e-conhecimento", "trabalho-e-economia"],
+    "sinopse": "O historiador israelense analisa os dilemas urgentes da contemporaneidade, destacando a fusão entre biotecnologia e tecnologia da informação (inteligência artificial), o risco do surgimento de uma classe de 'inúteis econômicos' e a necessidade de reinventar a educação para o pensamento crítico.",
+    "comoUsarNaRedacao": "Use na Introdução ou no Desenvolvimento para argumentar que o avanço da IA exige letramento digital crítico nas escolas e políticas de requalificação laboral, sob pena de ampliar a exclusão socioeconômica."
+  },
+  {
+    "slug": "livro-capitalismo-de-vigilancia-zuboff",
+    "titulo": "A Era do Capitalismo de Vigilância",
+    "autoria": "Shoshana Zuboff",
+    "ano": 2018,
+    "tipo": "Livro",
+    "eixos": ["tecnologia-e-redes", "cidadania-e-direitos"],
+    "sinopse": "A professora de Harvard demonstra como grandes corporações tecnológicas transformaram a experiência humana privada em matéria-prima gratuita para alimentar algoritmos preditivos e inteligência artificial, modulando o comportamento dos cidadãos.",
+    "comoUsarNaRedacao": "Ideal para fundamentar críticas à coleta opaca de dados pessoais, à manipulação algorítmica da opinião pública e à urgência de regulação ética das plataformas digitais."
+  },
+  {
+    "slug": "filme-o-dilema-das-redes",
+    "titulo": "O Dilema das Redes (The Social Dilemma)",
+    "autoria": "Dir. Jeff Orlowski",
+    "ano": 2020,
+    "tipo": "Documentário",
+    "eixos": ["tecnologia-e-redes", "saude-e-sociedade"],
+    "sinopse": "Ex-executivos e engenheiros do Vale do Silício revelam como algoritmos de redes sociais e sistemas de inteligência artificial são projetados para capturar a atenção humana, explorar vulnerabilidades psicológicas e amplificar a desinformação.",
+    "comoUsarNaRedacao": "Excelente repertório para demonstrar que a arquitetura das plataformas digitais prioriza o engajamento lucrativo em detrimento da saúde mental dos jovens e da integridade informacional."
+  },
+  {
+    "slug": "filme-ela-her",
+    "titulo": "Ela (Her)",
+    "autoria": "Dir. Spike Jonze",
+    "ano": 2013,
+    "tipo": "Filme / Série",
+    "eixos": ["tecnologia-e-redes", "saude-e-sociedade"],
+    "sinopse": "Em um futuro próximo, um escritor solitário desenvolve um relacionamento afetivo profundo com um sistema operacional de inteligência artificial generativa dotado de voz e aprendizado contínuo.",
+    "comoUsarNaRedacao": "Use para problematizar a hiperdependência emocional das tecnologias, o isolamento social nas metrópoles e a substituição de laços humanos presenciais por interações sintéticas."
+  },
+  {
+    "slug": "texto-unesco-guia-ia-educacao",
+    "titulo": "Guia para a IA Generativa na Educação e na Pesquisa",
+    "autoria": "UNESCO (Organização das Nações Unidas para a Educação, a Ciência e a Cultura)",
+    "ano": 2023,
+    "tipo": "Lei / Documento",
+    "eixos": ["tecnologia-e-redes", "educacao-e-conhecimento"],
+    "sinopse": "Primeiro documento global de orientação normativa sobre o uso de inteligência artificial generativa em salas de aula, defendendo limites etários, proteção de dados estudantis e preservação do papel mediador do professor.",
+    "comoUsarNaRedacao": "Utilize como argumento de autoridade internacional para defender que a IA na escola deve ser ferramenta complementar — e nunca substituta — do desenvolvimento cognitivo e autoral do estudante."
+  },
+  {
+    "slug": "pensador-alvaro-vieira-pinto-tecnologia",
+    "titulo": "O Conceito de Tecnologia (Crítica à Ideologização da Técnica)",
+    "autoria": "Álvaro Vieira Pinto",
+    "ano": 2005,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["tecnologia-e-redes", "trabalho-e-economia", "educacao-e-conhecimento"],
+    "sinopse": "O filósofo brasileiro critica o deslumbramento ingênuo diante da tecnologia (que atribui às máquinas vida própria) e lembra que toda técnica é produto do trabalho humano, podendo servir tanto à emancipação quanto à dominação social.",
+    "comoUsarNaRedacao": "Repertório nacional de altíssimo nível para mostrar que o problema não é a existência da inteligência artificial em si, mas o seu uso desregulamentado que reproduz desigualdades."
+  },
+  {
+    "slug": "livro-desaparecimento-da-infancia-postman",
+    "titulo": "O Desaparecimento da Infância",
+    "autoria": "Neil Postman",
+    "ano": 1982,
+    "tipo": "Livro",
+    "eixos": ["cidadania-e-direitos", "tecnologia-e-redes", "educacao-e-conhecimento"],
+    "sinopse": "O sociólogo e crítico cultural demonstra que a noção moderna de infância — como fase protegida dos segredos e pressões do mundo adulto — vem sendo corroída pelas mídias eletrônicas de massa, que expõem crianças precocemente a conteúdos e comportamentos adultos.",
+    "comoUsarNaRedacao": "Perfeito para temas sobre adultização infantil nas redes sociais, influenciadores mirins, hiperexposição digital (sharenting) e publicidade voltada a crianças."
+  },
+  {
+    "slug": "livro-geracao-ansiosa-haidt",
+    "titulo": "A Geração Ansiosa",
+    "autoria": "Jonathan Haidt",
+    "ano": 2024,
+    "tipo": "Livro",
+    "eixos": ["saude-e-sociedade", "cidadania-e-direitos", "tecnologia-e-redes"],
+    "sinopse": "O psicólogo social investiga como a substituição da 'infância baseada no brincar livre e presencial' pela 'infância baseada no smartphone e nas redes sociais' a partir da década de 2010 provocou uma epidemia global de ansiedade, depressão e privação de sono entre jovens.",
+    "comoUsarNaRedacao": "Use para fundamentar a relação direta entre o uso precoce de smartphones/redes sociais e o adoecimento psíquico na infância e adolescência."
+  },
+  {
+    "slug": "filme-bad-influence-kidfluencing",
+    "titulo": "A Infância Perdida dos Influenciadores Mirins (Bad Influence: The Dark Side of Kidfluencing)",
+    "autoria": "Docussérie documental",
+    "ano": 2025,
+    "tipo": "Documentário",
+    "eixos": ["cidadania-e-direitos", "tecnologia-e-redes"],
+    "sinopse": "Documentário que expõe os bastidores da indústria de influenciadores mirins, revelando jornadas exaustivas de gravação, perda total de privacidade, pressão estética precoce e exploração financeira da imagem infantil nas plataformas.",
+    "comoUsarNaRedacao": "Cite para exemplificar como a monetização da rotina infantil nas redes sociais configura uma nova roupagem de trabalho infantil artístico desregulamentado."
+  },
+  {
+    "slug": "filme-capitaes-da-areia",
+    "titulo": "Capitães da Areia",
+    "autoria": "Dir. Cecília Amado (baseado na obra de Jorge Amado)",
+    "ano": 2011,
+    "tipo": "Filme / Série",
+    "eixos": ["cidadania-e-direitos", "cultura-e-identidade"],
+    "sinopse": "Adaptação cinematográfica do romance de Jorge Amado que acompanha um grupo de meninos marginalizados em Salvador, privados da proteção familiar e estatal e forçados a assumir comportamentos adultos para sobreviver.",
+    "comoUsarNaRedacao": "Use para traçar um paralelo sobre a supressão histórica do direito de ser criança no Brasil e a negligência perante o Estatuto da Criança e do Adolescente."
+  },
+  {
+    "slug": "lei-eca-artigo-227-cf88",
+    "titulo": "Art. 227 da Constituição Federal de 1988 e Estatuto da Criança e do Adolescente (Lei nº 8.069/1990)",
+    "autoria": "República Federativa do Brasil",
+    "ano": 1990,
+    "tipo": "Lei / Documento",
+    "eixos": ["cidadania-e-direitos", "educacao-e-conhecimento"],
+    "sinopse": "Consagram a Doutrina da Proteção Integral, estabelecendo que é dever da família, da sociedade e do Estado assegurar à criança e ao adolescente, com absoluta prioridade, o direito à vida, à saúde, à educação, ao lazer, à dignidade e à proteção contra qualquer forma de exploração.",
+    "comoUsarNaRedacao": "Base jurídica indispensável para cobrar responsabilidade compartilhada entre famílias, plataformas digitais e Poder Público na proteção da infância."
+  },
+  {
+    "slug": "lei-resolucao-245-conanda-ambiente-digital",
+    "titulo": "Resolução nº 245/2024 do CONANDA (Direitos da Criança no Ambiente Digital)",
+    "autoria": "Conselho Nacional dos Direitos da Criança e do Adolescente",
+    "ano": 2024,
+    "tipo": "Lei / Documento",
+    "eixos": ["cidadania-e-direitos", "tecnologia-e-redes"],
+    "sinopse": "Estabelece diretrizes nacionais para a proteção integral de crianças e adolescentes no ambiente digital, responsabilizando plataformas pelo design seguro por padrão e pelo combate à exploração comercial infantil.",
+    "comoUsarNaRedacao": "Excelente repertório normativo atualizado para fundamentar a Proposta de Intervenção (Competência 5) em temas sobre infância e redes sociais."
+  },
+  {
+    "slug": "livro-o-jogador-dostoievski",
+    "titulo": "O Jogador",
+    "autoria": "Fiódor Dostoiévski",
+    "ano": 1866,
+    "tipo": "Livro",
+    "eixos": ["saude-e-sociedade", "trabalho-e-economia"],
+    "sinopse": "Romance clássico da literatura russa que acompanha o jovem preceptor Alexei Ivanovitch em seu mergulho obsessivo nas roletas de cassino, dissecando a ilusão do enriquecimento instantâneo, a perda da razão e a degradação financeira e afetiva provocada pelo vício.",
+    "comoUsarNaRedacao": "Use na Introdução para mostrar que a compulsão por apostas retratada por Dostoiévski no século XIX foi potencializada no século XXI pelos cassinos virtuais disponíveis 24 horas no celular."
+  },
+  {
+    "slug": "livro-nacao-dopamina-lembke",
+    "titulo": "Nação Dopamina: Por que o excesso de prazer está nos deixando infelizes",
+    "autoria": "Anna Lembke",
+    "ano": 2021,
+    "tipo": "Livro",
+    "eixos": ["saude-e-sociedade", "tecnologia-e-redes"],
+    "sinopse": "A psiquiatra e pesquisadora da Universidade Stanford explica como a sociedade contemporânea oferece estímulos hiperdopaminérgicos constantes — como apostas online, notificações e jogos digitais — que sequestram o sistema cerebral de recompensa e geram dependência.",
+    "comoUsarNaRedacao": "Repertório científico ideal para explicar por que as apostas online (bets) e o consumo compulsivo de telas não são mera 'falta de força de vontade', mas um problema neurobiológico e de saúde pública."
+  },
+  {
+    "slug": "filme-joias-brutas-uncut-gems",
+    "titulo": "Joias Brutas (Uncut Gems)",
+    "autoria": "Dir. Benny Safdie e Josh Safdie",
+    "ano": 2019,
+    "tipo": "Filme / Série",
+    "eixos": ["saude-e-sociedade", "trabalho-e-economia"],
+    "sinopse": "O filme acompanha um comerciante nova-iorquino viciado em apostas esportivas que contrai dívidas impagáveis na esperança constante da 'grande aposta salvadora', destruindo sua família e sua própria vida.",
+    "comoUsarNaRedacao": "Use para ilustrar a espiral autodestrutiva da ludopatia e o efeito devastador do endividamento por apostas sobre o núcleo familiar."
+  },
+  {
+    "slug": "filme-o-apostador-the-gambler",
+    "titulo": "O Apostador (The Gambler)",
+    "autoria": "Dir. Rupert Wyatt",
+    "ano": 2014,
+    "tipo": "Filme / Série",
+    "eixos": ["saude-e-sociedade", "trabalho-e-economia"],
+    "sinopse": "Drama sobre um professor universitário de literatura que leva uma vida dupla dominada pelo vício em jogos de azar, comprometendo seu patrimônio e recorrendo a empréstimos de alto risco.",
+    "comoUsarNaRedacao": "Cite para evidenciar que o transtorno do jogo atinge diferentes camadas sociais e compromete a saúde mental e a dignidade financeira do indivíduo."
+  },
+  {
+    "slug": "texto-oms-cid11-ludopatia-banco-central",
+    "titulo": "Classificação da Ludopatia (CID-11 / OMS) e Estudos do Banco Central sobre Apostas Online",
+    "autoria": "Organização Mundial da Saúde (OMS) / Banco Central do Brasil",
+    "ano": 2024,
+    "tipo": "Lei / Documento",
+    "eixos": ["saude-e-sociedade", "trabalho-e-economia"],
+    "sinopse": "A OMS reconhece o Transtorno do Jogo (ludopatia) na CID-11 como condição de saúde mental, enquanto relatórios técnicos do Banco Central do Brasil (2024) revelaram o bilionário escoamento da renda familiar — inclusive de beneficiários de programas sociais — para plataformas de apostas.",
+    "comoUsarNaRedacao": "Combine o dado econômico do Banco Central com o reconhecimento médico da OMS para comprovar que o fenômeno das bets exige regulação publicitária severa e atendimento especializado no SUS."
+  },
+  {
+    "slug": "pensador-bauman-vida-para-consumo",
+    "titulo": "Vida para Consumo / Modernidade Líquida",
+    "autoria": "Zygmunt Bauman",
+    "ano": 2007,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["trabalho-e-economia", "saude-e-sociedade", "cidadania-e-direitos"],
+    "sinopse": "O sociólogo polonês analisa como a sociedade contemporânea substituiu os valores duradouros do trabalho e da coletividade pela busca imediata de satisfação monetária, consumo ostentatório e promessas ilusórias de felicidade rápida.",
+    "comoUsarNaRedacao": "Repertório coringa altamente produtivo para criticar a publicidade predatória de influenciadores digitais que vendem apostas ou padrões de consumo inatingíveis como atalho de ascensão social."
+  },
+  {
+    "slug": "livro-ideias-para-adiar-o-fim-do-mundo-krenak",
+    "titulo": "Ideias para Adiar o Fim do Mundo",
+    "autoria": "Ailton Krenak",
+    "ano": 2019,
+    "tipo": "Livro",
+    "eixos": ["meio-ambiente", "cultura-e-identidade"],
+    "sinopse": "O filósofo, ambientalista e imortal da Academia Brasileira de Letras critica a ideia de uma 'humanidade descolada da Terra', que trata rios, florestas e montanhas como meros recursos mercantis, propondo aprender com a resistência e a cosmovisão dos povos indígenas.",
+    "comoUsarNaRedacao": "Essencial para temas de justiça climática, preservação ambiental e povos tradicionais, mostrando que enfrentar a crise climática exige abandonar o modelo econômico predatório."
+  },
+  {
+    "slug": "livro-quarto-de-despejo-carolina",
+    "titulo": "Quarto de Despejo: Diário de uma Favelada",
+    "autoria": "Carolina Maria de Jesus",
+    "ano": 1960,
+    "tipo": "Livro",
+    "eixos": ["cidadania-e-direitos", "meio-ambiente", "cultura-e-identidade"],
+    "sinopse": "Relato autobiográfico da escritora negra moradora da favela do Canindé, às margens do rio Tietê em São Paulo, que metaforiza a periferia como o 'quarto de despejo' da cidade — local sem saneamento, sujeito a enchentes e esquecido pelo poder público.",
+    "comoUsarNaRedacao": "Excelente para comprovar historicamente o conceito de Racismo Ambiental e segregação urbana no Brasil."
+  },
+  {
+    "slug": "filme-nao-olhe-para-cima",
+    "titulo": "Não Olhe para Cima (Don't Look Up)",
+    "autoria": "Dir. Adam McKay",
+    "ano": 2021,
+    "tipo": "Filme / Série",
+    "eixos": ["meio-ambiente", "tecnologia-e-redes"],
+    "sinopse": "Sátira em que dois astrônomos tentam alertar governos, mídia e sociedade sobre um cometa em rota de colisão com a Terra — alegoria direta das mudanças climáticas —, mas são ignorados em nome de lucros imediatos e entretenimento fútil.",
+    "comoUsarNaRedacao": "Use para criticar o negacionismo científico e a subordinação das pautas climáticas aos interesses econômicos de curto prazo."
+  },
+  {
+    "slug": "filme-antes-que-seja-tarde",
+    "titulo": "Antes que Seja Tarde (Before the Flood)",
+    "autoria": "Dir. Fisher Stevens",
+    "ano": 2016,
+    "tipo": "Documentário",
+    "eixos": ["meio-ambiente"],
+    "sinopse": "Documentário que percorre diferentes continentes mostrando os efeitos reais do aquecimento global e como as populações mais pobres do Sul Global sofrem primeiro e mais intensamente os desastres climáticos.",
+    "comoUsarNaRedacao": "Cite para reforçar a assimetria socioeconômica da crise ambiental e a urgência de transição energética justa."
+  },
+  {
+    "slug": "pensador-racismo-ambiental-chavis-pacheco",
+    "titulo": "Conceito de Racismo Ambiental e Justiça Climática",
+    "autoria": "Benjamin Chavis (1982) / Tania Pacheco",
+    "ano": 1982,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["meio-ambiente", "cidadania-e-direitos"],
+    "sinopse": "Designa a injustiça social e ambiental pela qual populações negras, indígenas, periféricas e ribeirinhas suportam de maneira desproporcional os impactos da poluição, da falta de saneamento básico e dos eventos climáticos extremos.",
+    "comoUsarNaRedacao": "Conceito-chave para o Desenvolvimento em qualquer tema sobre meio ambiente, enchentes urbanas, secas ou saneamento no Brasil."
+  },
+  {
+    "slug": "lei-artigo-225-constituicao-federal",
+    "titulo": "Artigo 225 da Constituição Federal de 1988 (Direito ao Meio Ambiente Equilibrado)",
+    "autoria": "Assembleia Nacional Constituinte",
+    "ano": 1988,
+    "tipo": "Lei / Documento",
+    "eixos": ["meio-ambiente", "cidadania-e-direitos"],
+    "sinopse": "Determina que todos têm direito ao meio ambiente ecologicamente equilibrado, bem de uso comum do povo e essencial à sadia qualidade de vida, impondo-se ao Poder Público e à coletividade o dever de defendê-lo e preservá-lo para as presentes e futuras gerações.",
+    "comoUsarNaRedacao": "Use na Introdução ou no Desenvolvimento para demonstrar que a omissão estatal diante de desastres climáticos fere diretamente um direito constitucional fundamental."
+  },
+  {
+    "slug": "livro-vidas-secas-graciliano",
+    "titulo": "Vidas Secas",
+    "autoria": "Graciliano Ramos",
+    "ano": 1938,
+    "tipo": "Livro",
+    "eixos": ["meio-ambiente", "cidadania-e-direitos", "cultura-e-identidade"],
+    "sinopse": "Clássico da segunda geração modernista que narra a trajetória de Fabiano, Sinhá Vitória, seus dois filhos e a cadela Baleia, forçados a abandonar sua terra devido à seca severa e à opressão socioeconômica no sertão nordestino.",
+    "comoUsarNaRedacao": "Obra literária brasileira perfeita para abordar refugiados climáticos, desigualdade regional, sub-registro civil e vulnerabilidade social."
+  },
+  {
+    "slug": "livro-torto-arado-itamar",
+    "titulo": "Torto Arado",
+    "autoria": "Itamar Vieira Junior",
+    "ano": 2019,
+    "tipo": "Livro",
+    "eixos": ["trabalho-e-economia", "cultura-e-identidade", "meio-ambiente"],
+    "sinopse": "Narrado pelas irmãs Bibiana e Belonísia na Chapada Diamantina, o romance retrata a permanência de relações de servidão no campo após a abolição formal da escravatura, a luta por território quilombola e o vínculo sagrado com a terra.",
+    "comoUsarNaRedacao": "Use para discutir dignidade no trabalho rural, direitos de comunidades tradicionais, herança afro-brasileira e proteção territorial."
+  },
+  {
+    "slug": "filme-vidas-secas-cinema-novo",
+    "titulo": "Vidas Secas (Filme)",
+    "autoria": "Dir. Nelson Pereira dos Santos",
+    "ano": 1963,
+    "tipo": "Filme / Série",
+    "eixos": ["meio-ambiente", "cultura-e-identidade", "cidadania-e-direitos"],
+    "sinopse": "Obra-prima do Cinema Novo brasileiro que transpõe para a linguagem cinematográfica a aridez climática e a exclusão social dos retirantes nordestinos.",
+    "comoUsarNaRedacao": "Cite para relacionar a tradição do cinema nacional à denúncia dos deslocamentos forçados por crises ambientais."
+  },
+  {
+    "slug": "filme-obrigado-pela-chuva",
+    "titulo": "Obrigado pela Chuva (Thank You for the Rain)",
+    "autoria": "Dir. Julia Dahr",
+    "ano": 2017,
+    "tipo": "Documentário",
+    "eixos": ["meio-ambiente"],
+    "sinopse": "Ao longo de cinco anos, o agricultor queniano Kisilu Musya registra em vídeo como secas prolongadas e tempestades extremas destroem sua lavoura e forçam o deslocamento de moradores de sua comunidade.",
+    "comoUsarNaRedacao": "Exemplo documental contundente sobre o drama humano dos deslocados ambientais e a perda de soberania alimentar."
+  },
+  {
+    "slug": "lei-politica-nacional-defesa-civil-acnur",
+    "titulo": "Política Nacional de Proteção e Defesa Civil (Lei nº 12.608/2012) e Relatórios ACNUR/IDMC",
+    "autoria": "Brasil / Alto Comissariado das Nações Unidas para Refugiados",
+    "ano": 2012,
+    "tipo": "Lei / Documento",
+    "eixos": ["meio-ambiente", "cidadania-e-direitos"],
+    "sinopse": "A Lei nº 12.608/2012 estabelece que a gestão de risco de desastres deve priorizar a prevenção e o mapeamento de áreas vulneráveis, enquanto relatórios do IDMC/ACNUR apontam o Brasil entre os líderes de deslocamentos internos por enchentes e secas nas Américas.",
+    "comoUsarNaRedacao": "Fundamente o argumento de que as tragédias climáticas brasileiras resultam da falta de urbanismo preventivo e de assistência continuada aos desabrigados."
+  },
+  {
+    "slug": "livro-sociedade-do-cansaco-han",
+    "titulo": "Sociedade do Cansaço",
+    "autoria": "Byung-Chul Han",
+    "ano": 2010,
+    "tipo": "Livro",
+    "eixos": ["saude-e-sociedade", "trabalho-e-economia", "tecnologia-e-redes"],
+    "sinopse": "O filósofo sul-coreano argumenta que o século XXI substituiu a sociedade disciplinar (baseada na proibição externa) pela sociedade do desempenho, na qual o indivíduo torna-se simultaneamente vítima e algoz de si mesmo, adoecendo de ansiedade, depressão e síndrome de burnout.",
+    "comoUsarNaRedacao": "Um dos repertórios mais versáteis do ENEM: excelente para saúde mental juvenil, hiperconectividade, pressão por produtividade e precarização do trabalho."
+  },
+  {
+    "slug": "livro-demonio-do-meio-dia-solomon",
+    "titulo": "O Demônio do Meio-Dia: Uma Anatomia da Depressão",
+    "autoria": "Andrew Solomon",
+    "ano": 2001,
+    "tipo": "Livro",
+    "eixos": ["saude-e-sociedade"],
+    "sinopse": "Obra vencedora do National Book Award que investiga a depressão sob os ângulos médico, histórico, cultural e social, demonstrando como o silenciamento, o estigma e a desigualdade de acesso ao tratamento agravam o sofrimento psíquico.",
+    "comoUsarNaRedacao": "Use para aprofundar discussões sobre saúde mental na adolescência, prevenção ao adoecimento emocional e democratização da atenção psicossocial."
+  },
+  {
+    "slug": "filme-divertida-mente-2",
+    "titulo": "Divertida Mente 2 (Inside Out 2)",
+    "autoria": "Dir. Kelsey Mann (Pixar)",
+    "ano": 2024,
+    "tipo": "Filme / Série",
+    "eixos": ["saude-e-sociedade", "educacao-e-conhecimento"],
+    "sinopse": "Ao entrar na adolescência, a protagonista Riley passa a lidar com novas emoções complexas — especialmente a Ansiedade, a Inveja e a Vergonha —, que assumem o controle de sua mente diante do medo da rejeição social e da cobrança por desempenho.",
+    "comoUsarNaRedacao": "Repertório cultural contemporâneo e altamente produtivo para ilustrar os gatilhos de ansiedade juvenil e a importância da educação socioemocional."
+  },
+  {
+    "slug": "filme-vantagens-de-ser-invisivel",
+    "titulo": "As Vantagens de Ser Invisível (The Perks of Being a Wallflower)",
+    "autoria": "Dir. Stephen Chbosky",
+    "ano": 2012,
+    "tipo": "Filme / Série",
+    "eixos": ["saude-e-sociedade", "educacao-e-conhecimento"],
+    "sinopse": "Retrata a trajetória de Charlie, um estudante do ensino médio que enfrenta traumas silenciosos, depressão e isolamento social até encontrar acolhimento em amigos e no incentivo de seu professor de Literatura.",
+    "comoUsarNaRedacao": "Cite para destacar o papel protetivo da escola, da escuta qualificada e dos vínculos presenciais na saúde mental adolescente."
+  },
+  {
+    "slug": "lei-atencao-psicossocial-escolas-14819",
+    "titulo": "Lei nº 14.819/2024 (Política Nacional de Atenção Psicossocial nas Comunidades Escolares)",
+    "autoria": "República Federativa do Brasil",
+    "ano": 2024,
+    "tipo": "Lei / Documento",
+    "eixos": ["saude-e-sociedade", "educacao-e-conhecimento"],
+    "sinopse": "Institui a Política Nacional de Atenção Psicossocial nas Comunidades Escolares, determinando a integração entre os serviços de saúde e educação para promover o bem-estar socioemocional de alunos, professores e familiares.",
+    "comoUsarNaRedacao": "Base legal perfeita para fundamentar o Desenvolvimento ou a Proposta de Intervenção em temas sobre saúde mental na escola e juventude."
+  },
+  {
+    "slug": "pensador-durkheim-coesao-anomia",
+    "titulo": "Conceitos de Coesão Social, Fato Social e Anomia",
+    "autoria": "Émile Durkheim",
+    "ano": 1897,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["saude-e-sociedade", "cidadania-e-direitos", "educacao-e-conhecimento"],
+    "sinopse": "O sociólogo francês demonstra que o bem-estar individual depende diretamente do grau de integração comunitária (coesão social) e da vigência de normas protetivas claras; quando os laços coletivos se rompem, instala-se um estado de anomia e adoecimento social.",
+    "comoUsarNaRedacao": "Use para explicar como o isolamento digital e a ausência de regulação estatal fragilizam o indivíduo e geram crises de saúde coletiva."
+  },
+  {
+    "slug": "livro-o-cerebro-autista-grandin",
+    "titulo": "O Cérebro Autista: Pensando Através do Espectro",
+    "autoria": "Temple Grandin e Richard Panek",
+    "ano": 2013,
+    "tipo": "Livro",
+    "eixos": ["educacao-e-conhecimento", "cidadania-e-direitos", "saude-e-sociedade"],
+    "sinopse": "A renomada cientista e professora universitária autista combina neurociência e relato autobiográfico para defender que cérebros neurodivergentes processam o mundo de formas singulares (visual, lógica ou por padrões) que devem ser estimuladas pela escola e pelo mercado de trabalho.",
+    "comoUsarNaRedacao": "Repertório exemplar para temas sobre inclusão de pessoas neurodivergentes, combate ao capacitismo e adaptação pedagógica."
+  },
+  {
+    "slug": "livro-pedagogia-da-autonomia-freire",
+    "titulo": "Pedagogia da Autonomia: Saberes Necessários à Prática Educativa",
+    "autoria": "Paulo Freire",
+    "ano": 1996,
+    "tipo": "Livro",
+    "eixos": ["educacao-e-conhecimento", "cidadania-e-direitos"],
+    "sinopse": "O patrono da educação brasileira defende que ensinar não é transferir conhecimento de forma mecânica ('educação bancária'), mas criar possibilidades para a construção crítica do saber, respeitando a autonomia, a realidade e as singularidades de cada educando.",
+    "comoUsarNaRedacao": "Citação indispensável para qualquer tema educacional, inclusão escolar, formação crítica de leitores e valorização docente."
+  },
+  {
+    "slug": "filme-como-estrelas-na-terra",
+    "titulo": "Como Estrelas na Terra: Toda Criança é Especial (Taare Zameen Par)",
+    "autoria": "Dir. Aamir Khan",
+    "ano": 2007,
+    "tipo": "Filme / Série",
+    "eixos": ["educacao-e-conhecimento", "cidadania-e-direitos"],
+    "sinopse": "O garoto Ishaan, de 8 anos, possui dislexia, mas é rotulado como preguiçoso e indisciplinado por um sistema escolar rígido e padronizado, até que um professor de artes identifica sua neurodivergência e adapta os métodos de ensino.",
+    "comoUsarNaRedacao": "Use para demonstrar como a falta de formação docente para a educação inclusiva gera exclusão e sofrimento em alunos neurodivergentes."
+  },
+  {
+    "slug": "filme-temple-grandin-cinebiografia",
+    "titulo": "Temple Grandin (Cinebiografia)",
+    "autoria": "Dir. Mick Jackson",
+    "ano": 2010,
+    "tipo": "Filme / Série",
+    "eixos": ["educacao-e-conhecimento", "trabalho-e-economia", "cidadania-e-direitos"],
+    "sinopse": "Narra a trajetória real de Temple Grandin, mulher autista que enfrentou o preconceito acadêmico e profissional na década de 1960/1970 até se tornar doutora e referência mundial em ciência animal e ativismo pela inclusão.",
+    "comoUsarNaRedacao": "Cite para comprovar que, quando há adaptação razoável e oportunidade, pessoas neurodivergentes alcançam pleno protagonismo acadêmico e laboral."
+  },
+  {
+    "slug": "pensador-judy-singer-neurodiversidade",
+    "titulo": "Conceito Sociológico de Neurodiversidade",
+    "autoria": "Judy Singer",
+    "ano": 1998,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["educacao-e-conhecimento", "cidadania-e-direitos"],
+    "sinopse": "A socióloga australiana cunhou o termo 'neurodiversidade' para defender que condições como autismo (TEA), TDAH e dislexia não são falhas morais ou inferioridades, mas variações legítimas da biodiversidade cognitiva humana.",
+    "comoUsarNaRedacao": "Utilize no Desenvolvimento para desconstruir o capacitismo e fundamentar o dever social de acolher diferentes perfis cognitivos."
+  },
+  {
+    "slug": "lei-estatuto-pessoa-com-deficiencia-berenice-piana",
+    "titulo": "Lei Brasileira de Inclusão (Lei nº 13.146/2015) e Lei Berenice Piana (Lei nº 12.764/2012)",
+    "autoria": "República Federativa do Brasil",
+    "ano": 2015,
+    "tipo": "Lei / Documento",
+    "eixos": ["cidadania-e-direitos", "educacao-e-conhecimento", "trabalho-e-economia"],
+    "sinopse": "Garantem o sistema educacional inclusivo em todos os níveis, o direito a profissional de apoio especializado nas escolas (públicas e privadas, sem cobrança de taxa extra) e a inclusão digna no mercado de trabalho.",
+    "comoUsarNaRedacao": "Use para denunciar o hiato entre a legislação inclusiva brasileira e a realidade prática de escolas sem infraestrutura e empresas capacitistas."
+  },
+  {
+    "slug": "livro-expropriacao-da-saude-illich",
+    "titulo": "A Expropriação da Saúde: Nêmesis da Medicina",
+    "autoria": "Ivan Illich",
+    "ano": 1975,
+    "tipo": "Livro",
+    "eixos": ["saude-e-sociedade"],
+    "sinopse": "O pensador austríaco analisa a 'medicalização da vida', processo pelo qual dores cotidianas, fases naturais do ciclo humano e pressões sociais são convertidas em patologias que exigem consumo contínuo e acrítico de fármacos.",
+    "comoUsarNaRedacao": "Repertório clássico para discutir automedicação, uso indiscriminado de remédios para performance ou emagrecimento e mercantilização da saúde."
+  },
+  {
+    "slug": "livro-o-mito-da-beleza-wolf",
+    "titulo": "O Mito da Beleza",
+    "autoria": "Naomi Wolf",
+    "ano": 1990,
+    "tipo": "Livro",
+    "eixos": ["saude-e-sociedade", "cidadania-e-direitos", "cultura-e-identidade"],
+    "sinopse": "A autora demonstra como a imposição social de um padrão estético inalcançável — hoje amplificado por filtros e redes sociais — funciona como mecanismo de controle político e psicológico, levando ao uso arriscado de medicamentos e procedimentos estéticos.",
+    "comoUsarNaRedacao": "Inclusive citado em texto da prova do ENEM 2025! Excelente para temas sobre pressão estética, uso off-label de medicamentos emagrecedores e saúde da mulher."
+  },
+  {
+    "slug": "filme-take-your-pills",
+    "titulo": "Take Your Pills",
+    "autoria": "Dir. Alison Klayman",
+    "ano": 2018,
+    "tipo": "Documentário",
+    "eixos": ["saude-e-sociedade", "trabalho-e-economia", "educacao-e-conhecimento"],
+    "sinopse": "Documentário que investiga a explosão do uso sem prescrição médica de psicoestimulantes por estudantes universitários e profissionais do mercado financeiro e tecnológico em busca de hiperprodutividade competitiva.",
+    "comoUsarNaRedacao": "Use para conectar a cultura do desempenho extremo (Byung-Chul Han) aos riscos da automedicação cognitiva."
+  },
+  {
+    "slug": "filme-requiem-para-um-sonho",
+    "titulo": "Réquiem para um Sonho (Requiem for a Dream)",
+    "autoria": "Dir. Darren Aronofsky",
+    "ano": 2000,
+    "tipo": "Filme / Série",
+    "eixos": ["saude-e-sociedade"],
+    "sinopse": "Entre os núcleos narrativos do filme, destaca-se a personagem Sara Goldfarb, uma mulher idosa e solitária que passa a tomar pílulas de emagrecimento para caber em um vestido e aparecer na televisão, desenvolvendo grave psicose e dependência.",
+    "comoUsarNaRedacao": "Ilustra de forma contundente os perigos do uso estético indiscriminado de fármacos e da promessa midiática de corpos perfeitos."
+  },
+  {
+    "slug": "pensador-foucault-biopolitica-medicalizacao",
+    "titulo": "Biopolítica e Medicalização dos Corpos (Microfísica do Poder)",
+    "autoria": "Michel Foucault",
+    "ano": 1979,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["saude-e-sociedade", "cidadania-e-direitos"],
+    "sinopse": "O filósofo francês analisa como o poder moderno atua sobre a vida biológica e os corpos dos indivíduos por meio de discursos normativos de saúde, higiene, estética e produtividade.",
+    "comoUsarNaRedacao": "Excelente repertório filosófico para problematizar a imposição de padrões corporais e a medicalização de comportamentos."
+  },
+  {
+    "slug": "texto-pesquisa-cff-automedicacao-anvisa",
+    "titulo": "Levantamento do Conselho Federal de Farmácia (CFF) sobre Automedicação no Brasil",
+    "autoria": "Conselho Federal de Farmácia (CFF) / Instituto Datafolha",
+    "ano": 2023,
+    "tipo": "Lei / Documento",
+    "eixos": ["saude-e-sociedade"],
+    "sinopse": "Pesquisa nacional que revela que 77% dos brasileiros têm o hábito de se automedicar, prática impulsionada por dificuldades de acesso rápido a consultas, publicidade farmacêutica e recomendações sem respaldo científico nas redes sociais.",
+    "comoUsarNaRedacao": "Dado estatístico sólido para comprovar que a automedicação é uma questão endêmica de saúde pública no Brasil."
+  },
+  {
+    "slug": "livro-privilegio-da-servidao-antunes",
+    "titulo": "O Privilégio da Servidão: O Novo Proletariado de Serviços na Era Digital",
+    "autoria": "Ricardo Antunes",
+    "ano": 2018,
+    "tipo": "Livro",
+    "eixos": ["trabalho-e-economia", "tecnologia-e-redes"],
+    "sinopse": "O sociólogo brasileiro analisa como a plataformização do trabalho (uberização) criou um contingente de trabalhadores que, embora chamados de 'parceiros autônomos', estão submetidos a controle algorítmico rígido, jornadas exaustivas e ausência de direitos trabalhistas e previdenciários.",
+    "comoUsarNaRedacao": "Referência sociológica número 1 no Brasil para temas sobre uberização, entregadores de aplicativo, informalidade e futuro do trabalho."
+  },
+  {
+    "slug": "livro-uberizacao-tom-slee",
+    "titulo": "Uberização: A Nova Onda do Trabalho Precarizado",
+    "autoria": "Tom Slee",
+    "ano": 2017,
+    "tipo": "Livro",
+    "eixos": ["trabalho-e-economia", "tecnologia-e-redes"],
+    "sinopse": "Desconstrói a narrativa romântica da 'economia do compartilhamento', demonstrando como grandes plataformas digitais transferem todos os custos de manutenção, combustível, saúde e risco de acidentes para o trabalhador.",
+    "comoUsarNaRedacao": "Use para contrastar a promessa publicitária de 'flexibilidade' com a realidade da desproteção social dos trabalhadores digitais."
+  },
+  {
+    "slug": "filme-voce-nao-estava-aqui",
+    "titulo": "Você Não Estava Aqui (Sorry We Missed You)",
+    "autoria": "Dir. Ken Loach",
+    "ano": 2019,
+    "tipo": "Filme / Série",
+    "eixos": ["trabalho-e-economia", "saude-e-sociedade"],
+    "sinopse": "Ricky, um trabalhador desempregado, vende o carro da família para financiar uma van e trabalhar como entregador 'franqueado autônomo' para uma plataforma logística. Sem direito a folga ou licença médica, vê sua saúde e sua família entrarem em colapso.",
+    "comoUsarNaRedacao": "Repertório cinematográfico perfeito e emocionante para ilustrar os impactos humanos e familiares da uberização do trabalho."
+  },
+  {
+    "slug": "filme-tempos-modernos-chaplin",
+    "titulo": "Tempos Modernos (Modern Times)",
+    "autoria": "Dir. Charlie Chaplin",
+    "ano": 1936,
+    "tipo": "Filme / Série",
+    "eixos": ["trabalho-e-economia", "tecnologia-e-redes"],
+    "sinopse": "Clássico do cinema mundial em que o operário Carlitos sofre um colapso nervoso diante do ritmo frenético e desumanizador das engrenagens da linha de montagem industrial.",
+    "comoUsarNaRedacao": "Use para construir uma comparação histórica: a esteira mecânica do século XX deu lugar ao algoritmo invisível do século XXI, mantendo a exploração do tempo do trabalhador."
+  },
+  {
+    "slug": "pensador-dardot-laval-neosujeito",
+    "titulo": "A Nova Razão do Mundo (O Trabalhador como 'Empresa de Si Mesmo')",
+    "autoria": "Pierre Dardot e Christian Laval",
+    "ano": 2009,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["trabalho-e-economia", "saude-e-sociedade"],
+    "sinopse": "Os autores explicam como a racionalidade neoliberal contemporânea persuade o trabalhador precarizado a enxergar-se como um 'empreendedor de si mesmo', culpando-se individualmente pelo desemprego, pela exaustão ou pela falta de proteção social.",
+    "comoUsarNaRedacao": "Excelente para aprofundar a análise ideológica da precarização do trabalho no Desenvolvimento 2."
+  },
+  {
+    "slug": "lei-artigos-6-e-7-cf88-oit-trabalho-decente",
+    "titulo": "Artigos 6º e 7º da Constituição Federal de 1988 e Agenda do Trabalho Decente (OIT)",
+    "autoria": "Brasil / Organização Internacional do Trabalho (OIT)",
+    "ano": 1988,
+    "tipo": "Lei / Documento",
+    "eixos": ["trabalho-e-economia", "cidadania-e-direitos"],
+    "sinopse": "A Constituição consagra o trabalho, o lazer, a saúde e a previdência social como direitos sociais fundamentais, enquanto a OIT define Trabalho Decente como aquele produtivo, adequadamente remunerado e exercido em condições de liberdade, equidade e segurança.",
+    "comoUsarNaRedacao": "Fundamento jurídico essencial para cobrar a criação de marcos regulatórios e previdenciários para trabalhadores de aplicativos."
+  },
+  {
+    "slug": "livro-o-direito-a-literatura-candido",
+    "titulo": "O Direito à Literatura (em 'Vários Escritos')",
+    "autoria": "Antonio Candido",
+    "ano": 1988,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["educacao-e-conhecimento", "cultura-e-identidade", "cidadania-e-direitos"],
+    "sinopse": "O crítico literário e sociólogo brasileiro classifica a literatura e a fruição artística como 'bens incompressíveis' — isto é, direitos humanos tão indispensáveis quanto alimentação e moradia — por organizarem o caos interior, desenvolverem a empatia e formarem a consciência crítica.",
+    "comoUsarNaRedacao": "Um dos melhores repertórios da cultura brasileira para temas sobre leitura, bibliotecas, educação, acesso à cultura e combate ao analfabetismo funcional."
+  },
+  {
+    "slug": "livro-a-importancia-do-ato-de-ler-freire",
+    "titulo": "A Importância do Ato de Ler",
+    "autoria": "Paulo Freire",
+    "ano": 1982,
+    "tipo": "Livro",
+    "eixos": ["educacao-e-conhecimento", "cidadania-e-direitos"],
+    "sinopse": "Freire formula a célebre tese de que 'a leitura do mundo precede a leitura da palavra', demonstrando que ler criticamente não é apenas decodificar sílabas, mas compreender o contexto sociopolítico para transformar a realidade.",
+    "comoUsarNaRedacao": "Perfeito para diferenciar alfabetização meramente formal de letramento crítico e combater o analfabetismo funcional."
+  },
+  {
+    "slug": "livro-fahrenheit-451-bradbury",
+    "titulo": "Fahrenheit 451",
+    "autoria": "Ray Bradbury",
+    "ano": 1953,
+    "tipo": "Livro",
+    "eixos": ["educacao-e-conhecimento", "tecnologia-e-redes", "cultura-e-identidade"],
+    "sinopse": "Distopia em que os livros são proibidos e queimados, não apenas por imposição estatal, mas porque a própria sociedade passou a preferir telas gigantes, conteúdos ultrarrápidos e entretenimento superficial que não provocam reflexão nem desconforto.",
+    "comoUsarNaRedacao": "Alusão literária brilhante para relacionar a crise atual da atenção (vídeos curtos e superficialidade digital) ao abandono da leitura aprofundada."
+  },
+  {
+    "slug": "filme-escritores-da-liberdade",
+    "titulo": "Escritores da Liberdade (Freedom Writers)",
+    "autoria": "Dir. Richard LaGravenese",
+    "ano": 2007,
+    "tipo": "Filme / Série",
+    "eixos": ["educacao-e-conhecimento", "cidadania-e-direitos"],
+    "sinopse": "Baseado em fatos reais, acompanha a professora Erin Gruwell, que transforma a realidade de estudantes marginalizados de uma escola pública por meio da leitura de obras literárias e da escrita autoral em diários.",
+    "comoUsarNaRedacao": "Use para exemplificar o poder emancipador da leitura e de projetos pedagógicos significativos na rede pública."
+  },
+  {
+    "slug": "filme-a-menina-que-roubava-livros",
+    "titulo": "A Menina que Roubava Livros (The Book Thief)",
+    "autoria": "Dir. Brian Percival",
+    "ano": 2013,
+    "tipo": "Filme / Série",
+    "eixos": ["educacao-e-conhecimento", "cultura-e-identidade"],
+    "sinopse": "Durante a Segunda Guerra Mundial, a jovem Liesel encontra nos livros resgatados da destruição um refúgio humanizador e uma ferramenta de resistência intelectual diante da barbárie.",
+    "comoUsarNaRedacao": "Cite para reforçar que o domínio da linguagem e da leitura protege o cidadão contra a manipulação ideológica e a alienação."
+  },
+  {
+    "slug": "texto-retratos-da-leitura-no-brasil-lei-castilho",
+    "titulo": "Pesquisa Retratos da Leitura no Brasil (6ª ed., 2024) e Política Nacional de Leitura e Escrita (Lei nº 13.696/2018)",
+    "autoria": "Instituto Pró-Livro / República Federativa do Brasil",
+    "ano": 2024,
+    "tipo": "Lei / Documento",
+    "eixos": ["educacao-e-conhecimento", "cultura-e-identidade"],
+    "sinopse": "A 6ª edição da pesquisa Retratos da Leitura (2024) revelou que 53% dos brasileiros não leram sequer parte de um livro nos três meses anteriores ao levantamento, evidenciando a baixa efetivação da Lei nº 13.696/2018 (Lei Castilho) e da Lei nº 12.244/2010 (Bibliotecas Escolares).",
+    "comoUsarNaRedacao": "Combine o dado alarmante de 2024 com a existência da Lei Castilho para provar que o déficit leitor decorre da falta de bibliotecas ativas e políticas de incentivo."
+  },
+  {
+    "slug": "livro-o-segundo-sexo-beauvoir",
+    "titulo": "O Segundo Sexo",
+    "autoria": "Simone de Beauvoir",
+    "ano": 1949,
+    "tipo": "Livro",
+    "eixos": ["cidadania-e-direitos", "trabalho-e-economia"],
+    "sinopse": "Obra fundadora da filosofia feminista contemporânea que analisa como, ao longo da história, o homem foi definido como o 'Sujeito universal' e a mulher como o 'Outro' subalternizado por construções culturais patriarcais ('Não se nasce mulher: torna-se').",
+    "comoUsarNaRedacao": "Fundamental para temas sobre violência de gênero, misoginia digital, desigualdade salarial e invisibilidade do trabalho de cuidado."
+  },
+  {
+    "slug": "livro-quem-tem-medo-do-feminismo-negro-djamila",
+    "titulo": "Quem Tem Medo do Feminismo Negro? / Pequeno Manual Antirracista",
+    "autoria": "Djamila Ribeiro",
+    "ano": 2018,
+    "tipo": "Livro",
+    "eixos": ["cidadania-e-direitos", "cultura-e-identidade"],
+    "sinopse": "A filósofa brasileira mobiliza os conceitos de lugar de fala, interseccionalidade e combate ao silenciamento para mostrar como marcadores de gênero, raça e classe se cruzam na reprodução das violências estruturais e digitais no Brasil.",
+    "comoUsarNaRedacao": "Use para enriquecer a análise crítica demonstrando que a violência de gênero e o discurso de ódio atingem com ainda maior gravidade mulheres negras e periféricas."
+  },
+  {
+    "slug": "filme-adolescencia-minisserie-2025",
+    "titulo": "Adolescência (Adolescence)",
+    "autoria": "Dir. Philip Barantini (Minissérie)",
+    "ano": 2025,
+    "tipo": "Filme / Série",
+    "eixos": ["cidadania-e-direitos", "tecnologia-e-redes", "educacao-e-conhecimento"],
+    "sinopse": "Minissérie aclamada que investiga como um adolescente de 13 anos é cooptado silenciosamente, dentro do próprio quarto, por fóruns misóginos e discursos de ódio contra mulheres nas redes sociais, culminando em um crime violento.",
+    "comoUsarNaRedacao": "Repertório atualíssimo para discutir violência de gênero facilitada pela tecnologia, radicalização juvenil online e necessidade de educação digital nas escolas e famílias."
+  },
+  {
+    "slug": "filme-inacreditavel-unbelievable",
+    "titulo": "Inacreditável (Unbelievable)",
+    "autoria": "Criadores Susannah Grant, Ayelet Waldman e Michael Chabon",
+    "ano": 2019,
+    "tipo": "Filme / Série",
+    "eixos": ["cidadania-e-direitos"],
+    "sinopse": "Baseada em uma reportagem vencedora do Prêmio Pulitzer, retrata uma jovem vítima de violência que é desacreditada e revitimizada pelas autoridades até que duas detetives conduzem uma investigação acolhedora e rigorosa.",
+    "comoUsarNaRedacao": "Cite para criticar a cultura de culpabilização da vítima e defender o acolhimento humanizado nas delegacias e instituições."
+  },
+  {
+    "slug": "pensador-bourdieu-violencia-simbolica",
+    "titulo": "A Dominação Masculina e o Conceito de Violência Simbólica",
+    "autoria": "Pierre Bourdieu",
+    "ano": 1998,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["cidadania-e-direitos", "cultura-e-identidade"],
+    "sinopse": "O sociólogo francês define violência simbólica como aquela exercida de forma sutil, por meio da linguagem, das piadas, dos padrões culturais e hoje dos memes e discursos digitais, naturalizando a inferiorização de grupos vulneráveis antes mesmo da agressão física.",
+    "comoUsarNaRedacao": "Conceito sociológico coringa para explicar a raiz cultural da misoginia, do racismo, do etarismo e do capacitismo."
+  },
+  {
+    "slug": "lei-maria-da-penha-stalking-rose-leonel",
+    "titulo": "Lei Maria da Penha (Lei nº 11.340/2006), Lei Rose Leonel (Lei nº 13.772/2018) e Lei do Stalking (Lei nº 14.132/2021)",
+    "autoria": "República Federativa do Brasil",
+    "ano": 2021,
+    "tipo": "Lei / Documento",
+    "eixos": ["cidadania-e-direitos", "tecnologia-e-redes"],
+    "sinopse": "Arcabouço legal brasileiro que pune a violência doméstica e familiar, tipifica o registro e a divulgação não consensual de intimidade sexual (inclusive montagens digitais) e criminaliza a perseguição reiterada (stalking) física ou por meio da internet.",
+    "comoUsarNaRedacao": "Use para demonstrar que o Brasil possui leis específicas contra a violência digital de gênero, mas carece de letramento preventivo e celeridade na responsabilização das plataformas."
+  },
+  {
+    "slug": "livro-o-povo-brasileiro-darcy-ribeiro",
+    "titulo": "O Povo Brasileiro: A Formação e o Sentido do Brasil",
+    "autoria": "Darcy Ribeiro",
+    "ano": 1995,
+    "tipo": "Livro",
+    "eixos": ["cultura-e-identidade", "cidadania-e-direitos", "educacao-e-conhecimento"],
+    "sinopse": "O antropólogo e educador investiga a formação histórica da sociedade brasileira a partir do encontro — muitas vezes violento — das matrizes indígena, africana e europeia, denunciando o elitismo que despreza a cultura popular e a memória nacional.",
+    "comoUsarNaRedacao": "Obra fundamental para temas sobre identidade nacional, patrimônio histórico-cultural, herança indígena/africana e desigualdade social no Brasil."
+  },
+  {
+    "slug": "livro-memoria-e-sociedade-eclea-bosi",
+    "titulo": "Memória e Sociedade: Lembranças de Velhos",
+    "autoria": "Ecléa Bosi",
+    "ano": 1979,
+    "tipo": "Livro",
+    "eixos": ["cultura-e-identidade", "cidadania-e-direitos"],
+    "sinopse": "A psicóloga e professora da USP demonstra como a memória coletiva, os saberes tradicionais e a história oral guardados pelas gerações mais velhas constituem o alicerce da identidade de uma comunidade, mas são desvalorizados pela sociedade industrial acelerada.",
+    "comoUsarNaRedacao": "Repertório riquíssimo tanto para preservação do patrimônio imaterial e da memória nacional quanto para valorização da pessoa idosa."
+  },
+  {
+    "slug": "filme-bacurau",
+    "titulo": "Bacurau",
+    "autoria": "Dir. Kleber Mendonça Filho e Juliano Dornelles",
+    "ano": 2019,
+    "tipo": "Filme / Série",
+    "eixos": ["cultura-e-identidade", "cidadania-e-direitos"],
+    "sinopse": "Um pequeno povoado do sertão brasileiro que some dos mapas digitais une-se para resistir a invasores estrangeiros; no centro da resistência comunitária está o Museu Histórico de Bacurau, símbolo da memória e da dignidade coletiva.",
+    "comoUsarNaRedacao": "Use para destacar que museus, arquivos e manifestações culturais locais não são luxo, mas instrumentos vitais de soberania e identidade de um povo."
+  },
+  {
+    "slug": "filme-amarelo-e-tudo-pra-ontem",
+    "titulo": "AmarElo — É Tudo Pra Ontem",
+    "autoria": "Dir. Fred Ouro Preto (Idealização: Emicida)",
+    "ano": 2020,
+    "tipo": "Documentário",
+    "eixos": ["cultura-e-identidade", "cidadania-e-direitos", "educacao-e-conhecimento"],
+    "sinopse": "Gravado no Theatro Municipal de São Paulo, o documentário resgata a contribuição histórica de intelectuais, artistas e movimentos negros na construção da cultura e da democracia brasileira, combatendo o apagamento da memória afro-brasileira.",
+    "comoUsarNaRedacao": "Excelente repertório cultural brasileiro para temas de patrimônio imaterial, valorização da cultura negra, música e memória histórica."
+  },
+  {
+    "slug": "lei-artigos-215-e-216-cf88-patrimonio",
+    "titulo": "Artigos 215 e 216 da Constituição Federal de 1988 (Patrimônio Cultural Material e Imaterial)",
+    "autoria": "Assembleia Nacional Constituinte",
+    "ano": 1988,
+    "tipo": "Lei / Documento",
+    "eixos": ["cultura-e-identidade", "cidadania-e-direitos"],
+    "sinopse": "Estabelecem que o Estado garantirá a todos o pleno exercício dos direitos culturais e definem como patrimônio cultural brasileiro os bens de natureza material e imaterial (saberes, celebrações, formas de expressão e lugares) portadores de referência à identidade dos diferentes grupos formadores da sociedade brasileira.",
+    "comoUsarNaRedacao": "Citação constitucional exata para fundamentar temas sobre preservação de museus, línguas indígenas, festas populares e memória coletiva."
+  },
+  {
+    "slug": "pensador-stuart-hall-identidade-cultural",
+    "titulo": "A Identidade Cultural na Pós-Modernidade",
+    "autoria": "Stuart Hall",
+    "ano": 1992,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["cultura-e-identidade", "tecnologia-e-redes"],
+    "sinopse": "O teórico cultural jamaicano analisa como a globalização acelerada e os meios de comunicação de massa provocam uma tensão constante entre a homogeneização cultural padronizada e a necessidade de reafirmar identidades e tradições locais.",
+    "comoUsarNaRedacao": "Use para explicar por que a padronização algorítmica das redes globais ameaça o patrimônio cultural regional caso não haja políticas educativas de valorização."
+  },
+  {
+    "slug": "pensador-gilberto-dimenstein-cidadao-de-papel",
+    "titulo": "O Cidadão de Papel",
+    "autoria": "Gilberto Dimenstein",
+    "ano": 1993,
+    "tipo": "Livro",
+    "eixos": ["cidadania-e-direitos", "educacao-e-conhecimento", "saude-e-sociedade", "trabalho-e-economia"],
+    "sinopse": "O jornalista e escritor brasileiro cunhou a expressão 'cidadão de papel' para denunciar o abismo existente no Brasil entre uma legislação formalmente avançada e a ineficácia prática das instituições públicas em garantir esses direitos no cotidiano da população.",
+    "comoUsarNaRedacao": "Repertório coringa clássico para abrir a Introdução ou iniciar o Desenvolvimento 1 apontando a ineficiência estatal na garantia de direitos constitucionais."
+  },
+  {
+    "slug": "pensador-hannah-arendt-banalidade-do-mal",
+    "titulo": "A Banalidade do Mal (Eichmann em Jerusalém)",
+    "autoria": "Hannah Arendt",
+    "ano": 1963,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["cidadania-e-direitos", "tecnologia-e-redes", "saude-e-sociedade"],
+    "sinopse": "A filósofa política alemã demonstra que graves injustiças e violências coletivas muitas vezes não decorrem de monstros fanáticos, mas da incapacidade de pensar criticamente e da naturalização burocrática e cotidiana do sofrimento alheio.",
+    "comoUsarNaRedacao": "Use no Desenvolvimento 2 para criticar a indiferença social, a omissão coletiva ou a naturalização de discursos de ódio e exclusão."
+  },
+  {
+    "slug": "pensador-milton-santos-cidadania-mutilada",
+    "titulo": "O Espaço do Cidadão (Conceito de Cidadania Mutilada)",
+    "autoria": "Milton Santos",
+    "ano": 1987,
+    "tipo": "Filósofo / Sociólogo",
+    "eixos": ["cidadania-e-direitos", "meio-ambiente", "cultura-e-identidade", "trabalho-e-economia"],
+    "sinopse": "O grande geógrafo brasileiro explica que, no Brasil, o acesso a direitos básicos (saúde, educação, cultura, saneamento e transporte) depende do CEP onde o indivíduo mora, gerando 'cidadãos mutilados' nas periferias e regiões interioranas.",
+    "comoUsarNaRedacao": "Imbatível para analisar desigualdades regionais e socioespaciais em temas urbanos, ambientais, educacionais ou culturais."
+  }
+]

@@ -1,0 +1,739 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/layout/Breadcrumbs.astro';
+import juliaFoto from '../assets/images/julia-foto.png';
+import { SITE } from '../data/site';
+import { CURRICULO } from '../data/curriculo';
+---
+
+<BaseLayout
+  title="Sobre"
+  description="Conheça a trajetória acadêmica e profissional da professora Júlia Demetrio Xavier (CEFET-MG e intercâmbio na Universidade Politécnica de Bragança, Portugal), serviços pedagógicos e editoriais e canais de contato."
+>
+  <!-- 1. APRESENTAÇÃO & BIO -->
+  <section class="section section-editorial about-hero">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Sobre a Professora' }]} />
+
+      <div class="about-hero-grid">
+        <div class="about-hero-copy">
+          <span class="eyebrow">Trajetória Acadêmica, Ensino & Revisão Textual</span>
+          <h1>{SITE.name}</h1>
+          <p class="lead about-bio">
+            {CURRICULO.resumoProfissional}
+          </p>
+
+          <div class="about-quick-nav" aria-label="Atalhos desta página">
+            <a href="#curriculo" class="btn btn-secondary">Formação & Experiência</a>
+            <a href="#servicos" class="btn btn-secondary">Serviços</a>
+            <a href="#contato" class="btn btn-primary">Entrar em Contato</a>
+          </div>
+
+          <div class="cred-cards-row">
+            {
+              CURRICULO.credenciaisDestaque.map((cred) => (
+                <div class="cred-card">
+                  <span class="cred-sigla">{cred.sigla}</span>
+                  <strong class="cred-title">{cred.titulo}</strong>
+                  <span class="cred-sub">{cred.subtitulo}</span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Retrato da Professora (sem cards sobrepostos na frente da foto/rosto) -->
+        <div class="about-hero-visual">
+          <div class="photo-frame">
+            <div class="photo-halo" aria-hidden="true"></div>
+            <div class="photo-ring" aria-hidden="true"></div>
+            <Image
+              src={juliaFoto}
+              alt="Retrato da professora Júlia Demetrio Xavier"
+              width={520}
+              height={680}
+              class="julia-portrait"
+              loading="eager"
+            />
+          </div>
+          <p class="photo-caption">
+            Mestranda em Estudos de Linguagem (CEFET-MG) • Intercâmbio na Universidade Politécnica de Bragança (Portugal) • Graduada em Letras (CEFET-MG)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. FORMAÇÃO ACADÊMICA E EXPERIÊNCIA PROFISSIONAL -->
+  <section class="section" id="curriculo">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Currículo Acadêmico e Profissional</span>
+        <h2>Formação Acadêmica e Experiência</h2>
+        <p class="lead">
+          Formação universitária no CEFET-MG, intercâmbio internacional em Portugal e atuação em docência, correção de redações e revisão textual.
+        </p>
+      </div>
+
+      <div class="about-columns">
+        <!-- Coluna 1: Formação Acadêmica -->
+        <div class="about-col">
+          <h3 class="timeline-group-title">Formação Acadêmica</h3>
+          <div class="timeline">
+            {
+              CURRICULO.formacao.map((item) => (
+                <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="card timeline-card">
+                    <div class="tl-meta">
+                      <span class="badge badge-gold">{item.periodo}</span>
+                      <span class="tl-status">{item.status}</span>
+                    </div>
+                    <h4>{item.curso}</h4>
+                    <p class="tl-inst">{item.instituicao}</p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- Coluna 2: Experiência Profissional -->
+        <div class="about-col">
+          <h3 class="timeline-group-title">Experiência Profissional</h3>
+          <div class="timeline">
+            {
+              CURRICULO.experiencia.map((exp) => (
+                <div class="timeline-item">
+                  <div class="timeline-marker"></div>
+                  <div class="card timeline-card">
+                    <div class="tl-meta">
+                      <span class="badge badge-rose">{exp.periodo}</span>
+                      {exp.instituicao && <span class="badge badge-gold">{exp.instituicao}</span>}
+                    </div>
+                    <h4>{exp.cargo}</h4>
+                    {exp.instituicao && <p class="tl-inst">{exp.instituicao}</p>}
+                    <ul class="tl-list">
+                      {exp.atividades.map((ativ) => <li>{ativ}</li>)}
+                    </ul>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SERVIÇOS (3 SERVIÇOS EM LINHA ÚNICA NO COMPUTADOR E LISTA VERTICAL NO MOBILE) -->
+  <section class="section section-cream" id="servicos">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Atendimento Online Personalizado</span>
+        <h2>Serviços Pedagógicos e Editoriais</h2>
+        <p class="lead">
+          Acompanhamento individualizado em redação para o ENEM, aulas particulares de Língua Portuguesa e Literatura e revisão textual com normalização acadêmica.
+        </p>
+      </div>
+
+      <div class="services-row">
+        {
+          CURRICULO.servicos.map((serv) => (
+            <article class="card serv-detail-card" id={serv.slug}>
+              <div class="serv-top">
+                <span class="badge badge-rose">{serv.categoria}</span>
+                <span class="serv-target">{serv.publicoAlvo}</span>
+              </div>
+              <h3>{serv.titulo}</h3>
+              <p class="serv-summary">{serv.resumo}</p>
+
+              <div class="serv-deliverables">
+                <strong>O que está incluído:</strong>
+                <ul>
+                  {serv.entregaveis.map((item) => <li>{item}</li>)}
+                </ul>
+              </div>
+
+              <div class="serv-actions">
+                <a
+                  href={`#contato`}
+                  data-select-servico={serv.slug}
+                  class="btn btn-primary serv-select-btn"
+                  style="width: 100%;"
+                >
+                  Solicitar este serviço
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CONTATO (AO FINAL DA PÁGINA) -->
+  <section class="section" id="contato">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Atendimento Direto</span>
+        <h2>Entre em Contato</h2>
+        <p class="lead">
+          Escolha o assunto abaixo para gerar uma mensagem personalizada diretamente no WhatsApp ou utilize o e-mail e o LinkedIn profissional.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Gerador de Mensagem WhatsApp -->
+        <div class="card whatsapp-builder">
+          <h3>Iniciar Conversa no WhatsApp</h3>
+          <p class="builder-sub">
+            Selecione o motivo do contato para abrirmos o WhatsApp já com o contexto preenchido:
+          </p>
+
+          <form id="whatsapp-form" class="builder-form">
+            <div class="form-group">
+              <label for="nome-visitante">Seu nome (opcional)</label>
+              <input
+                type="text"
+                id="nome-visitante"
+                placeholder="Ex.: Mariana Silva"
+                class="form-input"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="servico-select">Assunto de interesse</label>
+              <select id="servico-select" class="form-input">
+                {
+                  CURRICULO.servicos.map((s) => (
+                    <option value={s.slug} data-msg={s.mensagemWhatsApp}>
+                      {s.titulo}
+                    </option>
+                  ))
+                }
+                <option
+                  value="outro"
+                  data-msg="Olá, professora Júlia! Vim pelo seu site e gostaria de conversar sobre uma proposta acadêmica/pedagógica."
+                >
+                  Outro assunto / Convite acadêmico
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="detalhes-msg">Detalhes adicionais (opcional)</label>
+              <textarea
+                id="detalhes-msg"
+                rows="3"
+                placeholder="Conte brevemente seu objetivo (ex.: preparação para o ENEM, revisão de TCC, série escolar...)"
+                class="form-input"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Abrir conversa no WhatsApp ({SITE.contact.phoneDisplay})
+            </button>
+          </form>
+        </div>
+
+        <!-- Cartões de Canais Diretos -->
+        <div class="direct-channels">
+          <div class="card channel-card">
+            <span class="badge badge-rose">E-mail Direto</span>
+            <h3>Correio Eletrônico</h3>
+            <p>Ideal para envio de documentos, convites acadêmicos e orçamentos de revisão textual.</p>
+            <div class="email-box">
+              <code id="email-address">{SITE.contact.email}</code>
+              <button type="button" id="copy-email-btn" class="btn btn-secondary">
+                Copiar e-mail
+              </button>
+            </div>
+            <p id="copy-feedback" class="copy-feedback" aria-live="polite" hidden>
+              E-mail copiado para a área de transferência!
+            </p>
+          </div>
+
+          <div class="card channel-card">
+            <span class="badge badge-gold">Rede Profissional</span>
+            <h3>LinkedIn</h3>
+            <p>Acompanhe a trajetória acadêmica e conexões profissionais.</p>
+            <a
+              href={SITE.contact.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              Acessar LinkedIn ({SITE.contact.linkedinHandle})
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ phoneE164: SITE.contact.phoneE164, email: SITE.contact.email }}>
+  const selectEl = document.getElementById('servico-select');
+
+  // Pré-seleciona o serviço vindo da URL (?servico=slug)
+  const params = new URLSearchParams(window.location.search);
+  const servicoParam = params.get('servico');
+  if (servicoParam && selectEl) {
+    const optionExists = Array.from(selectEl.options).some((opt) => opt.value === servicoParam);
+    if (optionExists) {
+      selectEl.value = servicoParam;
+    }
+  }
+
+  // Botões "Solicitar este serviço" nos cards de serviço pré-selecionam a opção e rolam até #contato
+  document.querySelectorAll('.serv-select-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const slug = btn.getAttribute('data-select-servico');
+      if (slug && selectEl) {
+        selectEl.value = slug;
+      }
+    });
+  });
+
+  // Envio para WhatsApp
+  const form = document.getElementById('whatsapp-form');
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nome = document.getElementById('nome-visitante')?.value?.trim() || '';
+    const detalhes = document.getElementById('detalhes-msg')?.value?.trim() || '';
+    const selectedOption = selectEl?.options[selectEl.selectedIndex];
+    const baseMsg =
+      selectedOption?.getAttribute('data-msg') ||
+      'Olá, professora Júlia! Vim pelo seu site e gostaria de conversar.';
+
+    let finalMsg = baseMsg;
+    if (nome) {
+      finalMsg = `Olá, professora Júlia! Meu nome é ${nome}. ` + baseMsg.replace(/^Olá, (professora )?Júlia!\s*/i, '');
+    }
+    if (detalhes) {
+      finalMsg += `\n\nContexto: ${detalhes}`;
+    }
+
+    const url = `https://wa.me/${phoneE164}?text=${encodeURIComponent(finalMsg)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+
+  // Copiar e-mail
+  const copyBtn = document.getElementById('copy-email-btn');
+  const feedback = document.getElementById('copy-feedback');
+  copyBtn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      if (feedback) {
+        feedback.removeAttribute('hidden');
+        setTimeout(() => feedback.setAttribute('hidden', ''), 3500);
+      }
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  });
+</script>
+
+<style>
+  .about-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    margin-top: 0.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    .about-hero-grid {
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 3.5rem;
+    }
+  }
+
+  .about-hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.15rem;
+  }
+
+  .about-bio {
+    line-height: 1.75;
+    color: var(--color-ink-700);
+  }
+
+  .about-quick-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .cred-cards-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .cred-cards-row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .cred-card {
+    background-color: var(--color-cream-50);
+    border: 1px solid var(--color-cream-300);
+    border-left: 3px solid var(--color-wine-800);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .cred-sigla {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-rose-700);
+  }
+
+  .cred-title {
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    color: var(--color-wine-900);
+    line-height: 1.25;
+  }
+
+  .cred-sub {
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+    line-height: 1.35;
+  }
+
+  /* Retrato sem sobreposição no rosto */
+  .about-hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .photo-frame {
+    position: relative;
+    width: min(100%, 390px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .photo-halo {
+    position: absolute;
+    width: 88%;
+    aspect-ratio: 1 / 1;
+    top: 8%;
+    border-radius: 50%;
+    background: var(--gradient-photo-backdrop);
+    z-index: 1;
+  }
+
+  .photo-ring {
+    position: absolute;
+    width: 82%;
+    aspect-ratio: 1 / 1;
+    top: 11%;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-gold-300);
+    opacity: 0.7;
+    z-index: 1;
+  }
+
+  .julia-portrait {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    filter: drop-shadow(0 18px 34px rgba(104, 45, 52, 0.16));
+  }
+
+  .photo-caption {
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+    text-align: center;
+    max-width: 38ch;
+    background-color: var(--color-cream-50);
+    border: 1px solid var(--color-cream-200);
+    padding: 0.5rem 0.85rem;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Cabeçalhos de Seção */
+  .section-header {
+    max-width: 68ch;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* Timeline Currículo */
+  .about-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .about-columns {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .timeline-group-title {
+    font-size: 1.25rem;
+    color: var(--color-wine-900);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-gold-300);
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    position: relative;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--color-rose-200);
+  }
+
+  .timeline-item {
+    position: relative;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -1.68rem;
+    top: 1.25rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--color-wine-800);
+    border: 2px solid var(--color-cream-50);
+  }
+
+  .timeline-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .tl-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+  }
+
+  .tl-status {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-ink-500);
+  }
+
+  .tl-inst {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-wine-800);
+  }
+
+  .tl-desc {
+    font-size: var(--text-sm);
+    color: var(--color-ink-700);
+  }
+
+  .tl-list {
+    list-style: disc;
+    padding-left: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: var(--text-sm);
+    color: var(--color-ink-700);
+    margin-top: 0.25rem;
+  }
+
+  /* Serviços: Lista vertical no mobile (1fr) e Linha única no computador (3 colunas) */
+  .services-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  @media (min-width: 1024px) {
+    .services-row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .serv-detail-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .serv-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .serv-target {
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+    font-weight: 500;
+  }
+
+  .serv-detail-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .serv-summary {
+    font-size: var(--text-sm);
+    color: var(--color-ink-700);
+  }
+
+  .serv-deliverables {
+    background-color: var(--color-cream-100);
+    padding: 1rem 1.15rem;
+    border-radius: var(--radius-sm);
+    margin-top: auto;
+  }
+
+  .serv-deliverables strong {
+    display: block;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-wine-900);
+    margin-bottom: 0.45rem;
+  }
+
+  .serv-deliverables ul {
+    list-style: disc;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: var(--text-sm);
+    color: var(--color-ink-700);
+  }
+
+  .serv-actions {
+    padding-top: 0.35rem;
+  }
+
+  /* Contato */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .contact-grid {
+      grid-template-columns: 1.2fr 0.9fr;
+    }
+  }
+
+  .whatsapp-builder h3 {
+    margin-bottom: 0.4rem;
+    font-size: 1.35rem;
+  }
+
+  .builder-sub {
+    font-size: var(--text-sm);
+    margin-bottom: 1.5rem;
+  }
+
+  .builder-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-ink-900);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.75rem 0.95rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-cream-300);
+    background-color: var(--color-cream-50);
+    font-size: var(--text-sm);
+  }
+
+  .form-input:focus {
+    outline: 2px solid var(--color-gold-500);
+    border-color: var(--color-gold-500);
+  }
+
+  .direct-channels {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .channel-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  .email-box {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .email-box code {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    background-color: var(--color-cream-100);
+    padding: 0.55rem 0.85rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-wine-900);
+  }
+
+  .copy-feedback {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-sage-600);
+  }
+</style>

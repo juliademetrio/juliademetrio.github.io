@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/layout/Breadcrumbs.astro';
+import ProbableThemeCard from '../../../components/enem/ProbableThemeCard.astro';
+import { getTemasProvaveis } from '../../../utils/content';
+import { EIXOS_LIST } from '../../../utils/eixos';
+
+const temas = getTemasProvaveis();
+---
+
+<BaseLayout
+  title="Temas Prováveis"
+  description="Catálogo de 12 possíveis temas de redação para os próximos anos do ENEM. Cada tema conta com frase-tema, tese, argumentos, proposta de intervenção e indicações de livros, filmes e textos de repertório."
+>
+  <section class="section section-editorial">
+    <div class="container">
+      <Breadcrumbs
+        items={[
+          { label: 'Portal ENEM', href: '/' },
+          { label: 'Temas Prováveis (2026/2027+)' },
+        ]}
+      />
+      <span class="eyebrow">Apostas Comentadas & Repertório Mapeado</span>
+      <h1>Possíveis Temas de Redação dos Próximos Anos</h1>
+      <p class="lead" style="max-width: 68ch; margin-top: 0.75rem;">
+        Seleção de <strong>{temas.length} temas de alta relevância social</strong> organizados pelos eixos do ENEM. Para cada tema proposto, você encontra indicações específicas de <strong>Livros</strong>, <strong>Filmes/Documentários</strong> e <strong>Textos de Repertório (Leis, Filósofos e Estudos)</strong> prontos para articular na dissertação.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="controls-panel card">
+        <div class="search-row">
+          <label for="search-prob" class="sr-only">Buscar tema provável</label>
+          <input
+            type="search"
+            id="search-prob"
+            placeholder="Buscar por assunto (ex.: inteligência artificial, apostas, infância, clima, leitura)..."
+            class="search-input"
+          />
+          <span id="prob-count" class="results-count" aria-live="polite">
+            Exibindo {temas.length} temas prováveis
+          </span>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Filtrar por Eixo Temático:</span>
+          <div class="filter-bar filter-bar-scroll" role="group" aria-label="Filtrar por eixo temático">
+            <button type="button" class="filter-chip active" data-filter-eixo="todos" aria-pressed="true">
+              Todos os eixos ({temas.length})
+            </button>
+            {
+              EIXOS_LIST.map((eixo) => (
+                <button
+                  type="button"
+                  class="filter-chip"
+                  data-filter-eixo={eixo.slug}
+                  aria-pressed="false"
+                >
+                  {eixo.shortLabel}
+                </button>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" id="prob-grid">
+        {temas.map((tema) => <ProbableThemeCard tema={tema} />)}
+      </div>
+
+      <div id="prob-empty" class="card empty-state" hidden>
+        <h3>Nenhum tema provável encontrado</h3>
+        <p>Tente outro termo de busca ou selecione "Todos os eixos".</p>
+        <button type="button" id="reset-prob-filters" class="btn btn-secondary">
+          Mostrar todos os temas
+        </button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const searchInput = document.getElementById('search-prob') as HTMLInputElement | null;
+  const eixoBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter-eixo]');
+  const cards = document.querySelectorAll<HTMLElement>('.probable-card');
+  const countEl = document.getElementById('prob-count');
+  const emptyEl = document.getElementById('prob-empty');
+  const resetBtn = document.getElementById('reset-prob-filters');
+
+  let activeEixo = 'todos';
+
+  function applyFilters() {
+    const q = (searchInput?.value || '')
+      .trim()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const cardEixo = card.getAttribute('data-eixo') || '';
+      const cardSearch = card.getAttribute('data-search') || '';
+
+      const matchEixo = activeEixo === 'todos' || cardEixo === activeEixo;
+      const matchQuery = !q || cardSearch.includes(q);
+
+      if (matchEixo && matchQuery) {
+        card.removeAttribute('hidden');
+        visible++;
+      } else {
+        card.setAttribute('hidden', '');
+      }
+    });
+
+    if (countEl) {
+      countEl.textContent = `Exibindo ${visible} ${visible === 1 ? 'tema provável' : 'temas prováveis'}`;
+    }
+    if (emptyEl) {
+      if (visible === 0) emptyEl.removeAttribute('hidden');
+      else emptyEl.setAttribute('hidden', '');
+    }
+  }
+
+  eixoBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activeEixo = btn.getAttribute('data-filter-eixo') || 'todos';
+      eixoBtns.forEach((b) => {
+        const isCurrent = b === btn;
+        b.classList.toggle('active', isCurrent);
+        b.setAttribute('aria-pressed', String(isCurrent));
+      });
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener('input', applyFilters);
+
+  resetBtn?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    eixoBtns[0]?.click();
+  });
+
+  // Suporte a query string ?eixo=slug
+  const params = new URLSearchParams(window.location.search);
+  const eixoParam = params.get('eixo');
+  if (eixoParam) {
+    const targetBtn = document.querySelector<HTMLButtonElement>(`[data-filter-eixo="${eixoParam}"]`);
+    targetBtn?.click();
+  }
+</script>
+
+<style>
+  .controls-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .search-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  @media (min-width: 768px) {
+    .search-row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-cream-300);
+    background-color: var(--color-cream-50);
+    font-size: var(--text-sm);
+  }
+
+  .results-count {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-ink-500);
+    white-space: nowrap;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .filter-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-500);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+</style>

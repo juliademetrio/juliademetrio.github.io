@@ -1,0 +1,257 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/layout/Breadcrumbs.astro';
+import RepertoireCard from '../../components/enem/RepertoireCard.astro';
+import { getRepertorio } from '../../utils/content';
+import { EIXOS_LIST } from '../../utils/eixos';
+
+const repertorio = getRepertorio();
+const tipos = [
+  { label: 'Todos os tipos', value: 'todos' },
+  { label: 'Livros', value: 'Livro' },
+  { label: 'Filmes e Séries', value: 'Filme / Série' },
+  { label: 'Documentários', value: 'Documentário' },
+  { label: 'Filósofos e Sociólogos', value: 'Filósofo / Sociólogo' },
+  { label: 'Leis e Estudos', value: 'Lei / Documento' },
+];
+---
+
+<BaseLayout
+  title="Banco de Repertório"
+  description="Catálogo de livros, filmes, documentários, filósofos, sociólogos e leis organizados por eixo temático, com explicação prática de como usar na redação do ENEM."
+>
+  <section class="section section-editorial">
+    <div class="container">
+      <Breadcrumbs
+        items={[
+          { label: 'Portal ENEM', href: '/' },
+          { label: 'Banco de Repertório' },
+        ]}
+      />
+      <span class="eyebrow">Competência 2 da Redação</span>
+      <h1>Banco de Repertório Sociocultural</h1>
+      <p class="lead" style="max-width: 68ch; margin-top: 0.75rem;">
+        Explore <strong>{repertorio.length} referências legitimadas</strong> — entre livros clássicos e contemporâneos, filmes, documentários, pensadores e marcos legais — com orientação direta de aplicação nos parágrafos da dissertação.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="controls-panel card">
+        <div class="search-row">
+          <label for="search-rep" class="sr-only">Buscar repertório</label>
+          <input
+            type="search"
+            id="search-rep"
+            placeholder="Buscar por obra, autor, filósofo, lei ou tema (ex.: Bauman, Krenak, Constituição, Vidas Secas)..."
+            class="search-input"
+          />
+          <span id="rep-count" class="results-count" aria-live="polite">
+            Exibindo {repertorio.length} repertórios
+          </span>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Tipo de Repertório:</span>
+          <div class="filter-bar filter-bar-scroll" role="group" aria-label="Filtrar por tipo de repertório">
+            {
+              tipos.map((t, idx) => (
+                <button
+                  type="button"
+                  class:list={['filter-chip', { active: idx === 0 }]}
+                  data-filter-tipo={t.value}
+                  aria-pressed={idx === 0 ? 'true' : 'false'}
+                >
+                  {t.label}
+                </button>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Eixo Temático:</span>
+          <div class="filter-bar filter-bar-scroll" role="group" aria-label="Filtrar por eixo temático">
+            <button type="button" class="filter-chip active" data-filter-eixo="todos" aria-pressed="true">
+              Todos os eixos
+            </button>
+            {
+              EIXOS_LIST.map((eixo) => (
+                <button
+                  type="button"
+                  class="filter-chip"
+                  data-filter-eixo={eixo.slug}
+                  aria-pressed="false"
+                >
+                  {eixo.shortLabel}
+                </button>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-3" id="rep-grid">
+        {repertorio.map((item) => <RepertoireCard item={item} />)}
+      </div>
+
+      <div id="rep-empty" class="card empty-state" hidden>
+        <h3>Nenhum repertório encontrado para esta combinação</h3>
+        <p>Tente limpar o campo de busca ou selecionar "Todos os tipos" e "Todos os eixos".</p>
+        <button type="button" id="reset-rep-filters" class="btn btn-secondary">
+          Limpar filtros
+        </button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const searchInput = document.getElementById('search-rep') as HTMLInputElement | null;
+  const tipoBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter-tipo]');
+  const eixoBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter-eixo]');
+  const cards = document.querySelectorAll<HTMLElement>('.repertoire-card');
+  const countEl = document.getElementById('rep-count');
+  const emptyEl = document.getElementById('rep-empty');
+  const resetBtn = document.getElementById('reset-rep-filters');
+
+  let activeTipo = 'todos';
+  let activeEixo = 'todos';
+
+  function applyFilters() {
+    const q = (searchInput?.value || '')
+      .trim()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const cardTipo = card.getAttribute('data-tipo') || '';
+      const cardEixos = (card.getAttribute('data-eixos') || '').split(',');
+      const cardSearch = card.getAttribute('data-search') || '';
+
+      const matchTipo = activeTipo === 'todos' || cardTipo === activeTipo;
+      const matchEixo = activeEixo === 'todos' || cardEixos.includes(activeEixo);
+      const matchQuery = !q || cardSearch.includes(q);
+
+      if (matchTipo && matchEixo && matchQuery) {
+        card.removeAttribute('hidden');
+        visible++;
+      } else {
+        card.setAttribute('hidden', '');
+      }
+    });
+
+    if (countEl) {
+      countEl.textContent = `Exibindo ${visible} ${visible === 1 ? 'repertório' : 'repertórios'}`;
+    }
+    if (emptyEl) {
+      if (visible === 0) emptyEl.removeAttribute('hidden');
+      else emptyEl.setAttribute('hidden', '');
+    }
+  }
+
+  tipoBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activeTipo = btn.getAttribute('data-filter-tipo') || 'todos';
+      tipoBtns.forEach((b) => {
+        const isCurrent = b === btn;
+        b.classList.toggle('active', isCurrent);
+        b.setAttribute('aria-pressed', String(isCurrent));
+      });
+      applyFilters();
+    });
+  });
+
+  eixoBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activeEixo = btn.getAttribute('data-filter-eixo') || 'todos';
+      eixoBtns.forEach((b) => {
+        const isCurrent = b === btn;
+        b.classList.toggle('active', isCurrent);
+        b.setAttribute('aria-pressed', String(isCurrent));
+      });
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener('input', applyFilters);
+
+  resetBtn?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    tipoBtns[0]?.click();
+    eixoBtns[0]?.click();
+  });
+
+  // Suporte a ?eixo=slug na URL
+  const params = new URLSearchParams(window.location.search);
+  const eixoParam = params.get('eixo');
+  if (eixoParam) {
+    const targetBtn = document.querySelector<HTMLButtonElement>(`[data-filter-eixo="${eixoParam}"]`);
+    targetBtn?.click();
+  }
+</script>
+
+<style>
+  .controls-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .search-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  @media (min-width: 768px) {
+    .search-row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-cream-300);
+    background-color: var(--color-cream-50);
+    font-size: var(--text-sm);
+  }
+
+  .results-count {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-ink-500);
+    white-space: nowrap;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .filter-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-500);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+</style>

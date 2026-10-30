@@ -1,0 +1,26 @@
+@media print {
+  header,
+  footer,
+  .no-print,
+  .filter-bar,
+  .search-controls,
+  .btn {
+    display: none !important;
+  }
+
+  body,
+  main,
+  .card {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: none !important;
+  }
+
+  details {
+    display: block !important;
+  }
+
+  details > * {
+    display: block !important;
+  }
+}

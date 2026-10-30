@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/layout/Breadcrumbs.astro';
+import PastThemeRow from '../../components/enem/PastThemeRow.astro';
+import { getTemasAnteriores } from '../../utils/content';
+import { EIXOS_LIST } from '../../utils/eixos';
+
+const temas = getTemasAnteriores();
+---
+
+<BaseLayout
+  title="Temas Anteriores (2010–2025)"
+  description="Linha do tempo interativa com todos os temas oficiais de redação do ENEM de 2010 a 2025, classificados por eixo temático e comentados."
+>
+  <section class="section section-editorial">
+    <div class="container">
+      <Breadcrumbs
+        items={[
+          { label: 'Portal ENEM', href: '/' },
+          { label: 'Temas Anteriores (2010–2025)' },
+        ]}
+      />
+      <span class="eyebrow">Histórico Oficial (2010–2025)</span>
+      <h1>Temas de Redação Anteriores do ENEM</h1>
+      <p class="lead" style="max-width: 66ch; margin-top: 0.75rem;">
+        Consulte os <strong>{temas.length} temas cobrados pelo INEP a partir de 2010 até 2025</strong>. Expanda cada edição para entender o recorte exigido pela banca e quais repertórios articulam o problema.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!-- Controles de Busca e Filtro -->
+      <div class="controls-panel card">
+        <div class="search-row">
+          <label for="search-past" class="sr-only">Buscar tema por ano ou palavra-chave</label>
+          <input
+            type="search"
+            id="search-past"
+            placeholder="Buscar por ano (ex.: 2025, 2020) ou palavra-chave (ex.: envelhecimento, mulher, cinema)..."
+            class="search-input"
+          />
+          <span id="past-count" class="results-count" aria-live="polite">
+            Exibindo {temas.length} temas (2010–2025)
+          </span>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Período:</span>
+          <div class="filter-bar filter-bar-scroll" role="group" aria-label="Filtrar por período">
+            <button type="button" class="filter-chip active" data-filter-periodo="todos" aria-pressed="true">
+              Todos (2010–2025)
+            </button>
+            <button type="button" class="filter-chip" data-filter-periodo="2020-2025" aria-pressed="false">
+              2020 a 2025
+            </button>
+            <button type="button" class="filter-chip" data-filter-periodo="2015-2019" aria-pressed="false">
+              2015 a 2019
+            </button>
+            <button type="button" class="filter-chip" data-filter-periodo="2010-2014" aria-pressed="false">
+              2010 a 2014
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <span class="filter-label">Eixo Temático:</span>
+          <div class="filter-bar filter-bar-scroll" role="group" aria-label="Filtrar por eixo temático">
+            <button type="button" class="filter-chip active" data-filter-eixo="todos" aria-pressed="true">
+              Todos os eixos
+            </button>
+            {
+              EIXOS_LIST.map((eixo) => (
+                <button
+                  type="button"
+                  class="filter-chip"
+                  data-filter-eixo={eixo.slug}
+                  aria-pressed="false"
+                >
+                  {eixo.shortLabel}
+                </button>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de Temas -->
+      <div class="past-list" id="past-themes-list">
+        {temas.map((tema) => <PastThemeRow tema={tema} />)}
+      </div>
+
+      <div id="past-empty" class="card empty-state" hidden>
+        <h3>Nenhum tema encontrado com esses filtros</h3>
+        <p>Tente limpar a busca textual ou selecionar "Todos os eixos".</p>
+        <button type="button" id="reset-past-filters" class="btn btn-secondary">
+          Limpar filtros
+        </button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const searchInput = document.getElementById('search-past') as HTMLInputElement | null;
+  const periodoBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter-periodo]');
+  const eixoBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter-eixo]');
+  const rows = document.querySelectorAll<HTMLElement>('.past-theme-row');
+  const countEl = document.getElementById('past-count');
+  const emptyEl = document.getElementById('past-empty');
+  const resetBtn = document.getElementById('reset-past-filters');
+
+  let activePeriodo = 'todos';
+  let activeEixo = 'todos';
+
+  function applyFilters() {
+    const q = (searchInput?.value || '')
+      .trim()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+    let visible = 0;
+
+    rows.forEach((row) => {
+      const rowPeriodo = row.getAttribute('data-periodo') || '';
+      const rowEixo = row.getAttribute('data-eixo') || '';
+      const rowSearch = row.getAttribute('data-search') || '';
+
+      const matchPeriodo = activePeriodo === 'todos' || rowPeriodo === activePeriodo;
+      const matchEixo = activeEixo === 'todos' || rowEixo === activeEixo;
+      const matchQuery = !q || rowSearch.includes(q);
+
+      if (matchPeriodo && matchEixo && matchQuery) {
+        row.removeAttribute('hidden');
+        visible++;
+      } else {
+        row.setAttribute('hidden', '');
+      }
+    });
+
+    if (countEl) {
+      countEl.textContent = `Exibindo ${visible} ${visible === 1 ? 'tema' : 'temas'}`;
+    }
+    if (emptyEl) {
+      if (visible === 0) emptyEl.removeAttribute('hidden');
+      else emptyEl.setAttribute('hidden', '');
+    }
+  }
+
+  periodoBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activePeriodo = btn.getAttribute('data-filter-periodo') || 'todos';
+      periodoBtns.forEach((b) => {
+        const isCurrent = b === btn;
+        b.classList.toggle('active', isCurrent);
+        b.setAttribute('aria-pressed', String(isCurrent));
+      });
+      applyFilters();
+    });
+  });
+
+  eixoBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      activeEixo = btn.getAttribute('data-filter-eixo') || 'todos';
+      eixoBtns.forEach((b) => {
+        const isCurrent = b === btn;
+        b.classList.toggle('active', isCurrent);
+        b.setAttribute('aria-pressed', String(isCurrent));
+      });
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener('input', applyFilters);
+
+  resetBtn?.addEventListener('click', () => {
+    if (searchInput) searchInput.value = '';
+    periodoBtns[0]?.click();
+    eixoBtns[0]?.click();
+  });
+</script>
+
+<style>
+  .controls-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .search-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  @media (min-width: 768px) {
+    .search-row {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .search-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-cream-300);
+    background-color: var(--color-cream-50);
+    font-size: var(--text-sm);
+  }
+
+  .results-count {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-ink-500);
+    white-space: nowrap;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .filter-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-500);
+  }
+
+  .past-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+</style>

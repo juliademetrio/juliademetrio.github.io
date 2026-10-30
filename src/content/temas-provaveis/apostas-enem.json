@@ -1,0 +1,398 @@
+[
+  {
+    "slug": "impactos-da-inteligencia-artificial-na-educacao-e-na-informacao",
+    "titulo": "Impactos da inteligência artificial generativa na educação, no trabalho e na integridade da informação",
+    "fraseTemaSugerida": "Desafios para o uso ético e crítico da inteligência artificial generativa na sociedade brasileira",
+    "eixo": "tecnologia-e-redes",
+    "destaque": true,
+    "palavrasChave": ["inteligência artificial", "letramento digital", "desinformação", "educação crítica", "ética algorítmica"],
+    "porQuePodeCair": "A popularização massiva de modelos de IA generativa transformou a rotina escolar, a produção de conteúdo e o mercado de trabalho, mobilizando diretrizes da UNESCO e projetos de regulamentação no Congresso Nacional.",
+    "teseCentral": "Embora a inteligência artificial generativa amplie o acesso a ferramentas de produtividade, a lacuna de letramento digital crítico nas escolas e a lentidão regulatória contra deepfakes e vieses algorítmicos ameaçam a autonomia intelectual dos estudantes e a confiabilidade da esfera pública.",
+    "argumentoD1": {
+      "titulo": "D1 — Déficit de letramento digital crítico e risco de atrofia autoral no ensino",
+      "desenvolvimento": "A adoção acrítica de ferramentas generativas por estudantes sem mediação pedagógica substitui o processo de investigação, leitura e escrita por respostas automatizadas, aprofundando o abismo educacional entre aqueles que dominam a tecnologia criticamente e aqueles que apenas terceirizam o pensamento."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Desinformação sintética (deepfakes) e opacidade das plataformas",
+      "desenvolvimento": "A facilidade de produzir áudios, imagens e textos hiper-realistas sem mecanismos obrigatórios de transparência e rastreabilidade fragiliza o debate democrático, facilita golpes virtuais e viola direitos de personalidade."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério da Educação (MEC), em parceria com o Ministério da Ciência, Tecnologia e Inovação (MCTI)",
+      "detalhamento": "órgãos federais responsáveis pelas diretrizes curriculares nacionais e pela política científica do país",
+      "acao": "instituir o Programa Nacional de Letramento em Inteligência Artificial e Ética Digital nas escolas públicas e privadas",
+      "meioModo": "por meio da formação continuada de professores e da inclusão de oficinas práticas de verificação de fontes e uso autoral responsável de IA no Ensino Médio",
+      "efeito": "a fim de formar cidadãos intelectualmente autônomos e mitigar os impactos da desinformação algorítmica no Brasil"
+    },
+    "repertorioSlugs": [
+      "livro-21-licoes-seculo-21-harari",
+      "livro-capitalismo-de-vigilancia-zuboff",
+      "filme-o-dilema-das-redes",
+      "filme-ela-her",
+      "texto-unesco-guia-ia-educacao",
+      "pensador-alvaro-vieira-pinto-tecnologia"
+    ]
+  },
+  {
+    "slug": "adultizacao-precoce-e-protecao-da-infancia-no-ambiente-digital",
+    "titulo": "Adultização precoce, hiperexposição e proteção da infância no ambiente digital",
+    "fraseTemaSugerida": "Caminhos para garantir a proteção integral da infância diante da hiperexposição e da adultização nas redes sociais",
+    "eixo": "cidadania-e-direitos",
+    "destaque": true,
+    "palavrasChave": ["infância", "adultização precoce", "sharenting", "influenciadores mirins", "ECA"],
+    "porQuePodeCair": "O ENEM tem forte tradição na defesa do Estatuto da Criança e do Adolescente (como em 2014 com a Publicidade Infantil) e o debate sobre 'sharenting' (superexposição pelos pais), trabalho infantil artístico nas redes e algoritmos nocivos tornou-se pauta prioritária do CONANDA.",
+    "teseCentral": "A monetização da rotina infantil nas plataformas digitais e o acesso precoce a padrões estéticos e comportamentais adultos violam a Doutrina da Proteção Integral, decorrendo tanto da omissão regulatória sobre algoritmos quanto da naturalização familiar da superexposição.",
+    "argumentoD1": {
+      "titulo": "D1 — A mercantilização da imagem infantil e a adultização estética e comportamental",
+      "desenvolvimento": "Impulsionadas pela lógica do engajamento, crianças passam a reproduzir rotinas de consumo, cuidados estéticos anti-idade e jornadas de gravação incompatíveis com seu desenvolvimento biopsicossocial, suprimindo o tempo do brincar livre."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Falha de verificação etária e insuficiência de educação midiática das famílias",
+      "desenvolvimento": "Muitos responsáveis expõem a intimidade dos filhos sem dimensão dos riscos à segurança, à privacidade futura e à saúde emocional, enquanto plataformas digitais lucram com o tráfego sem impor travas eficazes de proteção."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério dos Direitos Humanos e da Cidadania (MDHC), em atuação conjunta com o CONANDA e o Ministério Público do Trabalho",
+      "detalhamento": "instituições incumbidas de zelar pelo cumprimento do Estatuto da Criança e do Adolescente",
+      "acao": "fiscalizar a exploração comercial infantil nas redes sociais e promover campanhas nacionais de educação digital para famílias",
+      "meioModo": "mediante a exigência de alvará judicial e limites estritos para perfis monetizados com menores de idade, além da distribuição de cartilhas orientativas nas escolas e postos de saúde",
+      "efeito": "com o intuito de preservar o direito ao desenvolvimento saudável e impedir o desaparecimento precoce da infância no país"
+    },
+    "repertorioSlugs": [
+      "livro-desaparecimento-da-infancia-postman",
+      "livro-geracao-ansiosa-haidt",
+      "filme-bad-influence-kidfluencing",
+      "filme-capitaes-da-areia",
+      "lei-eca-artigo-227-cf88",
+      "lei-resolucao-245-conanda-ambiente-digital"
+    ]
+  },
+  {
+    "slug": "impactos-das-apostas-online-bets-na-saude-mental-e-financeira",
+    "titulo": "O impacto dos jogos de apostas online (bets) na saúde financeira e mental das famílias brasileiras",
+    "fraseTemaSugerida": "Efeitos da expansão das apostas online sobre o endividamento familiar e a saúde mental no Brasil",
+    "eixo": "saude-e-sociedade",
+    "destaque": true,
+    "palavrasChave": ["apostas online", "bets", "ludopatia", "endividamento", "saúde pública"],
+    "porQuePodeCair": "Relatórios do Banco Central, do varejo e do Ministério da Saúde apontaram a ludopatia digital como uma das maiores crises socioeconômicas e sanitárias recentes no Brasil, unindo saúde mental, economia doméstica e publicidade digital.",
+    "teseCentral": "A proliferação descontrolada de plataformas de apostas online e de cassinos virtuais, alavancada por publicidade ostensiva e design viciante, converteu-se em uma epidemia de ludopatia e superendividamento que atinge sobretudo os brasileiros economicamente mais vulneráveis.",
+    "argumentoD1": {
+      "titulo": "D1 — Publicidade predatória e a ilusão do enriquecimento imediato em contexto de vulnerabilidade",
+      "desenvolvimento": "O bombardeio publicitário em eventos esportivos e perfis de influenciadores vende as apostas como fonte de renda extra e ascensão social rápida, comprometendo o orçamento alimentar de milhões de lares."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Arquitetura dopaminérgica dos aplicativos e desassistência em saúde mental",
+      "desenvolvimento": "Disponíveis 24 horas no celular, os jogos utilizam recompensas intermitentes que desencadeiam o transtorno do jogo patológico, sem que a rede pública de saúde (CAPS) possua protocolos amplos de acolhimento para dependentes comportamentais."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério da Fazenda e Ministério da Saúde",
+      "detalhamento": "pastas responsáveis, respectivamente, pela regulação econômica das apostas e pela rede de atenção psicossocial do SUS",
+      "acao": "restringir severamente a publicidade de apostas — proibindo o uso de influenciadores e o uso de recursos de programas assistenciais — e criar linha de cuidado para ludopatia nos CAPS",
+      "meioModo": "por meio de fiscalização financeira automatizada das plataformas autorizadas e da capacitação de equipes multiprofissionais de saúde mental nos municípios",
+      "efeito": "a fim de proteger o patrimônio das famílias brasileiras e tratar os cidadãos acometidos pelo vício em jogos"
+    },
+    "repertorioSlugs": [
+      "livro-o-jogador-dostoievski",
+      "livro-nacao-dopamina-lembke",
+      "filme-joias-brutas-uncut-gems",
+      "filme-o-apostador-the-gambler",
+      "texto-oms-cid11-ludopatia-banco-central",
+      "pensador-bauman-vida-para-consumo"
+    ]
+  },
+  {
+    "slug": "justica-climatica-e-racismo-ambiental-no-brasil",
+    "titulo": "Justiça climática, racismo ambiental e os impactos dos eventos extremos nas populações vulneráveis",
+    "fraseTemaSugerida": "Desafios para a promoção da justiça climática e o enfrentamento ao racismo ambiental no Brasil",
+    "eixo": "meio-ambiente",
+    "destaque": true,
+    "palavrasChave": ["justiça climática", "racismo ambiental", "eventos extremos", "periferias", "sustentabilidade"],
+    "porQuePodeCair": "Com o protagonismo do Brasil nas conferências do clima da ONU (COP30 na Amazônia) e a sucessão de enchentes, secas e ondas de calor, a banca do ENEM costuma cobrar o eixo ambiental sob uma ótica social e de direitos humanos.",
+    "teseCentral": "Os desastres decorrentes da emergência climática não são fenômenos meramente naturais ou democráticos: devido à segregação socioespacial histórica e à negligência em infraestrutura urbana, seus efeitos recaem desproporcionalmente sobre populações periféricas, negras, indígenas e ribeirinhas.",
+    "argumentoD1": {
+      "titulo": "D1 — Ocupação urbana excludente e déficit de saneamento e drenagem nas periferias",
+      "desenvolvimento": "A especulação imobiliária e a ausência de políticas habitacionais populares empurraram historicamente famílias de baixa renda para encostas e várzeas inundáveis, onde o Estado falha em prover obras de contenção e saneamento."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Invisibilidade das comunidades tradicionais nas decisões de adaptação climática",
+      "desenvolvimento": "Embora povos indígenas, quilombolas e ribeirinhos sejam os maiores guardiões da biodiversidade, seus territórios sofrem com o avanço do desmatamento, da contaminação hídrica e da falta de planos preventivos."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério das Cidades, em articulação com o Ministério do Meio Ambiente e Mudança do Clima",
+      "detalhamento": "órgãos gestores do planejamento urbano, do saneamento e da política climática nacional",
+      "acao": "implementar Planos Municipais de Adaptação Climática prioritários para periferias, favelas e territórios tradicionais",
+      "meioModo": "mediante o direcionamento de verbas do Fundo Nacional sobre Mudança do Clima para obras de macrodrenagem, reflorestamento de encostas, habitação segura e saneamento básico",
+      "efeito": "com a finalidade de combater o racismo ambiental e assegurar o direito constitucional ao meio ambiente equilibrado"
+    },
+    "repertorioSlugs": [
+      "livro-ideias-para-adiar-o-fim-do-mundo-krenak",
+      "livro-quarto-de-despejo-carolina",
+      "filme-nao-olhe-para-cima",
+      "filme-antes-que-seja-tarde",
+      "pensador-racismo-ambiental-chavis-pacheco",
+      "lei-artigo-225-constituicao-federal"
+    ]
+  },
+  {
+    "slug": "deslocamentos-forcados-por-desastres-climaticos-refugiados-climaticos",
+    "titulo": "Desafios do enfrentamento aos deslocamentos forçados por desastres climáticos no Brasil",
+    "fraseTemaSugerida": "Caminhos para a proteção e o acolhimento de deslocados ambientais por eventos climáticos extremos no Brasil",
+    "eixo": "meio-ambiente",
+    "destaque": false,
+    "palavrasChave": ["deslocados ambientais", "refugiados climáticos", "desastres naturais", "Defesa Civil", "moradia"],
+    "porQuePodeCair": "O Brasil registrou recordes históricos de pessoas desalojadas e desabrigadas por inundações e estiagens severas, trazendo à tona o conceito contemporâneo de 'deslocados climáticos internos'.",
+    "teseCentral": "O crescimento expressivo de brasileiros forçados a abandonar seus lares em razão de tragédias hidroclimáticas expõe a cultura governamental de agir apenas após o desastre, somada à ausência de amparo habitacional e psicossocial duradouro para as famílias atingidas.",
+    "argumentoD1": {
+      "titulo": "D1 — Predomínio de ações emergenciais em detrimento da prevenção de desastres",
+      "desenvolvimento": "A baixa execução orçamentária em monitoramento geotécnico, sistemas de alerta antecipado e reordenamento territorial transforma chuvas intensas ou secas previsíveis em tragédias humanitárias recorrentes."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Desamparo jurídico, habitacional e identitário pós-desastre",
+      "desenvolvimento": "Passada a comoção midiática inicial, milhares de famílias permanecem em abrigos provisórios ou retornam às mesmas áreas condenadas por falta de reconstrução habitacional digna e de recomposição de renda."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério da Integração e do Desenvolvimento Regional (MIDR), em parceria com as Defesas Civis estaduais e municipais",
+      "detalhamento": "instâncias responsáveis pela execução da Política Nacional de Proteção e Defesa Civil",
+      "acao": "criar o Estatuto de Proteção ao Deslocado Ambiental Interno e ampliar a infraestrutura preventiva nos municípios críticos",
+      "meioModo": "por meio do mapeamento satelital de zonas de risco, instalação de alertas sonoros comunitários e concessão rápida de moradia definitiva e auxílio-recomeço às famílias desalojadas",
+      "efeito": "para evitar novas tragédias anunciadas e devolver a dignidade cidadã às populações afetadas"
+    },
+    "repertorioSlugs": [
+      "livro-vidas-secas-graciliano",
+      "livro-torto-arado-itamar",
+      "filme-vidas-secas-cinema-novo",
+      "filme-obrigado-pela-chuva",
+      "lei-politica-nacional-defesa-civil-acnur",
+      "pensador-milton-santos-cidadania-mutilada"
+    ]
+  },
+  {
+    "slug": "saude-mental-de-jovens-e-adolescentes-na-era-da-hiperconectividade",
+    "titulo": "Saúde mental de jovens e adolescentes na era da hiperconectividade e da cultura do desempenho",
+    "fraseTemaSugerida": "Desafios para a promoção da saúde mental de jovens e adolescentes no Brasil contemporâneo",
+    "eixo": "saude-e-sociedade",
+    "destaque": false,
+    "palavrasChave": ["saúde mental", "juventude", "ansiedade", "hiperconectividade", "comunidade escolar"],
+    "porQuePodeCair": "Enquanto em 2020 o ENEM abordou o estigma das doenças mentais em geral, o recorte específico da juventude diante da pressão estética/escolar e da hiperconexão digital ganhou nova legislação federal (Lei nº 14.819/2024).",
+    "teseCentral": "O agravamento dos quadros de ansiedade, depressão e esgotamento entre jovens brasileiros resulta da combinação entre a comparação social incessante nas redes digitais e a escassez de espaços de escuta e apoio psicossocial nas escolas e comunidades.",
+    "argumentoD1": {
+      "titulo": "D1 — Tirania da performance e comparação tóxica nas redes sociais",
+      "desenvolvimento": "Submetidos a algoritmos que exaltam vidas, corpos e desempenhos idealizados, adolescentes desenvolvem sentimentos crônicos de inadequação, medo de exclusão (FOMO) e privação de sono."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Carência de suporte multiprofissional no ambiente escolar",
+      "desenvolvimento": "Apesar da aprovação de leis que preveem psicólogos e assistentes sociais na educação básica, a maioria das escolas brasileiras ainda não conta com equipes estruturadas para acolher sinais precoces de sofrimento emocional."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério da Educação (MEC) e Ministério da Saúde, em regime de colaboração com as secretarias estaduais e municipais",
+      "detalhamento": "gestores responsáveis pela efetivação da Política Nacional de Atenção Psicossocial nas Comunidades Escolares (Lei nº 14.819/2024)",
+      "acao": "efetivar a presença de equipes de psicologia e serviço social nas escolas públicas e instituir rodas permanentes de educação socioemocional",
+      "meioModo": "mediante a criação de núcleos intersetoriais conectando cada escola à Unidade Básica de Saúde (UBS) de referência e a realização de oficinas com estudantes e famílias sobre uso equilibrado de telas",
+      "efeito": "a fim de construir redes de proteção afetiva e assegurar o desenvolvimento saudável da juventude brasileira"
+    },
+    "repertorioSlugs": [
+      "livro-sociedade-do-cansaco-han",
+      "livro-demonio-do-meio-dia-solomon",
+      "filme-divertida-mente-2",
+      "filme-vantagens-de-ser-invisivel",
+      "lei-atencao-psicossocial-escolas-14819",
+      "pensador-durkheim-coesao-anomia"
+    ]
+  },
+  {
+    "slug": "inclusao-escolar-e-laboral-de-pessoas-neurodivergentes",
+    "titulo": "Caminhos para a inclusão escolar e laboral de pessoas neurodivergentes no Brasil",
+    "fraseTemaSugerida": "Desafios para a plena inclusão educacional e profissional de pessoas neurodivergentes no Brasil",
+    "eixo": "educacao-e-conhecimento",
+    "destaque": false,
+    "palavrasChave": ["neurodiversidade", "autismo (TEA)", "TDAH", "dislexia", "educação inclusiva"],
+    "porQuePodeCair": "Sete anos após o tema sobre educação de surdos (2017), o aumento expressivo nos diagnósticos de TEA, TDAH e dislexia e a inclusão do autismo no Censo IBGE colocaram a neurodiversidade no centro do debate educacional brasileiro.",
+    "teseCentral": "Embora o Brasil possua legislação avançada para a educação inclusiva, a inserção efetiva de cidadãos neurodivergentes nas escolas e no mercado de trabalho esbarra na falta de formação docente continuada, na recusa de adaptações razoáveis e na persistência do capacitismo.",
+    "argumentoD1": {
+      "titulo": "D1 — Matrícula sem suporte pedagógico: a exclusão dentro da escola",
+      "desenvolvimento": "Garantir apenas o acesso físico à sala de aula sem disponibilizar profissionais de apoio, planos de ensino individualizados (PEI) e formação específica aos professores converte a inclusão em mera formalidade burocrática."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Capacitismo e barreiras nos processos seletivos do mercado de trabalho",
+      "desenvolvimento": "Jovens e adultos autistas ou com outras neurodivergências enfrentam altíssimas taxas de desemprego porque processos seletivos padronizados ignoram suas competências técnicas e julgam apenas padrões comportamentais neurotípicos."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério da Educação (MEC) e Ministério do Trabalho e Emprego (MTE)",
+      "detalhamento": "órgãos federais responsáveis pelas políticas de educação especial na perspectiva inclusiva e de empregabilidade",
+      "acao": "ampliar o financiamento para contratação de professores de apoio e salas de recursos multifuncionais nas escolas, além de criar programas de incentivo fiscal e mentoria para empresas que adaptarem seus processos seletivos",
+      "meioModo": "por meio do repasse direto de recursos do FUNDEB para formação docente em neurodiversidade e da divulgação de protocolos de ambiente laboral sensorialmente acessível",
+      "efeito": "com o objetivo de combater o capacitismo e transformar a potencialidade das pessoas neurodivergentes em cidadania plena"
+    },
+    "repertorioSlugs": [
+      "livro-o-cerebro-autista-grandin",
+      "livro-pedagogia-da-autonomia-freire",
+      "filme-como-estrelas-na-terra",
+      "filme-temple-grandin-cinebiografia",
+      "pensador-judy-singer-neurodiversidade",
+      "lei-estatuto-pessoa-com-deficiencia-berenice-piana"
+    ]
+  },
+  {
+    "slug": "automedicacao-medicalizacao-da-vida-e-uso-estetico-de-farmacos",
+    "titulo": "Os riscos da automedicação, da medicalização da vida e do uso estético indiscriminado de fármacos",
+    "fraseTemaSugerida": "Os impactos da automedicação e da banalização do uso de medicamentos na saúde pública brasileira",
+    "eixo": "saude-e-sociedade",
+    "destaque": false,
+    "palavrasChave": ["automedicação", "medicalização", "pressão estética", "saúde pública", "uso racional de medicamentos"],
+    "porQuePodeCair": "A corrida desenfreada por medicamentos emagrecedores sem acompanhamento médico, o uso de estimulantes para estudo/trabalho e a recomendação irresponsável de fármacos nas redes sociais tornaram-se um alerta constante da ANVISA e do Conselho Federal de Farmácia.",
+    "teseCentral": "A cultura da automedicação no Brasil — agravada pela dificuldade de acesso tempestivo a consultas médicas e pela prescrição informal de influenciadores digitais em prol de padrões estéticos e produtivos — expõe a população a graves intoxicações e provoca o desabastecimento de pacientes crônicos.",
+    "argumentoD1": {
+      "titulo": "D1 — Influência digital e a busca por 'pílulas mágicas' de beleza e performance",
+      "desenvolvimento": "A espetacularização de emagrecimentos rápidos e de rotinas de alta performance nas redes sociais banaliza medicamentos de tarja vermelha ou preta, ocultando efeitos adversos severos."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Gargalos no atendimento primário à saúde e déficit de educação sanitária",
+      "desenvolvimento": "Filas para consultas especializadas e a tradição cultural da 'farmacinha caseira' levam milhões de brasileiros a mascararem sintomas com analgésicos, anti-inflamatórios e antibióticos sem orientação profissional."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério da Saúde, em atuação conjunta com a Agência Nacional de Vigilância Sanitária (ANVISA)",
+      "detalhamento": "autoridades máximas de gestão sanitária e regulação farmacêutica no país",
+      "acao": "aperfeiçoar o controle eletrônico de retenção de receitas para medicamentos alvo de abuso estético/cognitivo e lançar campanha nacional permanente sobre o Uso Racional de Medicamentos",
+      "meioModo": "mediante fiscalização rigorosa de propagandas enganosas em redes sociais e ampliação do atendimento farmacêutico clínico nas Unidades Básicas de Saúde e farmácias populares",
+      "efeito": "a fim de reduzir os índices de intoxicação medicamentosa e proteger a saúde coletiva"
+    },
+    "repertorioSlugs": [
+      "livro-expropriacao-da-saude-illich",
+      "livro-o-mito-da-beleza-wolf",
+      "filme-take-your-pills",
+      "filme-requiem-para-um-sonho",
+      "pensador-foucault-biopolitica-medicalizacao",
+      "texto-pesquisa-cff-automedicacao-anvisa"
+    ]
+  },
+  {
+    "slug": "precarizacao-do-trabalho-por-aplicativos-uberizacao-e-protecao-social",
+    "titulo": "A precarização do trabalho na economia de plataformas (uberização) e o futuro da proteção social",
+    "fraseTemaSugerida": "Desafios para conciliar a economia de plataformas digitais com a garantia de direitos trabalhistas e previdenciários no Brasil",
+    "eixo": "trabalho-e-economia",
+    "destaque": false,
+    "palavrasChave": ["uberização", "trabalho por aplicativo", "precarização", "previdência social", "trabalho decente"],
+    "porQuePodeCair": "O trabalho mediado por aplicativos já ocupa milhões de brasileiros e protagoniza intensos debates no STF, no Congresso e na OIT sobre como garantir remuneração justa, segurança viária e aposentadoria sem inviabilizar a atividade.",
+    "teseCentral": "Sob a retórica sedutora da flexibilidade e da autonomia empreendedora, a plataformização desregulamentada do trabalho transfere todos os riscos operacionais ao trabalhador, submetendo entregadores e motoristas a jornadas exaustivas sem rede de proteção previdenciária ou de saúde.",
+    "argumentoD1": {
+      "titulo": "D1 — Gerenciamento algorítmico opaco e jornadas extenuantes",
+      "desenvolvimento": "Para alcançar metas de bonificação e evitar bloqueios unilaterais pelos aplicativos, trabalhadores rodam mais de 10 a 12 horas diárias no trânsito, elevando drasticamente os índices de acidentes e de adoecimento físico e mental."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Desproteção previdenciária e transferência dos custos do capital ao trabalhador",
+      "desenvolvimento": "Enquanto arcam sozinhos com combustível, manutenção do veículo, internet e alimentação, a maioria dos trabalhadores de plataforma permanece descoberta em caso de invalidez, doença ou velhice."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério do Trabalho e Emprego (MTE), em articulação com o Poder Legislativo e o Ministério da Previdência Social",
+      "detalhamento": "instituições responsáveis pela regulamentação laboral e pela seguridade social brasileira",
+      "acao": "consolidar um marco legal específico para o trabalho em plataformas digitais que assegure contribuição previdenciária compartilhada, seguro obrigatório contra acidentes, transparência algorítmica e pontos de apoio urbano",
+      "meioModo": "por meio de legislação federal pactuada de forma tripartite (governo, representantes dos trabalhadores e empresas de tecnologia) e fiscalização pela Justiça do Trabalho",
+      "efeito": "para efetivar o princípio constitucional da dignidade humana e do trabalho decente na era digital"
+    },
+    "repertorioSlugs": [
+      "livro-privilegio-da-servidao-antunes",
+      "livro-uberizacao-tom-slee",
+      "filme-voce-nao-estava-aqui",
+      "filme-tempos-modernos-chaplin",
+      "pensador-dardot-laval-neosujeito",
+      "lei-artigos-6-e-7-cf88-oit-trabalho-decente"
+    ]
+  },
+  {
+    "slug": "deficit-de-leitura-critica-e-analfabetismo-funcional-no-brasil",
+    "titulo": "O déficit de leitura crítica, o analfabetismo funcional e a crise da atenção no Brasil contemporâneo",
+    "fraseTemaSugerida": "Caminhos para a formação de leitores críticos e a superação do analfabetismo funcional no Brasil",
+    "eixo": "educacao-e-conhecimento",
+    "destaque": false,
+    "palavrasChave": ["leitura crítica", "analfabetismo funcional", "bibliotecas escolares", "direito à literatura", "educação"],
+    "porQuePodeCair": "A 6ª edição da pesquisa Retratos da Leitura no Brasil (2024) revelou que, pela primeira vez, a maioria da população brasileira (53%) é não leitora, fato diretamente conectado ao desempenho no PISA e ao domínio da linguagem cidadã.",
+    "teseCentral": "A retração alarmante do hábito da leitura no Brasil e a persistência do analfabetismo funcional decorrem tanto da precariedade histórica de bibliotecas públicas e escolares quanto da substituição da leitura profunda pelo consumo fragmentado de estímulos digitais.",
+    "argumentoD1": {
+      "titulo": "D1 — Inefetividade das leis de democratização do livro e escassez de bibliotecas vivas",
+      "desenvolvimento": "Milhões de estudantes da rede básica estudam em escolas sem biblioteca estruturada ou sem mediadores de leitura, tornando o livro um objeto distante e elitizado."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Crise da atenção e vulnerabilidade do analfabeto funcional à desinformação",
+      "desenvolvimento": "O hábito exclusivo de consumir textos curtos e vídeos acelerados reduz o fôlego interpretativo necessário para compreender ironias, implícitos e textos complexos, comprometendo o exercício pleno da cidadania."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério da Educação (MEC), em parceria com o Ministério da Cultura (MinC) e os governos estaduais e municipais",
+      "detalhamento": "órgãos gestores da Política Nacional de Leitura e Escrita (Lei Castilho)",
+      "acao": "universalizar bibliotecas escolares ativas com profissionais mediadores e instituir clubes de leitura literária e crítica midiática no currículo da educação básica",
+      "meioModo": "mediante a ampliação do Programa Nacional do Livro e do Material Didático (PNLD Literário) e a realização de feiras literárias comunitárias com distribuição gratuita de obras contemporâneas",
+      "efeito": "a fim de garantir o 'direito à literatura' defendido por Antonio Candido e emancipar intelectualmente os jovens brasileiros"
+    },
+    "repertorioSlugs": [
+      "livro-o-direito-a-literatura-candido",
+      "livro-a-importancia-do-ato-de-ler-freire",
+      "livro-fahrenheit-451-bradbury",
+      "filme-escritores-da-liberdade",
+      "filme-a-menina-que-roubava-livros",
+      "texto-retratos-da-leitura-no-brasil-lei-castilho"
+    ]
+  },
+  {
+    "slug": "combate-a-violencia-de-genero-facilitada-pela-tecnologia",
+    "titulo": "Combate à violência de gênero facilitada pela tecnologia e aos discursos misóginos no meio digital",
+    "fraseTemaSugerida": "Desafios para o enfrentamento à violência contra a mulher e à misoginia no ambiente digital brasileiro",
+    "eixo": "cidadania-e-direitos",
+    "destaque": false,
+    "palavrasChave": ["violência de gênero digital", "misoginia online", "direitos das mulheres", "stalking", "educação em direitos humanos"],
+    "porQuePodeCair": "Mais de uma década após o tema de 2015 sobre violência contra a mulher, o fenômeno ganhou novas configurações alarmantes nas redes sociais (comunidades misóginas que cooptam adolescentes, perseguição virtual e violação de intimidade por IA), sendo inclusive tema da Questão 36 do ENEM 2025 ('Maria da Penha vai à escola').",
+    "teseCentral": "A expansão das violências digitais contra meninas e mulheres — como o discurso de ódio misógino, a exposição íntima não consensual e a perseguição virtual — evidencia que o machismo estrutural apropriou-se da sensação de impunidade das redes e da ausência de educação preventiva de gênero nas escolas.",
+    "argumentoD1": {
+      "titulo": "D1 — Algoritmos de radicalização e a cooptação de jovens por subculturas misóginas",
+      "desenvolvimento": "Fóruns e perfis extremistas monetizam o ódio contra mulheres e disseminam a violência simbólica entre meninos em idade escolar sem moderação ágil das plataformas."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Revitimização institucional e desconhecimento dos canais de proteção digital",
+      "desenvolvimento": "Muitas vítimas de violência psicológica, difamação ou vazamento de imagens sofrem julgamento moral e encontram delegacias sem estrutura técnica de perícia cibernética."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério das Mulheres, em ação integrada com o Ministério da Justiça e Segurança Pública e o Ministério da Educação",
+      "detalhamento": "pastas responsáveis pelas políticas de enfrentamento à violência de gênero, segurança cibernética e formação cidadã",
+      "acao": "expandir núcleos especializados em crimes cibernéticos nas Delegacias Especializadas de Atendimento à Mulher (DEAMs) e consolidar projetos pedagógicos como o 'Maria da Penha Vai à Escola' em todo o território nacional",
+      "meioModo": "por meio do treinamento pericial de agentes de segurança, criação de canal rápido de remoção de conteúdo íntimo não consensual junto às plataformas e realização de debates escolares sobre respeito e equidade de gênero",
+      "efeito": "com vistas a desconstruir a cultura misógina e assegurar a integridade física, moral e digital das mulheres brasileiras"
+    },
+    "repertorioSlugs": [
+      "livro-o-segundo-sexo-beauvoir",
+      "livro-quem-tem-medo-do-feminismo-negro-djamila",
+      "filme-adolescencia-minisserie-2025",
+      "filme-inacreditavel-unbelievable",
+      "pensador-bourdieu-violencia-simbolica",
+      "lei-maria-da-penha-stalking-rose-leonel"
+    ]
+  },
+  {
+    "slug": "valorizacao-do-patrimonio-historico-cultural-imaterial-e-memoria-nacional",
+    "titulo": "Valorização do patrimônio histórico-cultural imaterial e preservação da memória nacional na era digital",
+    "fraseTemaSugerida": "Desafios para a preservação do patrimônio histórico-cultural e da memória coletiva no Brasil",
+    "eixo": "cultura-e-identidade",
+    "destaque": false,
+    "palavrasChave": ["patrimônio cultural", "memória coletiva", "patrimônio imaterial", "identidade nacional", "IPHAN"],
+    "porQuePodeCair": "A prova de Linguagens e Humanas do ENEM 2025 dedicou diversas questões ao patrimônio linguístico, artístico e imaterial brasileiro (artesãos da Ilha do Ferro, bancos indígenas Tukano/Kamayurá, 'língua de santo' na Bahia, saberes Wajãpi), sinalizando forte valorização desse eixo.",
+    "teseCentral": "A preservação do patrimônio cultural material e imaterial brasileiro enfrenta o duplo obstáculo do subfinanciamento crônico das instituições de memória (museus, acervos e mestres populares) e do distanciamento da população em relação à própria história plural do país.",
+    "argumentoD1": {
+      "titulo": "D1 — Negligência orçamentária e vulnerabilidade de acervos e saberes tradicionais",
+      "desenvolvimento": "A escassez de recursos para manutenção preventiva de museus e para o fomento aos mestres da cultura popular, indígena e afro-brasileira coloca em risco saberes orais, línguas e acervos insubstituíveis."
+    },
+    "argumentoD2": {
+      "titulo": "D2 — Falta de educação patrimonial e padronização cultural",
+      "desenvolvimento": "Quando a escola e os meios de comunicação não promovem o sentimento de pertencimento comunitário, o cidadão deixa de reconhecer as manifestações regionais e históricas como parte viva de sua identidade."
+    },
+    "propostaIntervencao": {
+      "agente": "Ministério da Cultura (MinC) e Instituto do Patrimônio Histórico e Artístico Nacional (IPHAN), em parceria com o Ministério da Educação",
+      "detalhamento": "autarquia e ministérios incumbidos da salvaguarda do patrimônio cultural brasileiro previsto no Art. 216 da Constituição",
+      "acao": "ampliar o programa de salvaguarda e digitalização de acervos materiais e imateriais e instituir roteiros permanentes de Educação Patrimonial nas escolas públicas",
+      "meioModo": "mediante a concessão de bolsas de transmissão de saberes para mestres da cultura popular e o financiamento de visitas guiadas e plataformas digitais interativas sobre a memória de cada município",
+      "efeito": "a fim de democratizar o acesso à memória nacional e fortalecer a identidade pluriétnica do povo brasileiro"
+    },
+    "repertorioSlugs": [
+      "livro-o-povo-brasileiro-darcy-ribeiro",
+      "livro-memoria-e-sociedade-eclea-bosi",
+      "filme-bacurau",
+      "filme-amarelo-e-tudo-pra-ontem",
+      "lei-artigos-215-e-216-cf88-patrimonio",
+      "pensador-stuart-hall-identidade-cultural"
+    ]
+  }
+]

@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/layout/Breadcrumbs.astro';
+import { SITE } from '../data/site';
+---
+
+<BaseLayout
+  title="Política de Privacidade"
+  description="Política de Privacidade e conformidade com a LGPD do portal de Júlia Demetrio Xavier."
+>
+  <section class="section">
+    <div class="container-narrow prose">
+      <Breadcrumbs items={[{ label: 'Política de Privacidade' }]} />
+      <h1>Política de Privacidade</h1>
+      <p>
+        Este portal educacional e institucional de <strong>{SITE.name}</strong> foi desenvolvido com arquitetura 100% estática, respeitando integralmente a <strong>Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018)</strong>.
+      </p>
+
+      <h2>1. Coleta e Armazenamento de Dados</h2>
+      <p>
+        Este site <strong>não utiliza banco de dados</strong>, não exige cadastro de usuários e não coleta nem armazena dados pessoais em servidores próprios. Todo o acervo de temas de redação, repertórios socioculturais e questões comentadas é de acesso livre e gratuito.
+      </p>
+
+      <h2>2. Contato Voluntário via WhatsApp ou E-mail</h2>
+      <p>
+        Na página de Contato, o preenchimento do nome ou de observações serve exclusivamente para montar o link de redirecionamento para o aplicativo WhatsApp no seu próprio dispositivo. Os dados informados na conversa com a professora são utilizados unicamente para responder à sua solicitação de aula, mentoria ou orçamento editorial.
+      </p>
+
+      <h2>3. Cookies e Rastreamento</h2>
+      <p>
+        Não utilizamos cookies publicitários nem rastreadores invasivos de terceiros. As fontes tipográficas são hospedadas localmente no próprio domínio para proteger sua privacidade.
+      </p>
+
+      <h2>4. Canal de Contato</h2>
+      <p>
+        Em caso de dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail <a href={`mailto:${SITE.contact.email}`}><strong>{SITE.contact.email}</strong></a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

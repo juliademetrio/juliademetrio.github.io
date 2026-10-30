@@ -1,0 +1,74 @@
+---
+import { url } from '../../utils/urls';
+
+export interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Trilha de navegação">
+  <ol>
+    <li>
+      <a href={url('/')}>Início</a>
+    </li>
+    {
+      items.map((item, idx) => (
+        <li>
+          <span class="sep" aria-hidden="true">/</span>
+          {item.href && idx < items.length - 1 ? (
+            <a href={url(item.href)}>{item.label}</a>
+          ) : (
+            <span aria-current="page" class="current">{item.label}</span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs {
+    margin-bottom: 1.25rem;
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+  }
+
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .breadcrumbs li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .breadcrumbs a {
+    color: var(--color-ink-700);
+    font-weight: 500;
+  }
+
+  .breadcrumbs a:hover {
+    color: var(--color-wine-800);
+    text-decoration: underline;
+  }
+
+  .breadcrumbs .current {
+    color: var(--color-wine-800);
+    font-weight: 600;
+  }
+
+  .sep {
+    color: var(--color-ink-300);
+  }
+</style>

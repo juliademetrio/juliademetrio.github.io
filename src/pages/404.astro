@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../utils/urls';
+---
+
+<BaseLayout
+  title="Página não encontrada"
+  description="A página que você procura não foi encontrada. Acesse o Portal ENEM ou a página inicial."
+>
+  <section class="section">
+    <div class="container-narrow not-found">
+      <span class="eyebrow">Erro 404</span>
+      <h1>Página não encontrada</h1>
+      <p class="lead">
+        O endereço acessado não existe ou foi movido. Utilize os atalhos abaixo para continuar seus estudos:
+      </p>
+      <div class="nf-actions">
+        <a href={url('/')} class="btn btn-primary">Voltar para o Início</a>
+        <a href={url('/enem')} class="btn btn-secondary">Acessar Portal ENEM</a>
+        <a href={url('/enem/temas-provaveis')} class="btn btn-secondary">Ver Temas Prováveis</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 3rem;
+  }
+
+  .nf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+</style>

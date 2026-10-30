@@ -1,0 +1,160 @@
+---
+import type { RepertorioItem } from '../../utils/content';
+import { getEixoMeta } from '../../utils/eixos';
+
+interface Props {
+  item: RepertorioItem;
+}
+
+const { item } = Astro.props;
+
+const iconLabelMap: Record<string, string> = {
+  'Livro': 'Livro / Obra Literária',
+  'Filme / Série': 'Filme / Série',
+  'Documentário': 'Documentário',
+  'Filósofo / Sociólogo': 'Filósofo / Pensador',
+  'Lei / Documento': 'Legislação / Estudo Oficial',
+  'Fato Histórico': 'Fato Histórico',
+  'Música / Arte': 'Música / Arte',
+};
+---
+
+<article
+  class="card repertoire-card"
+  data-tipo={item.tipo}
+  data-eixos={item.eixos.join(',')}
+  data-search={`${item.titulo} ${item.autoria} ${item.sinopse} ${item.comoUsarNaRedacao}`.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()}
+>
+  <div class="rep-header">
+    <span class="rep-type-tag">
+      {item.tipo === 'Livro' && (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+        </svg>
+      )}
+      {(item.tipo === 'Filme / Série' || item.tipo === 'Documentário') && (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <rect width="18" height="18" x="3" y="3" rx="2" />
+          <path d="M7 3v18M17 3v18M3 7.5h4M17 7.5h4M3 12h18M3 16.5h4M17 16.5h4" />
+        </svg>
+      )}
+      {item.tipo === 'Filósofo / Sociólogo' && (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 2a8 8 0 0 0-8 8c0 3.5 2.5 6.5 6 7.5V22h4v-4.5c3.5-1 6-4 6-7.5a8 8 0 0 0-8-8Z" />
+        </svg>
+      )}
+      {item.tipo === 'Lei / Documento' && (
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+          <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+          <path d="M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+        </svg>
+      )}
+      {iconLabelMap[item.tipo] || item.tipo}
+    </span>
+    {item.ano && <span class="rep-year">{item.ano}</span>}
+  </div>
+
+  <h3 class="rep-title">{item.titulo}</h3>
+  <p class="rep-author">{item.autoria}</p>
+
+  <p class="rep-synopsis">{item.sinopse}</p>
+
+  <div class="rep-usage">
+    <strong>Como articular na redação:</strong>
+    <p>{item.comoUsarNaRedacao}</p>
+  </div>
+
+  <div class="rep-axes">
+    {item.eixos.map((eixoSlug) => {
+      const meta = getEixoMeta(eixoSlug);
+      return <span class={`badge ${meta.badgeClass}`}>{meta.shortLabel}</span>;
+    })}
+  </div>
+</article>
+
+<style>
+  .repertoire-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    height: 100%;
+  }
+
+  .rep-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .rep-type-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-wine-800);
+    background-color: var(--color-rose-50);
+    padding: 0.28rem 0.65rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .rep-year {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+    font-weight: 600;
+  }
+
+  .rep-title {
+    font-size: 1.15rem;
+    color: var(--color-ink-900);
+    line-height: 1.3;
+  }
+
+  .rep-author {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-gold-700);
+    margin-top: -0.35rem;
+  }
+
+  .rep-synopsis {
+    font-size: var(--text-sm);
+    color: var(--color-ink-700);
+    line-height: 1.6;
+  }
+
+  .rep-usage {
+    margin-top: auto;
+    background-color: var(--color-cream-100);
+    border-left: 3px solid var(--color-gold-500);
+    padding: 0.75rem 0.9rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .rep-usage strong {
+    display: block;
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-wine-900);
+    margin-bottom: 0.25rem;
+  }
+
+  .rep-usage p {
+    font-size: var(--text-xs);
+    color: var(--color-ink-700);
+    line-height: 1.55;
+  }
+
+  .rep-axes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding-top: 0.35rem;
+  }
+</style>

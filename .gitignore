@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+
+# Build e cache do Astro
+dist/
+.astro/
+
+# Arquivos de referência e fontes brutas de trabalho
+docs/reference/
+docs/source/
+
+# Variáveis de ambiente e sistema operacional
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+*.log

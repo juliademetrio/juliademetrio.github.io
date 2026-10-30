@@ -1,0 +1,290 @@
+---
+import type { QuestaoComentada } from '../../utils/content';
+
+interface Props {
+  questao: QuestaoComentada;
+  index: number;
+}
+
+const { questao, index } = Astro.props;
+const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${questao.caderno || ''} ${questao.categoria} ${questao.textoBase} ${questao.enunciado}`
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .toLowerCase();
+---
+
+<article
+  class="card question-card"
+  id={questao.id}
+  data-categoria={questao.categoria}
+  data-caderno={questao.caderno || 'ENEM 2025 — Caderno 3 Branco'}
+  data-gabarito={questao.gabarito}
+  data-search={searchNormalized}
+>
+  <div class="q-header">
+    <div class="q-badges">
+      <span class="badge badge-rose">{questao.categoria}</span>
+      <span class="badge badge-gold">{questao.origem}</span>
+      {questao.caderno && <span class="badge badge-slate">{questao.caderno}</span>}
+    </div>
+    <div class="q-header-right">
+      <span class="q-skill">{questao.habilidade}</span>
+      <button type="button" class="q-clear-btn" hidden aria-label="Limpar seleção desta questão">
+        Limpar seleção
+      </button>
+    </div>
+  </div>
+
+  <h3 class="q-title">
+    <span class="q-num">#{String(index + 1).padStart(2, '0')}</span>
+    {questao.titulo}
+  </h3>
+
+  <div class="q-support-text">
+    <p>{questao.textoBase}</p>
+    <cite>{questao.referenciaTexto}</cite>
+  </div>
+
+  <p class="q-statement">{questao.enunciado}</p>
+
+  <div class="q-options" role="group" aria-label={`Alternativas para ${questao.titulo}`}>
+    {
+      questao.alternativas.map((alt) => (
+        <button
+          type="button"
+          class="q-option-btn"
+          data-letra={alt.letra}
+        >
+          <span class="q-opt-letter">{alt.letra}</span>
+          <span class="q-opt-text">{alt.texto}</span>
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="q-feedback" hidden aria-live="polite"></div>
+
+  <details class="q-resolution">
+    <summary>Ver gabarito oficial e resolução comentada</summary>
+    <div class="q-resolution-body">
+      <p class="q-answer-badge">
+        Gabarito Oficial: <strong>Alternativa {questao.gabarito}</strong>
+      </p>
+      <p class="q-commentary">{questao.comentarioPedagogico}</p>
+    </div>
+  </details>
+</article>
+
+<style>
+  .question-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .q-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .q-header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .q-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .q-header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .q-skill {
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+    font-weight: 500;
+  }
+
+  .q-clear-btn {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-wine-800);
+    background-color: var(--color-rose-50);
+    border: 1px solid var(--color-rose-200);
+    border-radius: var(--radius-pill);
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .q-clear-btn:hover {
+    background-color: var(--color-rose-100);
+    border-color: var(--color-wine-800);
+  }
+
+  .q-title {
+    font-size: 1.2rem;
+    color: var(--color-ink-900);
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .q-num {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--color-rose-700);
+  }
+
+  .q-support-text {
+    background-color: var(--color-cream-100);
+    border-left: 3px solid var(--color-gold-500);
+    padding: 1rem 1.15rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .q-support-text p {
+    font-size: var(--text-sm);
+    color: var(--color-ink-900);
+    white-space: pre-line;
+    line-height: 1.65;
+    margin-bottom: 0.5rem;
+  }
+
+  .q-support-text cite {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+    font-style: normal;
+    text-align: right;
+  }
+
+  .q-statement {
+    font-weight: 600;
+    color: var(--color-ink-900);
+    font-size: 1rem;
+  }
+
+  .q-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .q-option-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 0.95rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-cream-300);
+    background-color: var(--color-cream-50);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .q-option-btn:hover {
+    border-color: var(--color-rose-500);
+    background-color: var(--color-rose-50);
+  }
+
+  .q-option-btn.is-correct {
+    border-color: var(--color-sage-600);
+    background-color: var(--color-sage-100);
+  }
+
+  .q-option-btn.is-wrong {
+    border-color: var(--color-rose-700);
+    background-color: var(--color-rose-100);
+  }
+
+  .q-opt-letter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 999px;
+    background-color: var(--color-cream-200);
+    color: var(--color-ink-900);
+    font-weight: 700;
+    font-size: var(--text-xs);
+    flex-shrink: 0;
+  }
+
+  .q-option-btn.is-correct .q-opt-letter {
+    background-color: var(--color-sage-600);
+    color: #fff;
+  }
+
+  .q-option-btn.is-wrong .q-opt-letter {
+    background-color: var(--color-rose-700);
+    color: #fff;
+  }
+
+  .q-opt-text {
+    font-size: var(--text-sm);
+    color: var(--color-ink-900);
+    line-height: 1.5;
+  }
+
+  .q-feedback {
+    padding: 0.65rem 0.9rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    font-weight: 600;
+  }
+
+  .q-feedback.correct {
+    background-color: var(--color-sage-100);
+    color: var(--color-sage-600);
+  }
+
+  .q-feedback.wrong {
+    background-color: var(--color-rose-50);
+    color: var(--color-wine-800);
+  }
+
+  .q-resolution {
+    border-top: 1px solid var(--color-cream-200);
+    padding-top: 0.75rem;
+  }
+
+  .q-resolution summary {
+    cursor: pointer;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-wine-800);
+  }
+
+  .q-resolution-body {
+    margin-top: 0.75rem;
+    background-color: var(--color-rose-50);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+  }
+
+  .q-answer-badge {
+    font-size: var(--text-sm);
+    color: var(--color-wine-900);
+    margin-bottom: 0.4rem;
+  }
+
+  .q-commentary {
+    font-size: var(--text-sm);
+    color: var(--color-ink-700);
+    line-height: 1.65;
+  }
+</style>

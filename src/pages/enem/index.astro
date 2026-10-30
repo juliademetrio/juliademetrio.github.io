@@ -1,0 +1,239 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/layout/Breadcrumbs.astro';
+import ProbableThemeCard from '../../components/enem/ProbableThemeCard.astro';
+import { EIXOS_LIST } from '../../utils/eixos';
+import {
+  getTemasProvaveis,
+  getTemasAnteriores,
+  getRepertorio,
+  getQuestoesComentadas,
+} from '../../utils/content';
+import { url } from '../../utils/urls';
+
+const temasProvaveis = getTemasProvaveis();
+const temasAnteriores = getTemasAnteriores();
+const repertorio = getRepertorio();
+const questoes = getQuestoesComentadas();
+---
+
+<BaseLayout
+  title="Portal ENEM"
+  description="Hub de estudos para o ENEM da professora Júlia Demetrio Xavier: possíveis temas de redação com livros, filmes e textos de repertório, temas anteriores (2010–2025), 5 competências e questões comentadas."
+>
+  <section class="section section-editorial">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Portal ENEM' }]} />
+      <span class="eyebrow">Hub Educacional Gratuito</span>
+      <h1>Portal de Estudos ENEM — Redação & Linguagens</h1>
+      <p class="lead" style="max-width: 66ch; margin-top: 0.75rem;">
+        Navegue pelos eixos temáticos, consulte as apostas de redação acompanhadas de livros, filmes e filósofos, revise os temas cobrados desde 2010 e pratique com questões comentadas diretamente no navegador.
+      </p>
+
+      <div class="hub-quick-cards">
+        <a href={url('/enem/temas-provaveis')} class="card hub-stat-card">
+          <span class="stat-num">{temasProvaveis.length}</span>
+          <strong>Temas Prováveis (2026/2027+)</strong>
+          <span>Com livros, filmes e textos mapeados</span>
+        </a>
+        <a href={url('/enem/repertorio')} class="card hub-stat-card">
+          <span class="stat-num">{repertorio.length}</span>
+          <strong>Banco de Repertório</strong>
+          <span>Obras literárias, cinema, leis e pensadores</span>
+        </a>
+        <a href={url('/enem/temas-anteriores')} class="card hub-stat-card">
+          <span class="stat-num">{temasAnteriores.length}</span>
+          <strong>Temas Anteriores (2010–2025)</strong>
+          <span>Linha do tempo comentada do INEP</span>
+        </a>
+        <a href={url('/enem/competencias')} class="card hub-stat-card">
+          <span class="stat-num">5 + 10</span>
+          <strong>Competências & 10 Passos</strong>
+          <span>Matriz oficial + método estruturado</span>
+        </a>
+        <a href={url('/enem/exercicios')} class="card hub-stat-card">
+          <span class="stat-num">{questoes.length}</span>
+          <strong>Questões Comentadas</strong>
+          <span>Prática interativa online (ENEM 2025)</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação pelos 7 Eixos Temáticos -->
+  <section class="section">
+    <div class="container">
+      <div class="sec-head">
+        <span class="eyebrow">Organização por Eixos</span>
+        <h2>Os 7 Eixos Temáticos da Redação do ENEM</h2>
+        <p class="lead">
+          Clique em um eixo para filtrar os temas prováveis ou explore o banco completo de repertório:
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {
+          EIXOS_LIST.map((eixo) => {
+            const countProvaveis = temasProvaveis.filter((t) => t.eixo === eixo.slug).length;
+            const countRepertorio = repertorio.filter((r) => r.eixos.includes(eixo.slug)).length;
+            return (
+              <article class="card axis-card">
+                <div class="axis-top">
+                  <span class={`badge ${eixo.badgeClass}`}>{eixo.shortLabel}</span>
+                  <span class="axis-counts">
+                    {countProvaveis} temas • {countRepertorio} repertórios
+                  </span>
+                </div>
+                <h3>{eixo.label}</h3>
+                <p>{eixo.description}</p>
+                <div class="axis-links">
+                  <a href={url(`/enem/temas-provaveis?eixo=${eixo.slug}`)} class="axis-link">
+                    Ver temas do eixo →
+                  </a>
+                  <a href={url(`/enem/repertorio?eixo=${eixo.slug}`)} class="axis-link">
+                    Ver repertórios →
+                  </a>
+                </div>
+              </article>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Apostas em Destaque -->
+  <section class="section section-cream">
+    <div class="container">
+      <div class="sec-row">
+        <div>
+          <span class="eyebrow">Apostas Quentes</span>
+          <h2>Temas Prováveis em Destaque</h2>
+        </div>
+        <a href={url('/enem/temas-provaveis')} class="btn btn-primary">
+          Ver todos os {temasProvaveis.length} temas prováveis
+        </a>
+      </div>
+
+      <div class="grid-2">
+        {temasProvaveis.slice(0, 4).map((tema) => <ProbableThemeCard tema={tema} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hub-quick-cards {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .hub-quick-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hub-quick-cards {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  .hub-stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1.15rem;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-wine-800);
+    line-height: 1.1;
+  }
+
+  .hub-stat-card strong {
+    font-size: var(--text-sm);
+    color: var(--color-ink-900);
+  }
+
+  .hub-stat-card span:last-child {
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+  }
+
+  .sec-head {
+    max-width: 64ch;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  .sec-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .sec-row {
+      flex-direction: row;
+      align-items: flex-end;
+    }
+  }
+
+  .axis-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .axis-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .axis-counts {
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+    font-weight: 600;
+  }
+
+  .axis-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .axis-card p {
+    font-size: var(--text-sm);
+  }
+
+  .axis-links {
+    margin-top: auto;
+    padding-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .axis-link {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--color-wine-800);
+  }
+
+  .axis-link:hover {
+    text-decoration: underline;
+  }
+</style>
