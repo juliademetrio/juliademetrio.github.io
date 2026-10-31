@@ -1,6 +1,10 @@
 ---
 import { Image } from 'astro:assets';
-import logoImg from '../../assets/images/logo.png';
+import logoHorizontalImg from '../../assets/images/logo-horizontal.png';
+import whatsappIcon from '../../assets/icons/whatsapp.svg?raw';
+import menuIcon from '../../assets/icons/menu.svg?raw';
+import closeIcon from '../../assets/icons/close.svg?raw';
+import chevronDownIcon from '../../assets/icons/chevron-down.svg?raw';
 import { SITE } from '../../data/site';
 import { url, buildWhatsAppUrl } from '../../utils/urls';
 
@@ -15,10 +19,10 @@ const whatsappCtaUrl = buildWhatsAppUrl(
   <div class="container header-inner">
     <a href={url('/')} class="brand-link" aria-label="Página inicial de Júlia Demetrio Xavier">
       <Image
-        src={logoImg}
-        alt="Monograma JDX — Júlia Demetrio Xavier"
-        width={180}
-        height={56}
+        src={logoHorizontalImg}
+        alt="Logo Júlia Demetrio Xavier"
+        width={210}
+        height={70}
         class="brand-logo"
         loading="eager"
       />
@@ -33,9 +37,7 @@ const whatsappCtaUrl = buildWhatsAppUrl(
             class:list={['nav-link', 'has-submenu', { active: currentPath === url('/') || currentPath.includes('/enem') }]}
           >
             Portal ENEM
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="m6 9 6 6 6-6" />
-            </svg>
+            <Fragment set:html={chevronDownIcon} />
           </a>
           <div class="dropdown-menu">
             <a href={url('/')} class="dropdown-item">
@@ -79,6 +81,7 @@ const whatsappCtaUrl = buildWhatsAppUrl(
         rel="noopener noreferrer"
         class="btn btn-primary header-cta"
       >
+        <Fragment set:html={whatsappIcon} />
         Falar com a Professora
       </a>
 
@@ -90,61 +93,55 @@ const whatsappCtaUrl = buildWhatsAppUrl(
         aria-expanded="false"
         aria-controls="mobile-nav-drawer"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+        <Fragment set:html={menuIcon} />
       </button>
     </div>
   </div>
+</header>
 
-  <!-- Menu Mobile Responsivo -->
-  <div class="mobile-drawer" id="mobile-nav-drawer" hidden>
-    <div class="mobile-drawer-backdrop" id="mobile-menu-backdrop"></div>
-    <div class="mobile-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu principal">
-      <div class="mobile-drawer-header">
-        <span class="mobile-drawer-title">Menu de Navegação</span>
-        <button
-          type="button"
-          class="mobile-menu-close"
-          id="mobile-menu-close"
-          aria-label="Fechar menu de navegação"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </button>
+<!-- Menu Mobile Responsivo (fora do header para não sofrer contenção de altura pelo backdrop-filter) -->
+<div class="mobile-drawer" id="mobile-nav-drawer" hidden>
+  <div class="mobile-drawer-backdrop" id="mobile-menu-backdrop"></div>
+  <div class="mobile-drawer-panel" role="dialog" aria-modal="true" aria-label="Menu principal">
+    <div class="mobile-drawer-header">
+      <span class="mobile-drawer-title">Menu de Navegação</span>
+      <button
+        type="button"
+        class="mobile-menu-close"
+        id="mobile-menu-close"
+        aria-label="Fechar menu de navegação"
+      >
+        <Fragment set:html={closeIcon} />
+      </button>
+    </div>
+
+    <nav class="mobile-nav-links" aria-label="Navegação mobile">
+      <a href={url('/')} class="mobile-link">Portal ENEM (Início)</a>
+      <div class="mobile-group">
+        <span class="mobile-group-title">Recursos do Portal ENEM</span>
+        <a href={url('/enem/temas-provaveis')} class="mobile-sublink">Temas Prováveis (2026/2027+)</a>
+        <a href={url('/enem/repertorio')} class="mobile-sublink">Banco de Repertório</a>
+        <a href={url('/enem/temas-anteriores')} class="mobile-sublink">Temas Anteriores (2010–2025)</a>
+        <a href={url('/enem/competencias')} class="mobile-sublink">As 5 Competências & 10 Passos</a>
+        <a href={url('/enem/exercicios')} class="mobile-sublink">Questões Comentadas Online</a>
       </div>
+      <a href={url('/sobre')} class="mobile-link">Sobre (Currículo, Serviços & Contato)</a>
+    </nav>
 
-      <nav class="mobile-nav-links" aria-label="Navegação mobile">
-        <a href={url('/')} class="mobile-link">Portal ENEM (Início)</a>
-        <div class="mobile-group">
-          <span class="mobile-group-title">Recursos do Portal ENEM</span>
-          <a href={url('/enem/temas-provaveis')} class="mobile-sublink">Temas Prováveis (2026/2027+)</a>
-          <a href={url('/enem/repertorio')} class="mobile-sublink">Banco de Repertório</a>
-          <a href={url('/enem/temas-anteriores')} class="mobile-sublink">Temas Anteriores (2010–2025)</a>
-          <a href={url('/enem/competencias')} class="mobile-sublink">As 5 Competências & 10 Passos</a>
-          <a href={url('/enem/exercicios')} class="mobile-sublink">Questões Comentadas Online</a>
-        </div>
-        <a href={url('/sobre')} class="mobile-link">Sobre (Currículo, Serviços & Contato)</a>
-      </nav>
-
-      <div class="mobile-drawer-footer">
-        <a
-          href={whatsappCtaUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-          style="width: 100%;"
-        >
-          Falar no WhatsApp
-        </a>
-      </div>
+    <div class="mobile-drawer-footer">
+      <a
+        href={whatsappCtaUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary"
+        style="width: 100%;"
+      >
+        <Fragment set:html={whatsappIcon} />
+        Falar no WhatsApp
+      </a>
     </div>
   </div>
-</header>
+</div>
 
 <script>
   const openBtn = document.getElementById('mobile-menu-open');
@@ -337,7 +334,7 @@ const whatsappCtaUrl = buildWhatsAppUrl(
   .mobile-drawer {
     position: fixed;
     inset: 0;
-    z-index: 200;
+    z-index: 999;
   }
 
   .mobile-drawer-backdrop {
@@ -345,6 +342,7 @@ const whatsappCtaUrl = buildWhatsAppUrl(
     inset: 0;
     background-color: rgba(31, 26, 28, 0.45);
     backdrop-filter: blur(2px);
+    z-index: 999;
   }
 
   .mobile-drawer-panel {
@@ -352,6 +350,8 @@ const whatsappCtaUrl = buildWhatsAppUrl(
     top: 0;
     right: 0;
     bottom: 0;
+    height: 100vh;
+    height: 100dvh;
     width: min(88vw, 360px);
     background-color: var(--color-cream-50);
     box-shadow: var(--shadow-lg);
@@ -359,6 +359,7 @@ const whatsappCtaUrl = buildWhatsAppUrl(
     flex-direction: column;
     padding: 1.25rem;
     overflow-y: auto;
+    z-index: 1000;
   }
 
   .mobile-drawer-header {
@@ -367,6 +368,7 @@ const whatsappCtaUrl = buildWhatsAppUrl(
     justify-content: space-between;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--color-cream-200);
+    flex-shrink: 0;
   }
 
   .mobile-drawer-title {
@@ -384,18 +386,20 @@ const whatsappCtaUrl = buildWhatsAppUrl(
     border-radius: var(--radius-sm);
     border: 1px solid var(--color-cream-200);
     background: transparent;
+    color: var(--color-ink-900);
     cursor: pointer;
   }
 
   .mobile-nav-links {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.45rem;
     padding-block: 1.25rem;
-    flex: 1;
+    flex: 1 0 auto;
   }
 
   .mobile-link {
+    display: block;
     padding: 0.7rem 0.75rem;
     border-radius: var(--radius-sm);
     font-weight: 600;
@@ -414,10 +418,11 @@ const whatsappCtaUrl = buildWhatsAppUrl(
     margin-block: 0.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.3rem;
   }
 
   .mobile-group-title {
+    display: block;
     font-size: var(--text-xs);
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -427,6 +432,7 @@ const whatsappCtaUrl = buildWhatsAppUrl(
   }
 
   .mobile-sublink {
+    display: block;
     padding: 0.55rem 0.5rem;
     border-radius: 6px;
     font-size: var(--text-sm);
@@ -441,5 +447,6 @@ const whatsappCtaUrl = buildWhatsAppUrl(
   .mobile-drawer-footer {
     padding-top: 1rem;
     border-top: 1px solid var(--color-cream-200);
+    flex-shrink: 0;
   }
 </style>

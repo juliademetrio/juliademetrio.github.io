@@ -1,7 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/layout/Breadcrumbs.astro';
+import emailIcon from '../assets/icons/email.svg?raw';
+import whatsappIcon from '../assets/icons/whatsapp.svg?raw';
 import { SITE } from '../data/site';
+import { buildWhatsAppUrl } from '../utils/urls';
+
+const whatsappPrivacyUrl = buildWhatsAppUrl(
+  SITE.contact.phoneE164,
+  'Olá, professora Júlia! Vim pela página de Política de Privacidade do seu site e gostaria de tirar uma dúvida.',
+);
 ---
 
 <BaseLayout
@@ -33,8 +41,18 @@ import { SITE } from '../data/site';
 
       <h2>4. Canal de Contato</h2>
       <p>
-        Em caso de dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail <a href={`mailto:${SITE.contact.email}`}><strong>{SITE.contact.email}</strong></a>.
+        Em caso de dúvidas sobre esta Política de Privacidade, utilize um dos canais diretos abaixo para falar com a professora:
       </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem;">
+        <a href={`mailto:${SITE.contact.email}`} class="btn btn-primary">
+          <Fragment set:html={emailIcon} />
+          Enviar E-mail
+        </a>
+        <a href={whatsappPrivacyUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <Fragment set:html={whatsappIcon} />
+          Falar no WhatsApp
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

@@ -6,8 +6,7 @@ dist/
 .astro/
 
 # Arquivos de referência e fontes brutas de trabalho
-docs/reference/
-docs/source/
+docs/
 
 # Variáveis de ambiente e sistema operacional
 .env
@@ -16,3 +15,7 @@ docs/source/
 .DS_Store
 Thumbs.db
 *.log
+
+# Instruções locais para Agentes de IA
+.agent/
+

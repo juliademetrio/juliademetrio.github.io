@@ -113,7 +113,7 @@ export const CURRICULO = {
       entregaveis: [
         'Correção por competência (C1 a C5) com indicação de melhorias',
         'Orientação na estrutura do texto dissertativo-argumentativo',
-        'Encontros online para reescrita orientada',
+        'Encontros individuais para reescrita orientada',
       ],
       mensagemWhatsApp:
         'Olá, professora Júlia! Vim pelo seu site e gostaria de saber mais sobre a Mentoria e Correção de Redação para o ENEM.',

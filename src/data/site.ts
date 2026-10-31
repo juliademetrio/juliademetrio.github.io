@@ -10,7 +10,6 @@ export const SITE = {
     phoneE164: '5531995072289',
     linkedinUrl: 'https://www.linkedin.com/in/julia-demetrio/',
     linkedinHandle: 'in/julia-demetrio',
-    modality: 'Atendimento online',
   },
   navigation: [
     {

@@ -1,6 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProbableThemeCard from '../components/enem/ProbableThemeCard.astro';
+import logoImg from '../assets/images/logo.png';
+import whatsappIcon from '../assets/icons/whatsapp.svg?raw';
+import arrowRightIcon from '../assets/icons/arrow-right.svg?raw';
 import { SITE } from '../data/site';
 import { EIXOS_LIST } from '../utils/eixos';
 import {
@@ -30,28 +34,47 @@ const whatsappHeroUrl = buildWhatsAppUrl(
   <!-- 1. HERO DO PORTAL ENEM -->
   <section class="hero-section">
     <div class="container">
-      <div class="hero-copy">
-        <span class="eyebrow">Portal Educacional • Redação, Literatura & Linguagens</span>
-        <h1 class="hero-title">
-          Portal de Estudos <span class="text-accent">ENEM</span> — Repertórios, Temas e Questões Comentadas
-        </h1>
-        <p class="lead hero-lead">
-          Acervo pedagógico organizado pela professora <strong>{SITE.name}</strong> (mestranda em Estudos de Linguagem e graduada em Letras pelo <strong>CEFET-MG</strong>). Consulte apostas de redação com livros, filmes e filósofos, revise os temas cobrados desde 2010 e pratique com questões comentadas no navegador.
-        </p>
+      <div class="hero-main-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Portal Educacional • Redação, Literatura & Linguagens</span>
+          <h1 class="hero-title">
+            Portal de Estudos <span class="text-accent">ENEM</span> — Repertórios, Temas e Questões Comentadas
+          </h1>
+          <p class="lead hero-lead">
+            Acervo pedagógico organizado pela professora <strong>{SITE.name}</strong> (mestranda em Estudos de Linguagem e graduada em Letras pelo <strong>CEFET-MG</strong>). Consulte apostas de redação com livros, filmes e filósofos, revise os temas cobrados desde 2010 e pratique com questões comentadas no navegador.
+          </p>
 
-        <div class="hero-ctas">
-          <a href={url('/enem/temas-provaveis')} class="btn btn-primary">
-            Ver Temas Prováveis
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-          <a href={url('/enem/exercicios')} class="btn btn-secondary">
-            Praticar {questoes.length} Questões Comentadas
-          </a>
-          <a href={url('/sobre')} class="btn btn-secondary">
-            Sobre a Professora & Serviços
-          </a>
+          <div class="hero-ctas">
+            <a href={url('/enem/temas-provaveis')} class="btn btn-primary">
+              Ver Temas Prováveis
+              <Fragment set:html={arrowRightIcon} />
+            </a>
+            <a href={url('/enem/exercicios')} class="btn btn-secondary">
+              Praticar {questoes.length} Questões Comentadas
+            </a>
+            <a href={url('/sobre')} class="btn btn-secondary">
+              Sobre a Professora & Serviços
+            </a>
+          </div>
+        </div>
+
+        <!-- Destaque do Logotipo Oficial -->
+        <div class="hero-logo-showcase" aria-label="Identidade visual Júlia Demetrio Xavier">
+          <div class="logo-display-card">
+            <div class="logo-display-halo" aria-hidden="true"></div>
+            <Image
+              src={logoImg}
+              alt="Logo oficial Júlia Demetrio Xavier — Professora e Revisora"
+              width={380}
+              height={253}
+              class="hero-featured-logo"
+              loading="eager"
+            />
+            <div class="logo-display-caption">
+              <strong>Júlia Demetrio Xavier</strong>
+              <span>Redação, Literatura & Linguagens</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -241,6 +264,7 @@ const whatsappHeroUrl = buildWhatsAppUrl(
             Acessar Página Sobre & Serviços
           </a>
           <a href={whatsappHeroUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <Fragment set:html={whatsappIcon} />
             Chamar no WhatsApp
           </a>
         </div>
@@ -254,6 +278,86 @@ const whatsappHeroUrl = buildWhatsAppUrl(
     background: var(--gradient-editorial);
     padding-block: clamp(2.5rem, 5vw, 4.25rem);
     border-bottom: 1px solid var(--color-cream-200);
+  }
+
+  .hero-main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-main-grid {
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 3rem;
+    }
+  }
+
+  .hero-logo-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-display-card {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    background-color: var(--color-cream-50);
+    border: 1px solid var(--color-cream-300);
+    border-radius: var(--radius-md);
+    padding: 1.75rem 1.5rem 1.25rem;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .logo-display-halo {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    top: -40px;
+    background: radial-gradient(circle, rgba(226, 200, 157, 0.35) 0%, rgba(253, 251, 248, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-featured-logo {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0 4px 12px rgba(104, 45, 52, 0.08));
+  }
+
+  .logo-display-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-cream-200);
+    width: 100%;
+  }
+
+  .logo-display-caption strong {
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    color: var(--color-wine-900);
+  }
+
+  .logo-display-caption span {
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
   }
 
   .hero-copy {

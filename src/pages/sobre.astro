@@ -3,13 +3,18 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/layout/Breadcrumbs.astro';
 import juliaFoto from '../assets/images/julia-foto.png';
+import logoImg from '../assets/images/logo.png';
+import whatsappIcon from '../assets/icons/whatsapp.svg?raw';
+import emailIcon from '../assets/icons/email.svg?raw';
+import linkedinIcon from '../assets/icons/linkedin.svg?raw';
+import copyIcon from '../assets/icons/copy.svg?raw';
 import { SITE } from '../data/site';
 import { CURRICULO } from '../data/curriculo';
 ---
 
 <BaseLayout
   title="Sobre"
-  description="Conheça a trajetória acadêmica e profissional da professora Júlia Demetrio Xavier (CEFET-MG e intercâmbio na Universidade Politécnica de Bragança, Portugal), serviços pedagógicos e editoriais e canais de contato."
+  description="Conheça a trajetória acadêmica e profissional da professora Júlia Demetrio Xavier (CEFET-MG e intercâmbio na Universidade Politécnica de Bragança, Portugal), serviços e canais de contato."
 >
   <!-- 1. APRESENTAÇÃO & BIO -->
   <section class="section section-editorial about-hero">
@@ -18,6 +23,15 @@ import { CURRICULO } from '../data/curriculo';
 
       <div class="about-hero-grid">
         <div class="about-hero-copy">
+          <div class="about-brand-tag">
+            <Image
+              src={logoImg}
+              alt="Logo Júlia Demetrio Xavier"
+              width={180}
+              height={120}
+              class="about-brand-logo"
+            />
+          </div>
           <span class="eyebrow">Trajetória Acadêmica, Ensino & Revisão Textual</span>
           <h1>{SITE.name}</h1>
           <p class="lead about-bio">
@@ -131,8 +145,8 @@ import { CURRICULO } from '../data/curriculo';
   <section class="section section-cream" id="servicos">
     <div class="container">
       <div class="section-header">
-        <span class="eyebrow">Atendimento Online Personalizado</span>
-        <h2>Serviços Pedagógicos e Editoriais</h2>
+        <span class="eyebrow">Acompanhamento Personalizado</span>
+        <h2>Serviços</h2>
         <p class="lead">
           Acompanhamento individualizado em redação para o ENEM, aulas particulares de Língua Portuguesa e Literatura e revisão textual com normalização acadêmica.
         </p>
@@ -232,7 +246,8 @@ import { CURRICULO } from '../data/curriculo';
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%;">
-              Abrir conversa no WhatsApp ({SITE.contact.phoneDisplay})
+              <Fragment set:html={whatsappIcon} />
+              Abrir conversa no WhatsApp
             </button>
           </form>
         </div>
@@ -244,8 +259,12 @@ import { CURRICULO } from '../data/curriculo';
             <h3>Correio Eletrônico</h3>
             <p>Ideal para envio de documentos, convites acadêmicos e orçamentos de revisão textual.</p>
             <div class="email-box">
-              <code id="email-address">{SITE.contact.email}</code>
+              <a href={`mailto:${SITE.contact.email}`} class="btn btn-primary">
+                <Fragment set:html={emailIcon} />
+                Enviar e-mail
+              </a>
               <button type="button" id="copy-email-btn" class="btn btn-secondary">
+                <Fragment set:html={copyIcon} />
                 Copiar e-mail
               </button>
             </div>
@@ -264,7 +283,8 @@ import { CURRICULO } from '../data/curriculo';
               rel="noopener noreferrer"
               class="btn btn-secondary"
             >
-              Acessar LinkedIn ({SITE.contact.linkedinHandle})
+              <Fragment set:html={linkedinIcon} />
+              Acessar perfil no LinkedIn
             </a>
           </div>
         </div>
@@ -356,6 +376,23 @@ import { CURRICULO } from '../data/curriculo';
     flex-direction: column;
     align-items: flex-start;
     gap: 1.15rem;
+  }
+
+  .about-brand-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--color-cream-50);
+    padding: 0.35rem 0.65rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-cream-300);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .about-brand-logo {
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+    mix-blend-mode: multiply;
   }
 
   .about-bio {

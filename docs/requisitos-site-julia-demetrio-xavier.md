@@ -92,7 +92,7 @@ Login/área do aluno, pagamentos, agendamento online, chat em tempo real, coment
 | D-02 | Framework: **Astro** (saída estática), **TypeScript**, **CSS puro com custom properties** (sem Tailwind). Interatividade (filtros, menu, accordion) em **TypeScript vanilla** (ilhas mínimas, sem React/Vue). |
 | D-03 | Contato exclusivamente por **WhatsApp** (CTA principal) com **e-mail** como secundário. |
 | D-04 | A idade da Júlia **NÃO** aparece no site (dado volátil e desnecessário para promoção). |
-| D-05 | Telefone, e-mail e cidade (apenas "Belo Horizonte – MG", sem endereço) aparecem no site. |
+| D-05 | Número de telefone, endereço de e-mail e URL/identificador do LinkedIn **NÃO** devem ficar expostos como texto visível em nenhum local do site; devem ser acionados exclusivamente por botões de ação e ícones SVG (`src/assets/icons/` e `assets/icons/`). |
 | D-06 | Voz do site: **primeira pessoa**, tom profissional, acolhedor e direto. Todo texto em `src/content/site.ts` (rascunho sujeito à aprovação dela). |
 | D-07 | Sem cookies, sem rastreadores por padrão. Analytics é opcional e desligado por padrão (seção 11.4). |
 | D-08 | Apenas modo claro. A foto tem fundo transparente e roupa preta; em fundo escuro ela desapareceria. |
@@ -988,7 +988,7 @@ export const site = {
 
 ### 15.3 Checklist rápido de "não fazer"
 
-- ❌ Idade, endereço ou dados pessoais além de telefone/e-mail/cidade.
+- ❌ Idade, endereço ou exposição direta em texto do número de telefone, endereço de e-mail ou URL/handle do LinkedIn (utilizar sempre botões de ação ou botões de ícone SVG).
 - ❌ Depoimentos, números de alunos, taxas de aprovação, notas ou promessas de resultado.
 - ❌ Preços, prazos, formatos de aula não fornecidos.
 - ❌ Fundo escuro no Hero; foto distorcida/esticada; pernas "geradas".
@@ -997,6 +997,32 @@ export const site = {
 - ❌ Capas/pôsteres/imagens de terceiros; reprodução integral de textos motivadores, letras ou obras.
 - ❌ Links internos absolutos sem o helper `url()`.
 - ❌ Inventar dados de ENEM ausentes; tratar "temas prováveis" como previsão oficial.
+- ❌ Incluir questões de Ciências Humanas, Matemática ou Ciências da Natureza no banco de questões do Portal ENEM (foco restrito a Linguagens, Códigos e suas Tecnologias).
+
+---
+
+## 16. Histórico de Evoluções e Ajustes Implementados
+
+### Atualização de 31/10/2026
+1. **Favicon Circular (`public/favicon.png` e `assets/favicon.png`)**:
+   - Recorte circular na borda externa do anel dourado com transparência RGBA (remoção dos cantos brancos quadrados) e otimização para `512x512 px`.
+2. **Correção do Menu de Navegação Mobile (`src/components/layout/Header.astro`)**:
+   - O elemento `.mobile-drawer` foi movido para fora de `<header class="site-header">` para evitar que a propriedade `backdrop-filter: blur(12px)` restringisse a altura do painel `position: fixed` aos `72px` do cabeçalho. Adicionado `height: 100dvh` e `flex: 1 0 auto` na listagem de links.
+3. **Ocultação de Dados Diretos de Contato e Biblioteca de Ícones SVG (`src/assets/icons/` e `assets/icons/`)**:
+   - Criados os ícones vetoriais `whatsapp.svg`, `linkedin.svg`, `email.svg`, `copy.svg`, `menu.svg`, `close.svg`, `chevron-down.svg` e `arrow-right.svg`.
+   - Removida toda exibição textual direta do telefone (`+55 (31) 99507-2289`), e-mail (`juliademetrio9@gmail.com`) e handle do LinkedIn (`in/julia-demetrio`) nas páginas `sobre.astro`, `privacidade.astro` e no componente `Footer.astro`.
+   - No rodapé (`Footer.astro`), os links textuais de contato foram substituídos por botões circulares de ícones SVG das respectivas plataformas.
+4. **Créditos de Desenvolvimento no Rodapé (`src/components/layout/Footer.astro`)**:
+   - Adicionada indicação `"Desenvolvido por Lucas Daniel de Melo Borges"` com link externo para `https://www.linkedin.com/in/ldmelo`.
+5. **Créditos Institucionais do IFMG no Banco de Repertório (`src/pages/enem/repertorio.astro`)**:
+   - Inclusão de banner com disclaimer institucional e modal acessível (`<dialog>`) prestando os devidos créditos aos 7 professores, pesquisadores e estudantes do IFMG autores da coletânea *"Rumo à Nota Mil: Repertórios para Redação do Enem"*, com link direto para o PDF oficial no portal do IFMG.
+6. **Simplificação da Nomenclatura para "Serviços"**:
+   - Substituição unificada de *"Serviços Pedagógicos & Editoriais"* por apenas *"Serviços"* no rodapé, página Sobre e metatags.
+7. **Remoção Integral de Menções a "Atendimento Online"**:
+   - Exclusão do texto e de propriedades ligadas a *"Atendimento online"* no site (`SITE.contact.modality`, rodapé, hero de serviços e mentoria).
+8. **Atualização e Destaque dos Logotipos (`src/assets/images/`)**:
+   - Substituição no cabeçalho por `logo-horizontal.png` com proporção 3:1.
+   - Posicionamento da nova `logo.png` em alta definição em destaque no Hero da página inicial do Portal ENEM e em destaque menor/refinado na página Sobre.
 
 ---
 
