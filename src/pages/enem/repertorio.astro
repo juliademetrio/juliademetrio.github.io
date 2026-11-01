@@ -199,9 +199,9 @@ const tipos = [
 
 <script>
   const searchInput = document.getElementById('search-rep') as HTMLInputElement | null;
-  const tipoBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter-tipo]');
-  const eixoBtns = document.querySelectorAll<HTMLButtonElement>('[data-filter-eixo]');
-  const cards = document.querySelectorAll<HTMLElement>('.repertoire-card');
+  const tipoBtns = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter-tipo]'));
+  const eixoBtns = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-filter-eixo]'));
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('.repertoire-card'));
   const countEl = document.getElementById('rep-count');
   const emptyEl = document.getElementById('rep-empty');
   const resetBtn = document.getElementById('reset-rep-filters');
@@ -209,24 +209,78 @@ const tipos = [
   let activeTipo = 'todos';
   let activeEixo = 'todos';
 
+  function cardMatches(card: HTMLElement, tipoVal: string, eixoVal: string, query: string): boolean {
+    const cardTipo = card.getAttribute('data-tipo') || '';
+    const cardEixos = (card.getAttribute('data-eixos') || '').split(',');
+    const cardSearch = card.getAttribute('data-search') || '';
+
+    const matchTipo = tipoVal === 'todos' || cardTipo === tipoVal;
+    const matchEixo = eixoVal === 'todos' || cardEixos.includes(eixoVal);
+    const matchQuery = !query || cardSearch.includes(query);
+
+    return matchTipo && matchEixo && matchQuery;
+  }
+
+  function syncActiveChip(btns: HTMLButtonElement[], attr: string, val: string) {
+    btns.forEach((b) => {
+      const isCurrent = b.getAttribute(attr) === val;
+      b.classList.toggle('active', isCurrent);
+      b.setAttribute('aria-pressed', String(isCurrent));
+    });
+  }
+
   function applyFilters() {
     const q = (searchInput?.value || '')
       .trim()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase();
+
+    // 1. Filtragem cruzada para botões de Tipo (baseada em activeEixo + busca)
+    tipoBtns.forEach((btn) => {
+      const val = btn.getAttribute('data-filter-tipo') || 'todos';
+      if (val === 'todos') {
+        btn.hidden = false;
+        return;
+      }
+      const hasMatch = cards.some((card) => cardMatches(card, val, activeEixo, q));
+      btn.hidden = !hasMatch;
+    });
+
+    const currentTipoBtn = tipoBtns.find((b) => b.getAttribute('data-filter-tipo') === activeTipo);
+    if (currentTipoBtn && currentTipoBtn.hidden) {
+      activeTipo = 'todos';
+      syncActiveChip(tipoBtns, 'data-filter-tipo', activeTipo);
+    }
+
+    // 2. Filtragem cruzada para botões de Eixo (baseada em activeTipo + busca)
+    eixoBtns.forEach((btn) => {
+      const val = btn.getAttribute('data-filter-eixo') || 'todos';
+      if (val === 'todos') {
+        btn.hidden = false;
+        return;
+      }
+      const hasMatch = cards.some((card) => cardMatches(card, activeTipo, val, q));
+      btn.hidden = !hasMatch;
+    });
+
+    const currentEixoBtn = eixoBtns.find((b) => b.getAttribute('data-filter-eixo') === activeEixo);
+    if (currentEixoBtn && currentEixoBtn.hidden) {
+      activeEixo = 'todos';
+      syncActiveChip(eixoBtns, 'data-filter-eixo', activeEixo);
+    }
+
+    // Revalidar Tipos caso Eixo tenha sido resetado
+    tipoBtns.forEach((btn) => {
+      const val = btn.getAttribute('data-filter-tipo') || 'todos';
+      if (val === 'todos') return;
+      btn.hidden = !cards.some((card) => cardMatches(card, val, activeEixo, q));
+    });
+
     let visible = 0;
 
     cards.forEach((card) => {
-      const cardTipo = card.getAttribute('data-tipo') || '';
-      const cardEixos = (card.getAttribute('data-eixos') || '').split(',');
-      const cardSearch = card.getAttribute('data-search') || '';
-
-      const matchTipo = activeTipo === 'todos' || cardTipo === activeTipo;
-      const matchEixo = activeEixo === 'todos' || cardEixos.includes(activeEixo);
-      const matchQuery = !q || cardSearch.includes(q);
-
-      if (matchTipo && matchEixo && matchQuery) {
+      if (cardMatches(card, activeTipo, activeEixo, q)) {
         card.removeAttribute('hidden');
         visible++;
       } else {
@@ -246,11 +300,7 @@ const tipos = [
   tipoBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       activeTipo = btn.getAttribute('data-filter-tipo') || 'todos';
-      tipoBtns.forEach((b) => {
-        const isCurrent = b === btn;
-        b.classList.toggle('active', isCurrent);
-        b.setAttribute('aria-pressed', String(isCurrent));
-      });
+      syncActiveChip(tipoBtns, 'data-filter-tipo', activeTipo);
       applyFilters();
     });
   });
@@ -258,11 +308,7 @@ const tipos = [
   eixoBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       activeEixo = btn.getAttribute('data-filter-eixo') || 'todos';
-      eixoBtns.forEach((b) => {
-        const isCurrent = b === btn;
-        b.classList.toggle('active', isCurrent);
-        b.setAttribute('aria-pressed', String(isCurrent));
-      });
+      syncActiveChip(eixoBtns, 'data-filter-eixo', activeEixo);
       applyFilters();
     });
   });
@@ -271,9 +317,15 @@ const tipos = [
 
   resetBtn?.addEventListener('click', () => {
     if (searchInput) searchInput.value = '';
-    tipoBtns[0]?.click();
-    eixoBtns[0]?.click();
+    activeTipo = 'todos';
+    activeEixo = 'todos';
+    syncActiveChip(tipoBtns, 'data-filter-tipo', activeTipo);
+    syncActiveChip(eixoBtns, 'data-filter-eixo', activeEixo);
+    applyFilters();
   });
+
+  // Inicializar estado dos filtros
+  applyFilters();
 
   // Suporte a ?eixo=slug na URL
   const params = new URLSearchParams(window.location.search);

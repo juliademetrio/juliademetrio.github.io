@@ -45,15 +45,18 @@ const whatsappHeroUrl = buildWhatsAppUrl(
           </p>
 
           <div class="hero-ctas">
-            <a href={url('/enem/temas-provaveis')} class="btn btn-primary">
-              Ver Temas Prováveis
+            <a href={url('/enem/simulado')} class="btn btn-primary btn-hero-simulado">
+              Fazer Simulado ENEM Online
               <Fragment set:html={arrowRightIcon} />
             </a>
             <a href={url('/enem/exercicios')} class="btn btn-secondary">
-              Praticar {questoes.length} Questões Comentadas
+              Banco de Questões
+            </a>
+            <a href={url('/enem/temas-provaveis')} class="btn btn-secondary">
+              Temas Prováveis
             </a>
             <a href={url('/sobre')} class="btn btn-secondary">
-              Sobre a Professora & Serviços
+              Sobre
             </a>
           </div>
         </div>
@@ -80,30 +83,30 @@ const whatsappHeroUrl = buildWhatsAppUrl(
 
       <!-- Cards de Acesso Rápido do Portal ENEM -->
       <div class="hub-quick-cards">
+        <a href={url('/enem/simulado')} class="card hub-stat-card hub-stat-featured">
+          <span class="stat-num">45 Q</span>
+          <strong>Simulado ENEM Online</strong>
+          <span>Com cronômetro e alternativas embaralhadas</span>
+        </a>
+        <a href={url('/enem/exercicios')} class="card hub-stat-card">
+          <span class="stat-num">{questoes.length}</span>
+          <strong>Banco de Questões</strong>
+          <span>Acervo oficial (2016–2025)</span>
+        </a>
         <a href={url('/enem/temas-provaveis')} class="card hub-stat-card">
           <span class="stat-num">{temasProvaveis.length}</span>
-          <strong>Temas Prováveis (2026/2027+)</strong>
-          <span>Com livros, filmes e textos mapeados</span>
+          <strong>Temas Prováveis</strong>
+          <span>Com repertórios e teses mapeadas</span>
         </a>
         <a href={url('/enem/repertorio')} class="card hub-stat-card">
           <span class="stat-num">{repertorio.length}</span>
           <strong>Banco de Repertório</strong>
-          <span>Obras literárias, cinema, leis e pensadores</span>
+          <span>Literatura, cinema, leis e pensadores</span>
         </a>
         <a href={url('/enem/temas-anteriores')} class="card hub-stat-card">
           <span class="stat-num">{temasAnteriores.length}</span>
-          <strong>Temas Anteriores (2010–2025)</strong>
-          <span>Linha do tempo comentada do INEP</span>
-        </a>
-        <a href={url('/enem/competencias')} class="card hub-stat-card">
-          <span class="stat-num">5 + 10</span>
-          <strong>Competências & 10 Passos</strong>
-          <span>Matriz oficial + método estruturado</span>
-        </a>
-        <a href={url('/enem/exercicios')} class="card hub-stat-card">
-          <span class="stat-num">{questoes.length}</span>
-          <strong>Questões Comentadas</strong>
-          <span>Caderno ENEM 2025, E-book e Apostila</span>
+          <strong>Temas Anteriores</strong>
+          <span>Linha do tempo oficial do INEP</span>
         </a>
       </div>
     </div>
@@ -175,12 +178,12 @@ const whatsappHeroUrl = buildWhatsAppUrl(
 
         <a href={url('/enem/exercicios')} class="card bento-card">
           <div class="bento-top">
-            <span class="badge badge-sage">{questoes.length} Questões Interativas</span>
+            <span class="badge badge-sage">Banco de Questões</span>
             <span class="bento-arrow">→</span>
           </div>
-          <h3>Questões Comentadas Online</h3>
+          <h3>Questões Comentadas</h3>
           <p>
-            Resolva todas as questões dos cadernos de Linguagens diretamente no navegador, limpe seleções quando quiser e consulte a resolução comentada.
+            Consulte as questões dos cadernos de Linguagens dos últimos 10 anos do ENEM, com gabarito oficial do INEP e resolução comentada detalhada.
           </p>
         </a>
       </div>
@@ -261,7 +264,7 @@ const whatsappHeroUrl = buildWhatsAppUrl(
         </div>
         <div class="cta-banner-actions">
           <a href={url('/sobre')} class="btn btn-primary">
-            Acessar Página Sobre & Serviços
+            Acessar Página Sobre
           </a>
           <a href={whatsappHeroUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
             <Fragment set:html={whatsappIcon} />
@@ -276,21 +279,23 @@ const whatsappHeroUrl = buildWhatsAppUrl(
 <style>
   .hero-section {
     background: var(--gradient-editorial);
-    padding-block: clamp(2.5rem, 5vw, 4.25rem);
+    padding-top: clamp(1.25rem, 2.5vw, 2rem);
+    padding-bottom: clamp(2rem, 3.5vw, 3rem);
     border-bottom: 1px solid var(--color-cream-200);
   }
 
   .hero-main-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2.25rem;
+    gap: 2rem;
     align-items: center;
   }
 
   @media (min-width: 1024px) {
     .hero-main-grid {
-      grid-template-columns: 1.35fr 0.85fr;
-      gap: 3rem;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 2.75rem;
+      align-items: flex-start;
     }
   }
 
@@ -298,6 +303,14 @@ const whatsappHeroUrl = buildWhatsAppUrl(
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -0.75rem;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-logo-showcase {
+      margin-top: -1.25rem;
+      align-self: flex-start;
+    }
   }
 
   .logo-display-card {
@@ -415,6 +428,28 @@ const whatsappHeroUrl = buildWhatsAppUrl(
     .hub-quick-cards {
       grid-template-columns: repeat(5, 1fr);
     }
+  }
+
+  .btn-hero-simulado {
+    background-color: var(--color-gold-500);
+    color: var(--color-ink-900);
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-gold-400);
+  }
+
+  .btn-hero-simulado:hover {
+    background-color: var(--color-gold-400);
+    transform: translateY(-2px);
+  }
+
+  .hub-stat-featured {
+    border-color: var(--color-gold-400);
+    background: linear-gradient(135deg, var(--color-cream-50) 0%, var(--color-rose-50) 100%);
+  }
+
+  .hub-stat-featured .stat-num {
+    color: var(--color-wine-800);
   }
 
   .hub-stat-card {

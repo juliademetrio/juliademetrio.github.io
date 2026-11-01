@@ -63,7 +63,11 @@ export interface TemaProvavel {
 
 export interface QuestaoComentada {
   id: string;
+  ano?: number;
+  cor?: string;
+  numeroQuestao?: number;
   caderno?: string;
+  idioma?: string;
   origem: string;
   categoria: string;
   habilidade: string;
@@ -74,6 +78,8 @@ export interface QuestaoComentada {
   alternativas: { letra: string; texto: string }[];
   gabarito: string;
   comentarioPedagogico: string;
+  imagens?: { arquivo: string; alt: string }[];
+  ocorrencias?: { cor: string; numeroQuestao: number }[];
 }
 
 export function getTemasAnteriores(): TemaAnterior[] {

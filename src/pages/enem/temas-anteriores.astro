@@ -113,24 +113,80 @@ const temas = getTemasAnteriores();
   let activePeriodo = 'todos';
   let activeEixo = 'todos';
 
+  function rowMatches(row: HTMLElement, q: string, ignoreDimension?: 'periodo' | 'eixo') {
+    const rowPeriodo = row.getAttribute('data-periodo') || '';
+    const rowEixo = row.getAttribute('data-eixo') || '';
+    const rowSearch = row.getAttribute('data-search') || '';
+
+    const matchPeriodo =
+      ignoreDimension === 'periodo' || activePeriodo === 'todos' || rowPeriodo === activePeriodo;
+    const matchEixo =
+      ignoreDimension === 'eixo' || activeEixo === 'todos' || rowEixo === activeEixo;
+    const matchQuery = !q || rowSearch.includes(q);
+
+    return matchPeriodo && matchEixo && matchQuery;
+  }
+
   function applyFilters() {
     const q = (searchInput?.value || '')
       .trim()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase();
+
+    // Cross-filtering: verificar quais opções têm resultados disponíveis
+    const validPeriodos = new Set<string>();
+    const validEixos = new Set<string>();
+
+    rows.forEach((row) => {
+      if (rowMatches(row, q, 'periodo')) {
+        validPeriodos.add(row.getAttribute('data-periodo') || '');
+      }
+      if (rowMatches(row, q, 'eixo')) {
+        validEixos.add(row.getAttribute('data-eixo') || '');
+      }
+    });
+
+    periodoBtns.forEach((btn) => {
+      const val = btn.getAttribute('data-filter-periodo') || 'todos';
+      if (val === 'todos') {
+        btn.style.display = '';
+      } else {
+        const hasMatch = validPeriodos.has(val);
+        btn.style.display = hasMatch ? '' : 'none';
+        if (!hasMatch && activePeriodo === val) {
+          activePeriodo = 'todos';
+          periodoBtns.forEach((b) => {
+            const isTodos = b.getAttribute('data-filter-periodo') === 'todos';
+            b.classList.toggle('active', isTodos);
+            b.setAttribute('aria-pressed', String(isTodos));
+          });
+        }
+      }
+    });
+
+    eixoBtns.forEach((btn) => {
+      const val = btn.getAttribute('data-filter-eixo') || 'todos';
+      if (val === 'todos') {
+        btn.style.display = '';
+      } else {
+        const hasMatch = validEixos.has(val);
+        btn.style.display = hasMatch ? '' : 'none';
+        if (!hasMatch && activeEixo === val) {
+          activeEixo = 'todos';
+          eixoBtns.forEach((b) => {
+            const isTodos = b.getAttribute('data-filter-eixo') === 'todos';
+            b.classList.toggle('active', isTodos);
+            b.setAttribute('aria-pressed', String(isTodos));
+          });
+        }
+      }
+    });
+
     let visible = 0;
 
     rows.forEach((row) => {
-      const rowPeriodo = row.getAttribute('data-periodo') || '';
-      const rowEixo = row.getAttribute('data-eixo') || '';
-      const rowSearch = row.getAttribute('data-search') || '';
-
-      const matchPeriodo = activePeriodo === 'todos' || rowPeriodo === activePeriodo;
-      const matchEixo = activeEixo === 'todos' || rowEixo === activeEixo;
-      const matchQuery = !q || rowSearch.includes(q);
-
-      if (matchPeriodo && matchEixo && matchQuery) {
+      if (rowMatches(row, q)) {
         row.removeAttribute('hidden');
         visible++;
       } else {

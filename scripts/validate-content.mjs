@@ -81,6 +81,28 @@ assert(
   'Todas as questões possuem alternativas (A–D ou A–E) e gabarito oficial válido',
 );
 
+// 7. Verificar integridade de imagens e ausência de Markdown residual em questões
+const markdownImgRegex = /!\[.*?\]\(.*?\)/;
+const genericAltRegex = /^(figura|imagem|foto|ilustra[çc][ãa]o)(\s+de\s+apoio|\s+da\s+quest[ãa]o)?\s*(do\s+enem\s*\d*)?$/i;
+
+const questoesComMarkdown = questoes.filter((q) => {
+  const fields = [q.titulo, q.textoBase, q.referenciaTexto, q.enunciado, q.comentarioPedagogico];
+  return fields.some((f) => f && markdownImgRegex.test(f));
+});
+assert(questoesComMarkdown.length === 0, `Nenhuma questão contém sintaxe Markdown residual de imagem (encontradas: ${questoesComMarkdown.length})`);
+
+const imagensComAltInvalido = [];
+questoes.forEach((q) => {
+  if (Array.isArray(q.imagens)) {
+    q.imagens.forEach((img) => {
+      if (!img.alt || img.alt.length < 20 || genericAltRegex.test(img.alt.trim())) {
+        imagensComAltInvalido.push({ id: q.id, alt: img.alt });
+      }
+    });
+  }
+});
+assert(imagensComAltInvalido.length === 0, `Todas as imagens possuem texto alternativo substantivo (inválidos: ${imagensComAltInvalido.length})`);
+
 if (errors > 0) {
   console.error(`\nFalha na validação com ${errors} erro(s).`);
   process.exit(1);

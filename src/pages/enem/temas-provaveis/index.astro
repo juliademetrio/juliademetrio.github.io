@@ -97,6 +97,34 @@ const temas = getTemasProvaveis();
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '')
       .toLowerCase();
+
+    // Cross-filtering: verificar quais eixos possuem correspondência com a busca
+    const validEixos = new Set<string>();
+    cards.forEach((card) => {
+      const cardSearch = card.getAttribute('data-search') || '';
+      if (!q || cardSearch.includes(q)) {
+        validEixos.add(card.getAttribute('data-eixo') || '');
+      }
+    });
+
+    eixoBtns.forEach((btn) => {
+      const val = btn.getAttribute('data-filter-eixo') || 'todos';
+      if (val === 'todos') {
+        btn.style.display = '';
+      } else {
+        const hasMatch = validEixos.has(val);
+        btn.style.display = hasMatch ? '' : 'none';
+        if (!hasMatch && activeEixo === val) {
+          activeEixo = 'todos';
+          eixoBtns.forEach((b) => {
+            const isTodos = b.getAttribute('data-filter-eixo') === 'todos';
+            b.classList.toggle('active', isTodos);
+            b.setAttribute('aria-pressed', String(isTodos));
+          });
+        }
+      }
+    });
+
     let visible = 0;
 
     cards.forEach((card) => {

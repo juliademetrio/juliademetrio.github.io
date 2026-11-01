@@ -44,6 +44,14 @@ const whatsappCtaUrl = buildWhatsAppUrl(
               <strong>Início — Portal ENEM</strong>
               <span>Acesso rápido a todos os recursos de estudo</span>
             </a>
+            <a href={url('/enem/simulado')} class="dropdown-item">
+              <strong>Simulado ENEM Online</strong>
+              <span>Treino com cronômetro, 45 questões e alternativas embaralhadas</span>
+            </a>
+            <a href={url('/enem/exercicios')} class="dropdown-item">
+              <strong>Banco de Questões Comentadas</strong>
+              <span>Acervo oficial dos últimos 10 anos com resolução pedagógica</span>
+            </a>
             <a href={url('/enem/temas-provaveis')} class="dropdown-item">
               <strong>Temas Prováveis (2026/2027+)</strong>
               <span>12 apostas comentadas com livros, filmes e textos</span>
@@ -59,10 +67,6 @@ const whatsappCtaUrl = buildWhatsAppUrl(
             <a href={url('/enem/competencias')} class="dropdown-item">
               <strong>5 Competências & Os 10 Passos</strong>
               <span>Critérios oficiais do INEP e estrutura passo a passo</span>
-            </a>
-            <a href={url('/enem/exercicios')} class="dropdown-item">
-              <strong>Questões Comentadas Online</strong>
-              <span>91 questões reais com gabarito e resolução comentada</span>
             </a>
           </div>
         </li>
@@ -119,13 +123,14 @@ const whatsappCtaUrl = buildWhatsAppUrl(
       <a href={url('/')} class="mobile-link">Portal ENEM (Início)</a>
       <div class="mobile-group">
         <span class="mobile-group-title">Recursos do Portal ENEM</span>
+        <a href={url('/enem/simulado')} class="mobile-sublink">Simulado ENEM Online</a>
+        <a href={url('/enem/exercicios')} class="mobile-sublink">Banco de Questões Comentadas</a>
         <a href={url('/enem/temas-provaveis')} class="mobile-sublink">Temas Prováveis (2026/2027+)</a>
         <a href={url('/enem/repertorio')} class="mobile-sublink">Banco de Repertório</a>
         <a href={url('/enem/temas-anteriores')} class="mobile-sublink">Temas Anteriores (2010–2025)</a>
         <a href={url('/enem/competencias')} class="mobile-sublink">As 5 Competências & 10 Passos</a>
-        <a href={url('/enem/exercicios')} class="mobile-sublink">Questões Comentadas Online</a>
       </div>
-      <a href={url('/sobre')} class="mobile-link">Sobre (Currículo, Serviços & Contato)</a>
+      <a href={url('/sobre')} class="mobile-link">Sobre</a>
     </nav>
 
     <div class="mobile-drawer-footer">

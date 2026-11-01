@@ -71,6 +71,6 @@
   /* === ESPAÇAMENTOS === */
   --container-max: 1200px;
   --container-narrow: 840px;
-  --space-section-y: clamp(3.25rem, 6.5vw, 6rem);
-  --header-height: 76px;
+  --space-section-y: clamp(2rem, 4vw, 3.75rem);
+  --header-height: 72px;
 }

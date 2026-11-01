@@ -7,6 +7,7 @@ dist/
 
 # Arquivos de referência e fontes brutas de trabalho
 docs/
+docs/reference/
 
 # Variáveis de ambiente e sistema operacional
 .env
@@ -18,4 +19,9 @@ Thumbs.db
 
 # Instruções locais para Agentes de IA
 .agent/
+
+# Ferramentas locais e arquivos brutos de extração de questões
+tools/extracao/
+__pycache__/
+*.pyc
 

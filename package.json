@@ -8,6 +8,10 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "npm run test:unit && npm run test:content",
+    "test:unit": "node --test tests/unit/",
+    "test:content": "node --test tests/content/",
+    "test:all": "npm run test && npm run validate:content && npm run build",
     "validate:content": "node scripts/validate-content.mjs"
   },
   "dependencies": {

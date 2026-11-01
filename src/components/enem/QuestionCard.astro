@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { questao, index } = Astro.props;
-const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${questao.caderno || ''} ${questao.categoria} ${questao.textoBase} ${questao.enunciado}`
+const searchNormalized = `${questao.id} ${questao.titulo} ${questao.categoria} ${questao.textoBase} ${questao.enunciado} ${questao.ano || ''}`
   .normalize('NFD')
   .replace(/[\u0300-\u036f]/g, '')
   .toLowerCase();
@@ -17,21 +17,18 @@ const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${qu
   class="card question-card"
   id={questao.id}
   data-categoria={questao.categoria}
-  data-caderno={questao.caderno || 'ENEM 2025 — Caderno 3 Branco'}
+  data-ano={questao.ano || ''}
   data-gabarito={questao.gabarito}
   data-search={searchNormalized}
 >
   <div class="q-header">
     <div class="q-badges">
+      {questao.ano && <span class="badge badge-wine">ENEM {questao.ano}</span>}
+      {questao.numeroQuestao && <span class="badge badge-slate">Questão {String(questao.numeroQuestao).padStart(2, '0')}</span>}
       <span class="badge badge-rose">{questao.categoria}</span>
-      <span class="badge badge-gold">{questao.origem}</span>
-      {questao.caderno && <span class="badge badge-slate">{questao.caderno}</span>}
     </div>
     <div class="q-header-right">
       <span class="q-skill">{questao.habilidade}</span>
-      <button type="button" class="q-clear-btn" hidden aria-label="Limpar seleção desta questão">
-        Limpar seleção
-      </button>
     </div>
   </div>
 
@@ -41,31 +38,42 @@ const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${qu
   </h3>
 
   <div class="q-support-text">
+    {
+      questao.imagens && questao.imagens.length > 0 && (
+        <div class="q-images-container">
+          {questao.imagens.map((img) => (
+            <figure class="q-image-figure">
+              <img
+                src={`/assets/questoes/${img.arquivo}`}
+                alt={img.alt}
+                loading="lazy"
+                class="q-image"
+              />
+              {img.alt && <figcaption class="q-image-caption">{img.alt}</figcaption>}
+            </figure>
+          ))}
+        </div>
+      )
+    }
     <p>{questao.textoBase}</p>
     <cite>{questao.referenciaTexto}</cite>
   </div>
 
   <p class="q-statement">{questao.enunciado}</p>
 
-  <div class="q-options" role="group" aria-label={`Alternativas para ${questao.titulo}`}>
+  <ul class="q-options-list" role="list" aria-label={`Alternativas para ${questao.titulo}`}>
     {
       questao.alternativas.map((alt) => (
-        <button
-          type="button"
-          class="q-option-btn"
-          data-letra={alt.letra}
-        >
+        <li class="q-option-item">
           <span class="q-opt-letter">{alt.letra}</span>
           <span class="q-opt-text">{alt.texto}</span>
-        </button>
+        </li>
       ))
     }
-  </div>
-
-  <div class="q-feedback" hidden aria-live="polite"></div>
+  </ul>
 
   <details class="q-resolution">
-    <summary>Ver gabarito oficial e resolução comentada</summary>
+    <summary>Ver gabarito oficial e comentário pedagógico</summary>
     <div class="q-resolution-body">
       <p class="q-answer-badge">
         Gabarito Oficial: <strong>Alternativa {questao.gabarito}</strong>
@@ -80,6 +88,7 @@ const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${qu
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .q-header {
@@ -102,6 +111,11 @@ const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${qu
     gap: 0.45rem;
   }
 
+  .badge-wine {
+    background-color: var(--color-wine-800);
+    color: var(--color-cream-50);
+  }
+
   .q-header-right {
     display: flex;
     align-items: center;
@@ -115,35 +129,20 @@ const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${qu
     font-weight: 500;
   }
 
-  .q-clear-btn {
-    font-size: var(--text-xs);
-    font-weight: 600;
-    color: var(--color-wine-800);
-    background-color: var(--color-rose-50);
-    border: 1px solid var(--color-rose-200);
-    border-radius: var(--radius-pill);
-    padding: 0.25rem 0.75rem;
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-
-  .q-clear-btn:hover {
-    background-color: var(--color-rose-100);
-    border-color: var(--color-wine-800);
-  }
-
   .q-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: var(--color-ink-900);
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
+    line-height: 1.4;
   }
 
   .q-num {
     font-family: var(--font-mono);
     font-size: 0.9rem;
     color: var(--color-rose-700);
+    font-weight: 700;
   }
 
   .q-support-text {
@@ -151,6 +150,35 @@ const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${qu
     border-left: 3px solid var(--color-gold-500);
     padding: 1rem 1.15rem;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+
+  .q-images-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    align-items: center;
+  }
+
+  .q-image-figure {
+    margin: 0;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .q-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-cream-300);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .q-image-caption {
+    font-size: var(--text-xs);
+    color: var(--color-ink-500);
+    margin-top: 0.35rem;
+    font-style: italic;
   }
 
   .q-support-text p {
@@ -173,41 +201,27 @@ const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${qu
     font-weight: 600;
     color: var(--color-ink-900);
     font-size: 1rem;
+    line-height: 1.5;
   }
 
-  .q-options {
+  .q-options-list {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  .q-option-btn {
+  .q-option-item {
     display: flex;
     align-items: flex-start;
     gap: 0.75rem;
     width: 100%;
-    text-align: left;
     padding: 0.75rem 0.95rem;
     border-radius: var(--radius-sm);
     border: 1px solid var(--color-cream-300);
     background-color: var(--color-cream-50);
-    cursor: pointer;
-    transition: all 0.15s ease;
-  }
-
-  .q-option-btn:hover {
-    border-color: var(--color-rose-500);
-    background-color: var(--color-rose-50);
-  }
-
-  .q-option-btn.is-correct {
-    border-color: var(--color-sage-600);
-    background-color: var(--color-sage-100);
-  }
-
-  .q-option-btn.is-wrong {
-    border-color: var(--color-rose-700);
-    background-color: var(--color-rose-100);
   }
 
   .q-opt-letter {
@@ -224,37 +238,10 @@ const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${qu
     flex-shrink: 0;
   }
 
-  .q-option-btn.is-correct .q-opt-letter {
-    background-color: var(--color-sage-600);
-    color: #fff;
-  }
-
-  .q-option-btn.is-wrong .q-opt-letter {
-    background-color: var(--color-rose-700);
-    color: #fff;
-  }
-
   .q-opt-text {
     font-size: var(--text-sm);
     color: var(--color-ink-900);
     line-height: 1.5;
-  }
-
-  .q-feedback {
-    padding: 0.65rem 0.9rem;
-    border-radius: var(--radius-sm);
-    font-size: var(--text-sm);
-    font-weight: 600;
-  }
-
-  .q-feedback.correct {
-    background-color: var(--color-sage-100);
-    color: var(--color-sage-600);
-  }
-
-  .q-feedback.wrong {
-    background-color: var(--color-rose-50);
-    color: var(--color-wine-800);
   }
 
   .q-resolution {
@@ -267,19 +254,36 @@ const searchNormalized = `${questao.id} ${questao.titulo} ${questao.origem} ${qu
     font-size: var(--text-sm);
     font-weight: 600;
     color: var(--color-wine-800);
+    user-select: none;
+    padding: 0.25rem 0;
+  }
+
+  .q-resolution summary:hover {
+    color: var(--color-wine-900);
+    text-decoration: underline;
   }
 
   .q-resolution-body {
     margin-top: 0.75rem;
     background-color: var(--color-rose-50);
+    border: 1px solid var(--color-rose-200);
     border-radius: var(--radius-sm);
-    padding: 1rem;
+    padding: 1rem 1.15rem;
   }
 
   .q-answer-badge {
     font-size: var(--text-sm);
     color: var(--color-wine-900);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .q-answer-badge strong {
+    font-weight: 700;
+    color: var(--color-wine-800);
+    background: #fff;
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-xs);
+    border: 1px solid var(--color-rose-300);
   }
 
   .q-commentary {

@@ -117,6 +117,8 @@ Login/área do aluno, pagamentos, agendamento online, chat em tempo real, coment
 | P-06 | Se oferece normalização ABNT | Não citar. |
 | P-07 | Depoimentos de alunos | Seção oculta até haver dados reais (`depoimentos: []`). |
 | P-08 | Analytics desejado | Desligado. |
+| P-09 | Leitura e ingestão do ENEM 2026 | Aguardando arquivos da prova e gabarito oficial em `docs/reference/materiais/provas_passadas/`. |
+| P-10 | Revisão cromática integral do portal | Revisão completa nas cores dos cards, fundos, TAGs, botões e textos para harmonia refinada da paleta editorial. |
 
 ---
 
@@ -615,13 +617,40 @@ Seção escura (`ink-900`), título em Fraunces cream "Pronto(a) para melhorar s
 - Botão "Compartilhar no WhatsApp" (P2): `https://wa.me/?text=` com título e URL.
 - JSON-LD `Article`/`CreativeWork` simples (P1).
 
-### 7.7 Exercícios (`/enem/exercicios`) — P0
+### 7.7 Banco de Questões Comentadas (`/enem/exercicios`) — P0
 
-- Filtros: busca; **área** (gramática, interpretação de texto, literatura, redação, linguagens ENEM, ortografia/pontuação, outros — vem dos dados); **nível** (Ensino Fundamental II, Ensino Médio, ENEM, ENCEJA); **assunto** (tags).
-- Card: título, área + nível (chips), descrição curta, nº de questões, data de publicação, **tamanho do arquivo** (calculado no build), botões **"Baixar lista (PDF)"** (primário compacto) e **"Ver gabarito"** (secundário, só se existir). Link abre em nova aba; atributo `download` apenas no botão de baixar.
-- Nome dos arquivos em kebab-case ASCII (`interpretacao-de-texto-ef2-01.pdf`).
-- Aviso de uso (rodapé da seção): "Material autoral de Júlia Demetrio Xavier, para uso pessoal e educacional. É proibida a revenda." ⚠ CONFIRMAR texto de licença.
-- Se o arquivo não existir no build → o validador DEVE falhar (seção 12).
+- **Objetivo**: Ambiente de estudo, consulta e revisão pedagógica detalhada do acervo oficial de Linguagens, Códigos e suas Tecnologias do ENEM (edições 2017 a 2025).
+- **Sem marcação de prova**: A interatividade temporária de clicar em opções e limpar seleções foi transferida exclusivamente para a aplicação de Simulado (`/enem/simulado`). O Banco de Questões exibe o gabarito oficial e comentário pedagógico detalhado via acordeão expansível (`<details class="q-resolution">`).
+- **Carga Paginada de Alta Performance**: Para garantir fluidez e evitar sobrecarga no DOM com as 1.550 questões, a listagem utiliza renderização paginada sob demanda no cliente (opções de **15, 30 ou 50 questões por página**), com controles de paginação no topo e no rodapé da lista.
+- **Filtros Dinâmicos Interdependentes (Cross-Filtering)**:
+  - **Ano da Prova**: Todos os anos, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017.
+  - **Cor do Caderno**: Todas as cores, Azul, Amarelo, Branco, Rosa.
+  - **Idioma da Questão**: Todos os idiomas, Português, Inglês, Espanhol.
+  - **Tópico de Linguagens**: Literatura e Expressão Artística, Variação Linguística, Interpretação e Análise Textual, Língua Estrangeira (Inglês/Espanhol), Artes Visuais e Patrimônio, Tecnologias da Informação e Mídias, Práticas Corporais.
+  - **Busca Textual**: Busca por palavras-chave, autores, obras, termos ou número de questão.
+  - **Interdependência em Todo o Site**: Os filtros de todas as páginas filtráveis (`/enem/exercicios`, `/enem/repertorio`, `/enem/temas-anteriores`, `/enem/temas-provaveis` e `/enem/simulado`) filtram entre si, ocultando automaticamente opções que não possuam itens compatíveis com os demais filtros ativos (ex.: cores de caderno inexistentes em determinado ano do ENEM).
+- **Card de Questão**: Badges oficiais com Ano, Cor do Caderno, Número da Questão, Categoria e Habilidade da Matriz ENEM; texto-base com citação bibliográfica, comando do enunciado, 5 alternativas e resolução pedagógica fundamentada.
+- **Card Flutuante Compacto de Simulado**: Card pequeno flutuante (`position: fixed`, canto inferior direito) convidando o aluno para o Simulado ENEM, com botão de fechar (`×`) persistido na sessão.
+
+### 7.7.1 Simulado ENEM Online (`/enem/simulado`) — P0
+
+- **Objetivo**: Aplicação interativa de prova cronometrada focada em Linguagens, Códigos e suas Tecnologias, proporcionando treino em condições reais de exame. Posicionado logo após a Página Inicial em toda a navegação do site.
+- **Persistência Local de Simulados Recentes (`localStorage`)**:
+  - Salva automaticamente no navegador do usuário (`window.localStorage`, chave `jdx_enem_simulados_v1`, zero banco de dados externo) os simulados em andamento e concluídos.
+  - Na tela inicial do Simulado, a seção **"Simulados Recentes"** permite **retomar um simulado em andamento** exatamente da questão e tempo onde o aluno parou (preservando a ordem embaralhada das alternativas e as respostas marcadas) ou **rever o resultado e gabarito comentado** de simulados concluídos, além de excluir itens individuais ou limpar o histórico.
+- **Fase 1 — Configuração**:
+  - Escolha de modo com caixas de seleção modernas: **Prova Oficial** (seleção interdependente de Ano e Cor do Caderno) ou **Simulado Aleatório** (45 questões sorteadas representativas de todos os tópicos de Linguagens).
+  - Opção de Língua Estrangeira: **Inglês** ou **Espanhol** para as questões 1 a 5.
+- **Fase 2 — Prova em Andamento**:
+  - **Cronômetro em Tempo Real**: Marcador progressivo `HH:MM:SS` com opção de pausa/retomada e botão "Salvar e Sair".
+  - **Embaralhamento de Alternativas (Fisher-Yates) e Caixa de Seleção Moderna**: As alternativas A–E são embaralhadas a cada tentativa para evitar memorização posicional, exibidas com indicador de seleção moderno, badge circular para a letra (`A`–`E`) nitidamente separado do texto da alternativa e opção de limpar a resposta da questão atual.
+  - **Mapa de Questões (1 a 45) e Barra de Progresso**: Grade lateral para navegação direta que destaca visualmente em cor vinho as questões respondidas junto com a letra marcada, a questão atual e as pendentes.
+  - Botões de navegação "Questão Anterior" e "Próxima Questão" e botão de entrega "Finalizar Simulado" (com confirmação caso restem questões em branco).
+- **Fase 3 — Relatório de Desempenho e Revisão**:
+  - Placar com total de acertos (`X / 45`), percentual de aproveitamento, tempo total de prova e tempo médio por questão.
+  - Feedback pedagógico contextual com orientações de gestão de tempo e leitura.
+  - Revisão questão a questão destacando a resposta marcada pelo aluno, o gabarito oficial e a resolução comentada detalhada.
+  - Botão para voltar ao início e realizar novo simulado.
 
 ### 7.8 Competências da redação (`/enem/competencias`) — P1
 
