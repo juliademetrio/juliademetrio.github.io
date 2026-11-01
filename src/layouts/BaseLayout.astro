@@ -44,6 +44,8 @@ const jsonLd = {
     name: 'Centro Federal de Educação Tecnológica de Minas Gerais (CEFET-MG)',
   },
 };
+
+const isProd = import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -51,6 +53,23 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {isProd && (
+      <>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7LER4CY98" />
+        <script
+          is:inline
+          set:html={`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-J7LER4CY98');
+          `}
+        />
+      </>
+    )}
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
